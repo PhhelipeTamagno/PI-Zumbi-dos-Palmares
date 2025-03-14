@@ -2,16 +2,30 @@ using UnityEngine;
 
 public class Teleport : MonoBehaviour
 {
-    public Transform destino; // Arraste aqui o destino do teleporte no Inspector
+    public Transform destino; 
+    public GameObject imagemIndicativa; 
     private bool podeTeleportar = false;
     private Transform player;
 
+    void Start()
+    {
+        if (imagemIndicativa != null)
+        {
+            imagemIndicativa.SetActive(false); 
+        }
+    }
+
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player")) // Verifica se é o player
+        if (other.CompareTag("Player")) 
         {
             podeTeleportar = true;
             player = other.transform;
+
+            if (imagemIndicativa != null)
+            {
+                imagemIndicativa.SetActive(true); 
+            }
         }
     }
 
@@ -21,6 +35,11 @@ public class Teleport : MonoBehaviour
         {
             podeTeleportar = false;
             player = null;
+
+            if (imagemIndicativa != null)
+            {
+                imagemIndicativa.SetActive(false); 
+            }
         }
     }
 
@@ -28,7 +47,7 @@ public class Teleport : MonoBehaviour
     {
         if (podeTeleportar && Input.GetKeyDown(KeyCode.E))
         {
-            if (destino != null) // Se um destino foi configurado, teleporta
+            if (destino != null) 
             {
                 player.position = destino.position;
             }
