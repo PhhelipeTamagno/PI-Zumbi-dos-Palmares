@@ -2,13 +2,13 @@ using UnityEngine;
 
 public class Teleport : MonoBehaviour
 {
-    public Transform destino; 
+    public Transform destino; // Arraste aqui o destino do teleporte no Inspector
     private bool podeTeleportar = false;
     private Transform player;
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player")) 
+        if (other.CompareTag("Player")) // Verifica se é o player
         {
             podeTeleportar = true;
             player = other.transform;
@@ -28,7 +28,7 @@ public class Teleport : MonoBehaviour
     {
         if (podeTeleportar && Input.GetKeyDown(KeyCode.E))
         {
-            if (destino != null) 
+            if (destino != null) // Se um destino foi configurado, teleporta
             {
                 player.position = destino.position;
             }
