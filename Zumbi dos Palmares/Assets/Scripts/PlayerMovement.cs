@@ -3,9 +3,11 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public float moveSpeed = 5f;
-    public float boostSpeed = 8f; // Velocidade aumentada ao segurar Shift
+    public float boostSpeed = 8f;
     private float playerInitialSpeed;
     private bool isAttack = false;
+    private bool canAttack = true;
+    public float attackCooldown = 0.5f; // Tempo de recarga do ataque
 
     private Rigidbody2D rb;
     private Animator anim;
@@ -70,22 +72,26 @@ public class PlayerMovement : MonoBehaviour
 
     void OnAttack()
     {
-        if (Input.GetMouseButtonDown(0)) // Botão esquerdo do mouse
+        if (Input.GetMouseButtonDown(0) && canAttack) // Botão esquerdo do mouse
         {
             isAttack = true;
             moveSpeed = 0;
+            canAttack = false;
+            anim.SetTrigger("Attack"); // Adicionando trigger de ataque na animação
+            Invoke(nameof(ResetAttack), attackCooldown);
         }
+    }
 
-        if (Input.GetMouseButtonUp(0))
-        {
-            isAttack = false;
-            moveSpeed = playerInitialSpeed;
-        }
+    void ResetAttack()
+    {
+        isAttack = false;
+        moveSpeed = playerInitialSpeed;
+        canAttack = true;
     }
 
     void HandleSpeedBoost()
     {
-        if (!isAttack) // Só pode correr se não estiver atacando
+        if (!isAttack)
         {
             if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
             {
