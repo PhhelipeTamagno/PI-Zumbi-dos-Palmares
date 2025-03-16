@@ -3,64 +3,81 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public float moveSpeed = 5f;
+    private float playerInitialSpeed;
+    private bool isAttack = false;
 
-    private Animator anim;
     private Rigidbody2D rb;
-    private SpriteRenderer sprite;
+    private Animator anim;
     private Vector2 movement;
 
     void Start()
     {
-        anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
-        sprite = GetComponent<SpriteRenderer>();
+        anim = GetComponent<Animator>();
+        playerInitialSpeed = moveSpeed;
     }
 
     void Update()
     {
-        movement.x = Input.GetAxisRaw("Horizontal");
-        movement.y = Input.GetAxisRaw("Vertical");
-
-        movement = movement.normalized;
+        ProcessInput();
+        Animate();
+        Flip();
+        OnAttack();
     }
 
     void FixedUpdate()
     {
+        Move();
+    }
+
+    void ProcessInput()
+    {
+        movement.x = Input.GetAxisRaw("Horizontal");
+        movement.y = Input.GetAxisRaw("Vertical");
+        movement = movement.normalized;
+    }
+
+    void Move()
+    {
         rb.velocity = movement * moveSpeed;
+    }
 
-        if (movement.x != 0)
+    void Animate()
+    {
+        if (isAttack)
         {
-            anim.SetLayerWeight(0, 0);
-            anim.SetLayerWeight(2, 1);
-
-            // Inverte o sprite dependendo da direção
-            sprite.flipX = movement.x < 0;
-        }
-
-        if (movement.y > 0 && movement.x == 0)
-        {
-            anim.SetLayerWeight(2, 0);
-            anim.SetLayerWeight(1, 1);
+            anim.SetInteger("Movimento", 2);
         }
         else
         {
-            anim.SetLayerWeight(1, 0);
-        }
-
-        if (movement != Vector2.zero)
-        {
-            anim.SetBool("walking", true);
-        }
-        else
-        {
-            anim.SetBool("walking", false);
+            anim.SetInteger("Movimento", movement.sqrMagnitude > 0 ? 1 : 0);
         }
     }
 
-    private void ResetLayers()
+    void Flip()
     {
-        anim.SetLayerWeight(0, 0);
-        anim.SetLayerWeight(2, 0);
-        // Corrigido: Removida a linha duplicada
+        if (movement.x > 0)
+        {
+            transform.eulerAngles = new Vector3(0f, 0f, 0f);
+        }
+        else if (movement.x < 0)
+        {
+            transform.eulerAngles = new Vector3(0f, 180f, 0f);
+        }
+    }
+
+    void OnAttack()
+    {
+        if (Input.GetMouseButtonDown(0)) // Botão esquerdo do mouse
+        {
+            isAttack = true;
+            moveSpeed = 0;
+        }
+
+        if (Input.GetMouseButtonUp(0))
+        {
+            isAttack = false;
+            moveSpeed = playerInitialSpeed;
+        }
     }
 }
