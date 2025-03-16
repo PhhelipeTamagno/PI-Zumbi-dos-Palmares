@@ -3,6 +3,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public float moveSpeed = 5f;
+    public float boostSpeed = 8f; // Velocidade aumentada ao segurar Shift
     private float playerInitialSpeed;
     private bool isAttack = false;
 
@@ -23,6 +24,7 @@ public class PlayerMovement : MonoBehaviour
         Animate();
         Flip();
         OnAttack();
+        HandleSpeedBoost();
     }
 
     void FixedUpdate()
@@ -78,6 +80,21 @@ public class PlayerMovement : MonoBehaviour
         {
             isAttack = false;
             moveSpeed = playerInitialSpeed;
+        }
+    }
+
+    void HandleSpeedBoost()
+    {
+        if (!isAttack) // Só pode correr se não estiver atacando
+        {
+            if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
+            {
+                moveSpeed = boostSpeed;
+            }
+            else
+            {
+                moveSpeed = playerInitialSpeed;
+            }
         }
     }
 }
