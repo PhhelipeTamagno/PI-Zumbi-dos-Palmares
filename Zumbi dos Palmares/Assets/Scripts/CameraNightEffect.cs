@@ -75,7 +75,7 @@ public class CameraNightEffect : MonoBehaviour
         if (nightText != null)
         {
             nightText.gameObject.SetActive(true);
-            nightText.text = "Anoiteceu!";
+            nightText.text = "";
         }
 
         if (postLight != null)
