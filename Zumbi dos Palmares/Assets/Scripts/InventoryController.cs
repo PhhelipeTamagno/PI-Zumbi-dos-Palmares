@@ -40,4 +40,10 @@ public class InventoryController : MonoBehaviour
         isInventoryOpen = !isInventoryOpen; // Alterna o estado do inventário
         inventoryPanel.SetActive(isInventoryOpen);
     }
+
+    // Método público para abrir/fechar o inventário pelo botão
+    public void ToggleInventoryButton()
+    {
+        ToggleInventory();
+    }
 }
