@@ -3,9 +3,13 @@ using TMPro; // Para usar o TextMeshPro
 
 public class InteragirComPortao : MonoBehaviour
 {
-    public GameObject portaoFechado; // O GameObject do portão fechado
-    public GameObject portaoAberto;  // O GameObject do portão aberto (que aparece depois)
+    public GameObject portaoFechado;  // O GameObject do portão fechado
+    public GameObject portaoAberto;   // O GameObject do portão aberto (que aparece depois)
     public TextMeshProUGUI mensagemInteracao; // A mensagem que será exibida para interação
+
+    public AudioClip somAbrirPortao;   // Som para abrir o portão
+    public AudioClip somFecharPortao;  // Som para fechar o portão
+    private AudioSource audioSource;    // Componente AudioSource para tocar os sons
 
     private bool pertoDoPortao = false; // Verifica se o jogador está perto do portão
 
@@ -17,6 +21,9 @@ public class InteragirComPortao : MonoBehaviour
         // Inicialize o estado inicial dos portões
         portaoFechado.SetActive(true); // O portão fechado está ativo no começo
         portaoAberto.SetActive(false); // O portão aberto está invisível no começo
+
+        // Inicializa o AudioSource
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -58,6 +65,12 @@ public class InteragirComPortao : MonoBehaviour
             portaoFechado.SetActive(false);
             portaoAberto.SetActive(true);
             Debug.Log("Portão aberto!");
+
+            // Toca o som de abrir o portão
+            if (somAbrirPortao != null && audioSource != null)
+            {
+                audioSource.PlayOneShot(somAbrirPortao);
+            }
         }
         else
         {
@@ -65,6 +78,12 @@ public class InteragirComPortao : MonoBehaviour
             portaoFechado.SetActive(true);
             portaoAberto.SetActive(false);
             Debug.Log("Portão fechado!");
+
+            // Toca o som de fechar o portão
+            if (somFecharPortao != null && audioSource != null)
+            {
+                audioSource.PlayOneShot(somFecharPortao);
+            }
         }
     }
 }
