@@ -3,7 +3,10 @@ guid: 4dcd08d96367d2943ab9053bedbd548a
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - nightOverlay: {instanceID: 0}
+  - nightText: {instanceID: 0}
+  - postLight: {fileID: 6584738234540013503, guid: 19cff69150e0ae24d89cbb9289b74dde, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
