@@ -13,12 +13,18 @@ public class CameraNightEffect : MonoBehaviour
     public float lightFadeDuration = 5f; // Tempo para acender/apagar a luz
     public float maxLightIntensity = 2f; // Intensidade máxima da luz
 
+    // Novas variáveis para música
+    public AudioClip dayMusic;           // Música para o dia
+    public AudioClip nightMusic;         // Música para a noite
+    private AudioSource audioSource;     // Componente AudioSource
+
     private float timer = 0f;
     private bool isNight = false;
     private bool isDayTransitioning = false;
 
     void Start()
     {
+        // Inicializa os componentes
         if (nightOverlay != null)
         {
             nightOverlay.gameObject.SetActive(false);
@@ -33,6 +39,17 @@ public class CameraNightEffect : MonoBehaviour
         {
             postLight.intensity = 0f;
             postLight.gameObject.SetActive(false);
+        }
+
+        // Inicializa o componente AudioSource
+        audioSource = GetComponent<AudioSource>();
+
+        // Toca a música do dia inicialmente
+        if (dayMusic != null && audioSource != null)
+        {
+            audioSource.clip = dayMusic;  // Define a música do dia
+            audioSource.loop = true;      // Habilita o loop da música do dia
+            audioSource.Play();           // Inicia a música do dia
         }
     }
 
@@ -83,6 +100,14 @@ public class CameraNightEffect : MonoBehaviour
             postLight.gameObject.SetActive(true);
             StartCoroutine(FadeInLight());
         }
+
+        // Troca a música do dia para a música da noite
+        if (nightMusic != null && audioSource != null)
+        {
+            audioSource.Stop();  // Para a música do dia
+            audioSource.clip = nightMusic;  // Define a música da noite
+            audioSource.Play();  // Inicia a música da noite
+        }
     }
 
     private System.Collections.IEnumerator FadeToDay()
@@ -109,6 +134,14 @@ public class CameraNightEffect : MonoBehaviour
         if (postLight != null)
         {
             StartCoroutine(FadeOutLight());
+        }
+
+        // Troca a música da noite para a música do dia
+        if (dayMusic != null && audioSource != null)
+        {
+            audioSource.Stop();  // Para a música da noite
+            audioSource.clip = dayMusic;  // Define a música do dia
+            audioSource.Play();  // Inicia a música do dia
         }
 
         // Reseta o ciclo para começar tudo de novo

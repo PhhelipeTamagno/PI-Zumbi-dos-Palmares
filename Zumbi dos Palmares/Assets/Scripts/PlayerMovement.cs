@@ -13,10 +13,16 @@ public class PlayerMovement : MonoBehaviour
     private Animator anim;
     private Vector2 movement;
 
+    // Novas variáveis para a música dos passos
+    public AudioClip stepSound;           // Som dos passos
+    private AudioSource audioSource;      // Componente AudioSource para tocar o som dos passos
+    private bool isWalking = false;      // Flag para verificar se o jogador está andando
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>(); // Inicializa o AudioSource
         playerInitialSpeed = moveSpeed;
     }
 
@@ -27,6 +33,7 @@ public class PlayerMovement : MonoBehaviour
         Flip();
         OnAttack();
         HandleSpeedBoost();
+        PlayStepSound(); // Chama o método para verificar e tocar o som dos passos
     }
 
     void FixedUpdate()
@@ -100,6 +107,32 @@ public class PlayerMovement : MonoBehaviour
             else
             {
                 moveSpeed = playerInitialSpeed;
+            }
+        }
+    }
+
+    void PlayStepSound()
+    {
+        // Verifica se o jogador está se movendo
+        if (movement.sqrMagnitude > 0 && !isAttack) // Se o jogador está se movendo e não está atacando
+        {
+            if (!isWalking) // Se não está tocando o som dos passos
+            {
+                isWalking = true;
+                if (stepSound != null && audioSource != null)
+                {
+                    audioSource.clip = stepSound;
+                    audioSource.loop = true; // O som dos passos vai se repetir enquanto o jogador estiver andando
+                    audioSource.Play();
+                }
+            }
+        }
+        else
+        {
+            if (isWalking) // Se o jogador parou de andar
+            {
+                isWalking = false;
+                audioSource.Stop(); // Para o som dos passos
             }
         }
     }
