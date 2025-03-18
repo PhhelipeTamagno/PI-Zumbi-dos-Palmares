@@ -79,13 +79,14 @@ public class PlayerMovement : MonoBehaviour
 
     void OnAttack()
     {
+        // Ataque acontece ao pressionar o botão esquerdo do mouse
         if (Input.GetMouseButtonDown(0) && canAttack) // Botão esquerdo do mouse
         {
             isAttack = true;
-            moveSpeed = 0;
+            moveSpeed = 0; // Parar o movimento durante o ataque
             canAttack = false;
             anim.SetTrigger("Attack"); // Adicionando trigger de ataque na animação
-            Invoke(nameof(ResetAttack), attackCooldown);
+            Invoke(nameof(ResetAttack), attackCooldown); // Resetar ataque após o tempo de cooldown
         }
     }
 
