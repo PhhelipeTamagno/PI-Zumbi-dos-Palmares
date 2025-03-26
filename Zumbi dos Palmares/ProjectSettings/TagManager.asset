@@ -43,9 +43,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: ForeGround
+  - name: DownGround
     uniqueID: 4103044847
     locked: 0
-  - name: Intermediary
+  - name: UpperGround
     uniqueID: 3315918869
+    locked: 0
+  - name: Ground
+    uniqueID: 1693575847
     locked: 0
