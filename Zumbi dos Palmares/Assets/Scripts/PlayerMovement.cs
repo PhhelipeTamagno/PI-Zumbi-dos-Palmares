@@ -103,7 +103,11 @@ public class PlayerMovement : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
             {
-                moveSpeed = boostSpeed;
+                moveSpeed = boostSpeed; // Aumenta a velocidade ao segurar Shift
+            }
+            else if (Input.GetKey(KeyCode.LeftControl))
+            {
+                moveSpeed = playerInitialSpeed * 0.5f; // Reduz a velocidade ao segurar Ctrl
             }
             else
             {
@@ -111,6 +115,7 @@ public class PlayerMovement : MonoBehaviour
             }
         }
     }
+
 
     void PlayStepSound()
     {
