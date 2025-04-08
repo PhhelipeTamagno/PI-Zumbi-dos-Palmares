@@ -27,7 +27,7 @@ public class AnimalMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        rb.velocity = moveDirection * moveSpeed;
+        rb.linearVelocity = moveDirection * moveSpeed;
         FlipSprite();
     }
 

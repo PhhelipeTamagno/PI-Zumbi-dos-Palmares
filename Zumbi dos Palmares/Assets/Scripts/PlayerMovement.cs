@@ -13,10 +13,10 @@ public class PlayerMovement : MonoBehaviour
     private Animator anim;
     private Vector2 movement;
 
-    // Novas variáveis para a música dos passos
+    // Novas variï¿½veis para a mï¿½sica dos passos
     public AudioClip stepSound;           // Som dos passos
     private AudioSource audioSource;      // Componente AudioSource para tocar o som dos passos
-    private bool isWalking = false;      // Flag para verificar se o jogador está andando
+    private bool isWalking = false;      // Flag para verificar se o jogador estï¿½ andando
 
     void Start()
     {
@@ -33,7 +33,7 @@ public class PlayerMovement : MonoBehaviour
         Flip();
         OnAttack();
         HandleSpeedBoost();
-        PlayStepSound(); // Chama o método para verificar e tocar o som dos passos
+        PlayStepSound(); // Chama o mï¿½todo para verificar e tocar o som dos passos
     }
 
     void FixedUpdate()
@@ -50,7 +50,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Move()
     {
-        rb.velocity = movement * moveSpeed;
+        rb.linearVelocity = movement * moveSpeed;
     }
 
     void Animate()
@@ -79,14 +79,14 @@ public class PlayerMovement : MonoBehaviour
 
     void OnAttack()
     {
-        // Ataque acontece ao pressionar o botão esquerdo do mouse
-        if (Input.GetMouseButtonDown(0) && canAttack) // Botão esquerdo do mouse
+        // Ataque acontece ao pressionar o botï¿½o esquerdo do mouse
+        if (Input.GetMouseButtonDown(0) && canAttack) // Botï¿½o esquerdo do mouse
         {
             isAttack = true;
             moveSpeed = 0; // Parar o movimento durante o ataque
             canAttack = false;
-            anim.SetTrigger("Attack"); // Adicionando trigger de ataque na animação
-            Invoke(nameof(ResetAttack), attackCooldown); // Resetar ataque após o tempo de cooldown
+            anim.SetTrigger("Attack"); // Adicionando trigger de ataque na animaï¿½ï¿½o
+            Invoke(nameof(ResetAttack), attackCooldown); // Resetar ataque apï¿½s o tempo de cooldown
         }
     }
 
@@ -119,10 +119,10 @@ public class PlayerMovement : MonoBehaviour
 
     void PlayStepSound()
     {
-        // Verifica se o jogador está se movendo
-        if (movement.sqrMagnitude > 0 && !isAttack) // Se o jogador está se movendo e não está atacando
+        // Verifica se o jogador estï¿½ se movendo
+        if (movement.sqrMagnitude > 0 && !isAttack) // Se o jogador estï¿½ se movendo e nï¿½o estï¿½ atacando
         {
-            if (!isWalking) // Se não está tocando o som dos passos
+            if (!isWalking) // Se nï¿½o estï¿½ tocando o som dos passos
             {
                 isWalking = true;
                 if (stepSound != null && audioSource != null)
