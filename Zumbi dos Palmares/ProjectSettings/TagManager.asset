@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Chave
   - PortaoFechado
+  - Danger
   layers:
   - Default
   - TransparentFX
