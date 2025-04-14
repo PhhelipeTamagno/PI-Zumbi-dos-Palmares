@@ -13,4 +13,9 @@ public class PlayAnimation : MonoBehaviour
     {
         animator.SetTrigger("Settings");
     }
+
+    public void PlayHistoria()
+    {
+        animator.SetTrigger("historia");
+    }
 }
