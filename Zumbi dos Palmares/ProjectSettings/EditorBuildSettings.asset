@@ -21,9 +21,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Settings 2.unity
     guid: 26f2455824c05844a93742b18f468442
   - enabled: 1
-    path: Assets/Scenes/Jogo 2.unity
-    guid: 941519c66491ef345acf7935b18a079a
-  - enabled: 1
     path: Assets/Scenes/Cutscene.unity
     guid: e8923c916fee99d45b2dcf968db3443e
   - enabled: 1
