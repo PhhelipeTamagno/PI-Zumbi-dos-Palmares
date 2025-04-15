@@ -1,0 +1,1586 @@
+fileFormatVersion: 2
+guid: b4f43266da1d707408e7001da0d85593
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8878548047493490383
+    second: tropy_games_transparente_0
+  - first:
+      213: 8602405727783842622
+    second: tropy_games_transparente_1
+  - first:
+      213: 6395945735286380632
+    second: tropy_games_transparente_2
+  - first:
+      213: -6179511013500198889
+    second: tropy_games_transparente_3
+  - first:
+      213: 7635061475881412528
+    second: tropy_games_transparente_4
+  - first:
+      213: -511993403503198973
+    second: tropy_games_transparente_5
+  - first:
+      213: 2284962439413172389
+    second: tropy_games_transparente_6
+  - first:
+      213: 8489882242370856239
+    second: tropy_games_transparente_7
+  - first:
+      213: -6954935333344153582
+    second: tropy_games_transparente_8
+  - first:
+      213: 3399947727354190577
+    second: tropy_games_transparente_9
+  - first:
+      213: -1583798068218352780
+    second: tropy_games_transparente_10
+  - first:
+      213: -6634259873816896535
+    second: tropy_games_transparente_11
+  - first:
+      213: 3167505383051126814
+    second: tropy_games_transparente_12
+  - first:
+      213: 7969399572908236876
+    second: tropy_games_transparente_13
+  - first:
+      213: 5542171420896429316
+    second: tropy_games_transparente_14
+  - first:
+      213: 2277937724530764571
+    second: tropy_games_transparente_15
+  - first:
+      213: -7736061089766436483
+    second: tropy_games_transparente_16
+  - first:
+      213: 9042124464431065156
+    second: tropy_games_transparente_17
+  - first:
+      213: -8754312298054303405
+    second: tropy_games_transparente_18
+  - first:
+      213: -4956360523112548517
+    second: tropy_games_transparente_19
+  - first:
+      213: 719065380726823686
+    second: tropy_games_transparente_20
+  - first:
+      213: 5669636345071130016
+    second: tropy_games_transparente_21
+  - first:
+      213: -6411249227771250705
+    second: tropy_games_transparente_22
+  - first:
+      213: 7524661703871057755
+    second: tropy_games_transparente_23
+  - first:
+      213: 2326855235971172744
+    second: tropy_games_transparente_24
+  - first:
+      213: 7322755658305955238
+    second: tropy_games_transparente_25
+  - first:
+      213: 135713325646955306
+    second: tropy_games_transparente_26
+  - first:
+      213: -6035719629946230546
+    second: tropy_games_transparente_27
+  - first:
+      213: 7657733003730180033
+    second: tropy_games_transparente_28
+  - first:
+      213: 8996784208116304065
+    second: tropy_games_transparente_29
+  - first:
+      213: 169426999421340175
+    second: tropy_games_transparente_30
+  - first:
+      213: -4005150940567801260
+    second: tropy_games_transparente_31
+  - first:
+      213: -372684183958406652
+    second: tropy_games_transparente_32
+  - first:
+      213: 5662806290267306498
+    second: tropy_games_transparente_33
+  - first:
+      213: 64867165156419596
+    second: tropy_games_transparente_34
+  - first:
+      213: 7860634301861843266
+    second: tropy_games_transparente_35
+  - first:
+      213: -7796179809886036316
+    second: tropy_games_transparente_36
+  - first:
+      213: 8101260295488054342
+    second: tropy_games_transparente_37
+  - first:
+      213: 5895168542195711190
+    second: tropy_games_transparente_38
+  - first:
+      213: 7311840171751303760
+    second: tropy_games_transparente_39
+  - first:
+      213: 8535073202250374146
+    second: tropy_games_transparente_40
+  - first:
+      213: 4844087135886701055
+    second: tropy_games_transparente_41
+  - first:
+      213: 1733507663180049175
+    second: tropy_games_transparente_42
+  - first:
+      213: 3173578111156384538
+    second: tropy_games_transparente_43
+  - first:
+      213: 7226096114277391809
+    second: tropy_games_transparente_44
+  - first:
+      213: -5316500745440859780
+    second: tropy_games_transparente_45
+  - first:
+      213: 1945101112436290289
+    second: tropy_games_transparente_46
+  - first:
+      213: -8722282789805194982
+    second: tropy_games_transparente_47
+  - first:
+      213: -401161206835436336
+    second: tropy_games_transparente_48
+  - first:
+      213: 4588874110954872864
+    second: tropy_games_transparente_49
+  - first:
+      213: 4094429003316484411
+    second: tropy_games_transparente_50
+  - first:
+      213: 4158765270312400647
+    second: tropy_games_transparente_51
+  - first:
+      213: -1215972521268037060
+    second: tropy_games_transparente_52
+  - first:
+      213: 7045953748966712485
+    second: tropy_games_transparente_53
+  - first:
+      213: 8925737636564940400
+    second: tropy_games_transparente_54
+  - first:
+      213: 7520823165003366059
+    second: tropy_games_transparente_55
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: tropy_games_transparente_0
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 248
+        width: 244
+        height: 212
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc6661c9860f63b70800000000000000
+      internalID: 8878548047493490383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tropy_games_transparente_1
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 217
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3377529e62e16770800000000000000
+      internalID: 8602405727783842622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tropy_games_transparente_2
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 210
+        width: 15
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8585b6252c6f2c850800000000000000
+      internalID: 6395945735286380632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tropy_games_transparente_3
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 187
+        width: 38
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 710e4b24977fd3aa0800000000000000
+      internalID: -6179511013500198889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tropy_games_transparente_4
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 179
+        width: 39
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b76e24c5ff25f960800000000000000
+      internalID: 7635061475881412528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tropy_games_transparente_5
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 217
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30d39d056b805e8f0800000000000000
+      internalID: -511993403503198973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tropy_games_transparente_6
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 187
+        width: 45
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a8055e7b31d5bf10800000000000000
+      internalID: 2284962439413172389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tropy_games_transparente_7
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 195
+        width: 11
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f2569690bee12d570800000000000000
+      internalID: 8489882242370856239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tropy_games_transparente_8
+      rect:
+        serializedVersion: 2
+        x: 215
+        y: 217
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2107534c92b1b7f90800000000000000
+      internalID: -6954935333344153582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tropy_games_transparente_9
+      rect:
+        serializedVersion: 2
+        x: 215
+        y: 179
+        width: 54
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1fad7dfb17a0f2f20800000000000000
+      internalID: 3399947727354190577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tropy_games_transparente_10
+      rect:
+        serializedVersion: 2
+        x: 218
+        y: 187
+        width: 48
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47b25eb5c08350ae0800000000000000
+      internalID: -1583798068218352780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tropy_games_transparente_11
+      rect:
+        serializedVersion: 2
+        x: 268
+        y: 179
+        width: 52
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9eb14896bcf5ee3a0800000000000000
+      internalID: -6634259873816896535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tropy_games_transparente_12
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 217
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1866ec1d5d35fb20800000000000000
+      internalID: 3167505383051126814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tropy_games_transparente_13
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 187
+        width: 45
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c40685810bef89e60800000000000000
+      internalID: 7969399572908236876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tropy_games_transparente_14
+      rect:
+        serializedVersion: 2
+        x: 318
+        y: 200
+        width: 20
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4058ada2b8fb9ec40800000000000000
+      internalID: 5542171420896429316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tropy_games_transparente_15
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 187
+        width: 42
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b1b2e1b9a4cdc9f10800000000000000
+      internalID: 2277937724530764571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tropy_games_transparente_16
+      rect:
+        serializedVersion: 2
+        x: 332
+        y: 179
+        width: 44
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7110cf1d6df3a490800000000000000
+      internalID: -7736061089766436483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tropy_games_transparente_17
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 179
+        width: 54
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 448684d0b441c7d70800000000000000
+      internalID: 9042124464431065156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tropy_games_transparente_18
+      rect:
+        serializedVersion: 2
+        x: 394
+        y: 217
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 351c3a5e85f628680800000000000000
+      internalID: -8754312298054303405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tropy_games_transparente_19
+      rect:
+        serializedVersion: 2
+        x: 396
+        y: 187
+        width: 47
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b577b193d58773bb0800000000000000
+      internalID: -4956360523112548517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tropy_games_transparente_20
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 217
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60bd08c6722aaf900800000000000000
+      internalID: 719065380726823686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tropy_games_transparente_21
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 187
+        width: 48
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a5db9187389eae40800000000000000
+      internalID: 5669636345071130016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tropy_games_transparente_22
+      rect:
+        serializedVersion: 2
+        x: 470
+        y: 179
+        width: 31
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe7723cabcaa607a0800000000000000
+      internalID: -6411249227771250705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tropy_games_transparente_23
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 179
+        width: 67
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b5f483ac3f7fc6860800000000000000
+      internalID: 7524661703871057755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tropy_games_transparente_24
+      rect:
+        serializedVersion: 2
+        x: 502
+        y: 217
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 889c1d74286aa4020800000000000000
+      internalID: 2326855235971172744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tropy_games_transparente_25
+      rect:
+        serializedVersion: 2
+        x: 504
+        y: 187
+        width: 60
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a5ee4e3977af9560800000000000000
+      internalID: 7322755658305955238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tropy_games_transparente_26
+      rect:
+        serializedVersion: 2
+        x: 567
+        y: 217
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a234976fc8622e100800000000000000
+      internalID: 135713325646955306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tropy_games_transparente_27
+      rect:
+        serializedVersion: 2
+        x: 569
+        y: 187
+        width: 41
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee8e335a9f0dc3ca0800000000000000
+      internalID: -6035719629946230546
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tropy_games_transparente_28
+      rect:
+        serializedVersion: 2
+        x: 586
+        y: 197
+        width: 28
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c75f10389bb54a60800000000000000
+      internalID: 7657733003730180033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tropy_games_transparente_29
+      rect:
+        serializedVersion: 2
+        x: 613
+        y: 217
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c8cd9df19ffadc70800000000000000
+      internalID: 8996784208116304065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tropy_games_transparente_30
+      rect:
+        serializedVersion: 2
+        x: 615
+        y: 187
+        width: 46
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f0a8ed355fce95200800000000000000
+      internalID: 169426999421340175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tropy_games_transparente_31
+      rect:
+        serializedVersion: 2
+        x: 656
+        y: 209
+        width: 6
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 45272a39078da68c0800000000000000
+      internalID: -4005150940567801260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tropy_games_transparente_32
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 179
+        width: 51
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40ab0c195b5f3daf0800000000000000
+      internalID: -372684183958406652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tropy_games_transparente_33
+      rect:
+        serializedVersion: 2
+        x: 446
+        y: 179
+        width: 33
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 20afa337154569e40800000000000000
+      internalID: 5662806290267306498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tropy_games_transparente_34
+      rect:
+        serializedVersion: 2
+        x: 565
+        y: 179
+        width: 43
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c082cb0d75476e000800000000000000
+      internalID: 64867165156419596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tropy_games_transparente_35
+      rect:
+        serializedVersion: 2
+        x: 611
+        y: 179
+        width: 53
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 241d9b70045961d60800000000000000
+      internalID: 7860634301861843266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tropy_games_transparente_36
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 144
+        width: 23
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ae9ba2d4c76ec390800000000000000
+      internalID: -7796179809886036316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tropy_games_transparente_37
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 144
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 644aa8101557d6070800000000000000
+      internalID: 8101260295488054342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tropy_games_transparente_38
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 144
+        width: 24
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6dcf1a02e88dfc150800000000000000
+      internalID: 5895168542195711190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tropy_games_transparente_39
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 144
+        width: 24
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 05aeaab75efd87560800000000000000
+      internalID: 7311840171751303760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tropy_games_transparente_40
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 144
+        width: 23
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 20cd6105bdba27670800000000000000
+      internalID: 8535073202250374146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tropy_games_transparente_41
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 144
+        width: 24
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff1f093c597a93340800000000000000
+      internalID: 4844087135886701055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tropy_games_transparente_42
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 144
+        width: 22
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71ba34ff808ae0810800000000000000
+      internalID: 1733507663180049175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tropy_games_transparente_43
+      rect:
+        serializedVersion: 2
+        x: 301
+        y: 144
+        width: 12
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a137e6e4a70da0c20800000000000000
+      internalID: 3173578111156384538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tropy_games_transparente_44
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 144
+        width: 29
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1cd95546120484460800000000000000
+      internalID: 7226096114277391809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tropy_games_transparente_45
+      rect:
+        serializedVersion: 2
+        x: 358
+        y: 144
+        width: 23
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c79e5e37dbef736b0800000000000000
+      internalID: -5316500745440859780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tropy_games_transparente_46
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 144
+        width: 25
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f27bfaf7236efa10800000000000000
+      internalID: 1945101112436290289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tropy_games_transparente_47
+      rect:
+        serializedVersion: 2
+        x: 437
+        y: 144
+        width: 12
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a11882be30a34f680800000000000000
+      internalID: -8722282789805194982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tropy_games_transparente_48
+      rect:
+        serializedVersion: 2
+        x: 457
+        y: 144
+        width: 24
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d428e0020ace6af0800000000000000
+      internalID: -401161206835436336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tropy_games_transparente_49
+      rect:
+        serializedVersion: 2
+        x: 489
+        y: 144
+        width: 12
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 020a376e0b4feaf30800000000000000
+      internalID: 4588874110954872864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tropy_games_transparente_50
+      rect:
+        serializedVersion: 2
+        x: 508
+        y: 144
+        width: 24
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b395cbc3c7552d830800000000000000
+      internalID: 4094429003316484411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tropy_games_transparente_51
+      rect:
+        serializedVersion: 2
+        x: 556
+        y: 144
+        width: 24
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 707b331baf6e6b930800000000000000
+      internalID: 4158765270312400647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tropy_games_transparente_52
+      rect:
+        serializedVersion: 2
+        x: 588
+        y: 144
+        width: 24
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3abe253f6fff1fe0800000000000000
+      internalID: -1215972521268037060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tropy_games_transparente_53
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 144
+        width: 29
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a42ef68a9148c160800000000000000
+      internalID: 7045953748966712485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tropy_games_transparente_54
+      rect:
+        serializedVersion: 2
+        x: 657
+        y: 144
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 076b9c107179edb70800000000000000
+      internalID: 8925737636564940400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tropy_games_transparente_55
+      rect:
+        serializedVersion: 2
+        x: 685
+        y: 144
+        width: 23
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: baefd8052d45f5860800000000000000
+      internalID: 7520823165003366059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      tropy_games_transparente_0: 8878548047493490383
+      tropy_games_transparente_1: 8602405727783842622
+      tropy_games_transparente_10: -1583798068218352780
+      tropy_games_transparente_11: -6634259873816896535
+      tropy_games_transparente_12: 3167505383051126814
+      tropy_games_transparente_13: 7969399572908236876
+      tropy_games_transparente_14: 5542171420896429316
+      tropy_games_transparente_15: 2277937724530764571
+      tropy_games_transparente_16: -7736061089766436483
+      tropy_games_transparente_17: 9042124464431065156
+      tropy_games_transparente_18: -8754312298054303405
+      tropy_games_transparente_19: -4956360523112548517
+      tropy_games_transparente_2: 6395945735286380632
+      tropy_games_transparente_20: 719065380726823686
+      tropy_games_transparente_21: 5669636345071130016
+      tropy_games_transparente_22: -6411249227771250705
+      tropy_games_transparente_23: 7524661703871057755
+      tropy_games_transparente_24: 2326855235971172744
+      tropy_games_transparente_25: 7322755658305955238
+      tropy_games_transparente_26: 135713325646955306
+      tropy_games_transparente_27: -6035719629946230546
+      tropy_games_transparente_28: 7657733003730180033
+      tropy_games_transparente_29: 8996784208116304065
+      tropy_games_transparente_3: -6179511013500198889
+      tropy_games_transparente_30: 169426999421340175
+      tropy_games_transparente_31: -4005150940567801260
+      tropy_games_transparente_32: -372684183958406652
+      tropy_games_transparente_33: 5662806290267306498
+      tropy_games_transparente_34: 64867165156419596
+      tropy_games_transparente_35: 7860634301861843266
+      tropy_games_transparente_36: -7796179809886036316
+      tropy_games_transparente_37: 8101260295488054342
+      tropy_games_transparente_38: 5895168542195711190
+      tropy_games_transparente_39: 7311840171751303760
+      tropy_games_transparente_4: 7635061475881412528
+      tropy_games_transparente_40: 8535073202250374146
+      tropy_games_transparente_41: 4844087135886701055
+      tropy_games_transparente_42: 1733507663180049175
+      tropy_games_transparente_43: 3173578111156384538
+      tropy_games_transparente_44: 7226096114277391809
+      tropy_games_transparente_45: -5316500745440859780
+      tropy_games_transparente_46: 1945101112436290289
+      tropy_games_transparente_47: -8722282789805194982
+      tropy_games_transparente_48: -401161206835436336
+      tropy_games_transparente_49: 4588874110954872864
+      tropy_games_transparente_5: -511993403503198973
+      tropy_games_transparente_50: 4094429003316484411
+      tropy_games_transparente_51: 4158765270312400647
+      tropy_games_transparente_52: -1215972521268037060
+      tropy_games_transparente_53: 7045953748966712485
+      tropy_games_transparente_54: 8925737636564940400
+      tropy_games_transparente_55: 7520823165003366059
+      tropy_games_transparente_6: 2284962439413172389
+      tropy_games_transparente_7: 8489882242370856239
+      tropy_games_transparente_8: -6954935333344153582
+      tropy_games_transparente_9: 3399947727354190577
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
