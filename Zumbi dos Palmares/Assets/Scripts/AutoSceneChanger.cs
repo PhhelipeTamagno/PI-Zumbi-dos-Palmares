@@ -3,8 +3,8 @@ using UnityEngine.SceneManagement;
 
 public class AutoSceneChanger : MonoBehaviour
 {
-    [SerializeField] private string sceneName; // Nome da cena para trocar
-    [SerializeField] private float delay = 25f; // Tempo em segundos
+    [SerializeField] private string sceneName; 
+    [SerializeField] private float delay = 25f; 
 
     void Start()
     {

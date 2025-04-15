@@ -3,20 +3,20 @@ using UnityEngine.UI;
 
 public class CameraNightEffect : MonoBehaviour
 {
-    public float nightStartTime = 120f;  // Tempo (segundos) até começar a escurecer
-    public float fadeDuration = 30f;     // Tempo da transição para a noite
-    public float nightDuration = 60f;    // Quanto tempo a noite dura antes de voltar ao dia
-    public Image nightOverlay;           // UI Image preta para escurecer a tela
-    public Text nightText;               // Texto que aparece quando anoitece
-    public float maxAlpha = 0.5f;        // Define a opacidade máxima do escurecimento
-    public Light postLight;              // Luz do poste
-    public float lightFadeDuration = 5f; // Tempo para acender/apagar a luz
-    public float maxLightIntensity = 2f; // Intensidade máxima da luz
+    public float nightStartTime = 120f;  
+    public float fadeDuration = 30f;     
+    public float nightDuration = 60f;    
+    public Image nightOverlay;           
+    public Text nightText;               
+    public float maxAlpha = 0.5f;        
+    public Light postLight;              
+    public float lightFadeDuration = 5f; 
+    public float maxLightIntensity = 2f; 
 
-    // Novas variáveis para música
-    public AudioClip dayMusic;           // Música para o dia
-    public AudioClip nightMusic;         // Música para a noite
-    private AudioSource audioSource;     // Componente AudioSource
+   
+    public AudioClip dayMusic;           
+    public AudioClip nightMusic;         
+    private AudioSource audioSource;     
 
     private float timer = 0f;
     private bool isNight = false;
@@ -24,7 +24,7 @@ public class CameraNightEffect : MonoBehaviour
 
     void Start()
     {
-        // Inicializa os componentes
+       
         if (nightOverlay != null)
         {
             nightOverlay.gameObject.SetActive(false);
@@ -41,15 +41,15 @@ public class CameraNightEffect : MonoBehaviour
             postLight.gameObject.SetActive(false);
         }
 
-        // Inicializa o componente AudioSource
+        
         audioSource = GetComponent<AudioSource>();
 
-        // Toca a música do dia inicialmente
+        
         if (dayMusic != null && audioSource != null)
         {
-            audioSource.clip = dayMusic;  // Define a música do dia
-            audioSource.loop = true;      // Habilita o loop da música do dia
-            audioSource.Play();           // Inicia a música do dia
+            audioSource.clip = dayMusic;  
+            audioSource.loop = true;      
+            audioSource.Play();           
         }
     }
 
@@ -64,7 +64,7 @@ public class CameraNightEffect : MonoBehaviour
             isNight = true;
         }
 
-        // Após a noite durar 'nightDuration', começa a transição para o dia
+        
         if (isNight && timer >= nightStartTime + fadeDuration + nightDuration && !isDayTransitioning)
         {
             StartCoroutine(FadeToDay());
@@ -101,12 +101,12 @@ public class CameraNightEffect : MonoBehaviour
             StartCoroutine(FadeInLight());
         }
 
-        // Troca a música do dia para a música da noite
+        
         if (nightMusic != null && audioSource != null)
         {
-            audioSource.Stop();  // Para a música do dia
-            audioSource.clip = nightMusic;  // Define a música da noite
-            audioSource.Play();  // Inicia a música da noite
+            audioSource.Stop();  
+            audioSource.clip = nightMusic;  
+            audioSource.Play();  
         }
     }
 
@@ -136,16 +136,16 @@ public class CameraNightEffect : MonoBehaviour
             StartCoroutine(FadeOutLight());
         }
 
-        // Troca a música da noite para a música do dia
+        
         if (dayMusic != null && audioSource != null)
         {
-            audioSource.Stop();  // Para a música da noite
-            audioSource.clip = dayMusic;  // Define a música do dia
-            audioSource.Play();  // Inicia a música do dia
+            audioSource.Stop();  
+            audioSource.clip = dayMusic;  
+            audioSource.Play();  
         }
 
-        // Reseta o ciclo para começar tudo de novo
-        yield return new WaitForSeconds(2f); // Pequena pausa para suavizar a transição
+        
+        yield return new WaitForSeconds(2f); 
         timer = 0f;
         isNight = false;
         isDayTransitioning = false;

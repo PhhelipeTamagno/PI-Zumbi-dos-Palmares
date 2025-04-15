@@ -2,14 +2,13 @@ using UnityEngine;
 
 public class AbrirPanel : MonoBehaviour
 {
-    public GameObject panel; // Arraste o painel desejado no Inspector
-
+    public GameObject panel; 
     public void TogglePanel()
     {
         if (panel != null)
         {
             bool isActive = panel.activeSelf;
-            panel.SetActive(!isActive); // Alterna entre abrir/fechar o painel
+            panel.SetActive(!isActive); 
         }
         else
         {

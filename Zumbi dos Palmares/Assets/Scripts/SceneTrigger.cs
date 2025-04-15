@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class SceneChanger : MonoBehaviour
 {
-    [SerializeField] private string sceneName; // Nome da cena para onde o player irá
+    [SerializeField] private string sceneName; 
     private bool playerIsNear = false;
 
     void Update()

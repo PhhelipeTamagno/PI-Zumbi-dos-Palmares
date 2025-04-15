@@ -5,7 +5,7 @@ public class QuitGame : MonoBehaviour
     public void ExitGame()
     {
 #if UNITY_EDITOR
-            UnityEditor.EditorApplication.isPlaying = false; // Fecha o modo Play no Editor
+            UnityEditor.EditorApplication.isPlaying = false; 
 #else
         Application.Quit(); // Funciona no jogo compilado
 #endif

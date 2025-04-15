@@ -9,11 +9,11 @@ public class InventoryController : MonoBehaviour
     public int slotCount;
     public GameObject[] itemPrefabs;
 
-    private bool isInventoryOpen = false; // Estado do inventário
+    private bool isInventoryOpen = false; 
 
     void Start()
     {
-        inventoryPanel.SetActive(false); // Garante que o inventário inicie fechado
+        inventoryPanel.SetActive(false); 
 
         for (int i = 0; i < slotCount; i++)
         {
@@ -37,11 +37,11 @@ public class InventoryController : MonoBehaviour
 
     void ToggleInventory()
     {
-        isInventoryOpen = !isInventoryOpen; // Alterna o estado do inventário
+        isInventoryOpen = !isInventoryOpen; 
         inventoryPanel.SetActive(isInventoryOpen);
     }
 
-    // Método público para abrir/fechar o inventário pelo botão
+    
     public void ToggleInventoryButton()
     {
         ToggleInventory();

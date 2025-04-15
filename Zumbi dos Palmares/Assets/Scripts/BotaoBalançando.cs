@@ -3,10 +3,10 @@ using UnityEngine.EventSystems;
 
 public class BotaoBalançando : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    public float anguloMaximo = 10f;         // Quanto o botão gira para cada lado
-    public float velocidadeRotacao = 2f;     // Velocidade da oscilação
-    public float aumentoEscala = 1.2f;       // Quanto aumenta de tamanho no hover
-    public float velocidadeEscala = 5f;      // Quão rápido muda o tamanho
+    public float anguloMaximo = 10f;         
+    public float velocidadeRotacao = 2f;     
+    public float aumentoEscala = 1.2f;      
+    public float velocidadeEscala = 5f;      
 
     private RectTransform rectTransform;
     private bool mouseEmCima = false;

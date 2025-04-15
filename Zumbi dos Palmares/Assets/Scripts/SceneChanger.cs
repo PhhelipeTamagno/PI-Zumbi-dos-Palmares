@@ -3,12 +3,12 @@ using UnityEngine.SceneManagement;
 
 public class SceneTrigger : MonoBehaviour
 {
-    [SerializeField] private string sceneName; // Nome da cena para mudar
-    private bool playerNearby = false; // Verifica se o player está dentro do trigger
+    [SerializeField] private string sceneName; 
+    private bool playerNearby = false; 
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player")) // Certifique-se de que o Player tem a tag "Player"
+        if (other.CompareTag("Player")) 
         {
             playerNearby = true;
         }

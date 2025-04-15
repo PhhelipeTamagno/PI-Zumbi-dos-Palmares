@@ -7,14 +7,14 @@ public class PlaySound : MonoBehaviour
 
     private void Awake()
     {
-        // Garantir que só exista uma instância
+       
         if (instance == null)
         {
             instance = this;
         }
         else
         {
-            Destroy(gameObject); // Evita duplicação
+            Destroy(gameObject); 
         }
     }
 
