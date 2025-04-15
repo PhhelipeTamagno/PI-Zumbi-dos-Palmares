@@ -7,22 +7,22 @@ public class PlayerMovement : MonoBehaviour
     private float playerInitialSpeed;
     private bool isAttack = false;
     private bool canAttack = true;
-    public float attackCooldown = 0.5f; 
+    public float attackCooldown = 0.5f;
 
     private Rigidbody2D rb;
     private Animator anim;
     private Vector2 movement;
 
-   
-    public AudioClip stepSound;          
-    private AudioSource audioSource;      
-    private bool isWalking = false;      
+
+    public AudioClip stepSound;
+    private AudioSource audioSource;
+    private bool isWalking = false;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        audioSource = GetComponent<AudioSource>(); 
+        audioSource = GetComponent<AudioSource>();
         playerInitialSpeed = moveSpeed;
     }
 
@@ -33,7 +33,7 @@ public class PlayerMovement : MonoBehaviour
         Flip();
         OnAttack();
         HandleSpeedBoost();
-        PlayStepSound(); 
+        PlayStepSound();
     }
 
     void FixedUpdate()
@@ -79,14 +79,14 @@ public class PlayerMovement : MonoBehaviour
 
     void OnAttack()
     {
-       
-        if (Input.GetMouseButtonDown(0) && canAttack) 
+
+        if (Input.GetMouseButtonDown(0) && canAttack)
         {
             isAttack = true;
-            moveSpeed = 0; 
+            moveSpeed = 0;
             canAttack = false;
-            anim.SetTrigger("Attack"); 
-            Invoke(nameof(ResetAttack), attackCooldown); 
+            anim.SetTrigger("Attack");
+            Invoke(nameof(ResetAttack), attackCooldown);
         }
     }
 
@@ -103,11 +103,11 @@ public class PlayerMovement : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
             {
-                moveSpeed = boostSpeed; 
+                moveSpeed = boostSpeed;
             }
             else if (Input.GetKey(KeyCode.LeftControl))
             {
-                moveSpeed = playerInitialSpeed * 0.5f; 
+                moveSpeed = playerInitialSpeed * 0.5f;
             }
             else
             {
@@ -119,26 +119,26 @@ public class PlayerMovement : MonoBehaviour
 
     void PlayStepSound()
     {
-     
-        if (movement.sqrMagnitude > 0 && !isAttack) 
+
+        if (movement.sqrMagnitude > 0 && !isAttack)
         {
-            if (!isWalking) 
+            if (!isWalking)
             {
                 isWalking = true;
                 if (stepSound != null && audioSource != null)
                 {
                     audioSource.clip = stepSound;
-                    audioSource.loop = true; 
+                    audioSource.loop = true;
                     audioSource.Play();
                 }
             }
         }
         else
         {
-            if (isWalking) 
+            if (isWalking)
             {
                 isWalking = false;
-                audioSource.Stop(); 
+                audioSource.Stop();
             }
         }
     }
