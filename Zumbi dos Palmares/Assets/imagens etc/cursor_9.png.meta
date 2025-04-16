@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 6f3d4b2b7bc177747b257a6bb90304e2
+guid: 77f1495f27a396848830fdf3da75a893
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5779672185432969684
-    second: tropy games_0
+      213: -774275985283269648
+    second: cursor_9_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -74,8 +74,8 @@ TextureImporter:
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 2
+    textureFormat: 4
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: tropy games_0
+      name: cursor_9_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 773
-        height: 606
+        x: 12
+        y: 13
+        width: 228
+        height: 234
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c2eef05f4ca7acfa0800000000000000
-      internalID: -5779672185432969684
+      spriteID: 0fb331bf7183145f0800000000000000
+      internalID: -774275985283269648
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      tropy games_0: -5779672185432969684
+      cursor_9_0: -774275985283269648
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
