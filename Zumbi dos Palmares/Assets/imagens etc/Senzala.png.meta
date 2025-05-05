@@ -117,11 +117,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 29
-        y: 60
+        y: 86
         width: 132
-        height: 58
+        height: 32
       alignment: 9
-      pivot: {x: 0.610328, y: 0.2195015}
+      pivot: {x: 0.52304506, y: 0.40319377}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -130,6 +130,28 @@ TextureImporter:
       bones: []
       spriteID: fcd5614d731894a70800000000000000
       internalID: 8811716222708506063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Senzala_1
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 61
+        width: 132
+        height: 25
+      alignment: 9
+      pivot: {x: 0.52304506, y: 0.40319377}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d39ec41ea17fe14980fa5a71843bd10
+      internalID: 1738509464
       vertices: []
       indices: 
       edges: []
@@ -149,6 +171,7 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       Senzala_0: 8811716222708506063
+      Senzala_1: 1738509464
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
