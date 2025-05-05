@@ -117,11 +117,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 7
-        y: 0
-        width: 286
-        height: 194
+        y: 56
+        width: 284
+        height: 137
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -134,11 +134,33 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: "Mans\xE3o_0"
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 0
+        width: 284
+        height: 56
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3603f35fe0e73494cbe5dac264323437
+      internalID: -1078532109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: a041a67b2442c7b49908cf7c2082330d
     internalID: 0
     vertices: []
     indices: 
@@ -148,6 +170,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
+      "Mans\xE3o_0": -1078532109
       pixil-frame-0 (30)_0: -7695915868018957093
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
