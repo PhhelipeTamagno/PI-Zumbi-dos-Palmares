@@ -1,5 +1,4 @@
 using UnityEngine;
-using TMPro;
 using System.Collections;
 
 public class EnemyHealth : MonoBehaviour
@@ -9,8 +8,6 @@ public class EnemyHealth : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     public float flashDuration = 0.1f;
     public Color flashColor = Color.red;
-    public GameObject damagePopupPrefab;
-    public Transform damagePopupSpawnPoint;
 
     void Start()
     {
@@ -22,7 +19,6 @@ public class EnemyHealth : MonoBehaviour
     {
         currentHealth -= damageAmount;
         StartCoroutine(FlashRed());
-        ShowDamagePopup(damageAmount);
 
         if (currentHealth <= 0)
         {
@@ -35,19 +31,6 @@ public class EnemyHealth : MonoBehaviour
         spriteRenderer.color = flashColor;
         yield return new WaitForSeconds(flashDuration);
         spriteRenderer.color = Color.white;
-    }
-
-    void ShowDamagePopup(int damageAmount)
-    {
-        if (damagePopupPrefab != null && damagePopupSpawnPoint != null)
-        {
-            GameObject popup = Instantiate(damagePopupPrefab, damagePopupSpawnPoint.position, Quaternion.identity);
-            TextMeshProUGUI damageText = popup.GetComponentInChildren<TextMeshProUGUI>();
-            if (damageText != null)
-            {
-                damageText.text = damageAmount.ToString();
-            }
-        }
     }
 
     void Die()
