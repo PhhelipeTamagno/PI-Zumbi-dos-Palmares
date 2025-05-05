@@ -96,9 +96,11 @@ public class PlayerMovement : MonoBehaviour
             canAttack = false;
             anim.SetTrigger("Attack");
 
-            Vector2 attackDirection = lastMoveDirection;
-            attackPoint.localPosition = attackDirection * attackRange;
+            // Corrige a dire��o do ponto de ataque com base na rota��o
+            float direction = transform.eulerAngles.y == 0 ? 1f : -1f;
+            attackPoint.localPosition = new Vector2(attackRange * direction, 0f);
 
+            // Detecta inimigos na �rea
             Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
             foreach (Collider2D enemy in hitEnemies)
             {
@@ -108,6 +110,7 @@ public class PlayerMovement : MonoBehaviour
                     enemyHealth.TakeDamage(attackDamage);
                 }
             }
+
             Invoke(nameof(ResetAttack), attackCooldown);
         }
     }
@@ -167,6 +170,8 @@ public class PlayerMovement : MonoBehaviour
     {
         if (attackPoint == null)
             return;
+
+        Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }
 }
