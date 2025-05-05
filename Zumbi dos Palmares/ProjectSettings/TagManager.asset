@@ -7,11 +7,12 @@ TagManager:
   - Chave
   - PortaoFechado
   - Danger
+  - Enemy
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Enemy
   - Water
   - UI
   - cima

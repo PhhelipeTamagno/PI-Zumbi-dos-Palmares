@@ -8,11 +8,15 @@ public class PlayerMovement : MonoBehaviour
     private bool isAttack = false;
     private bool canAttack = true;
     public float attackCooldown = 0.5f;
+    public Transform attackPoint;
+    public float attackRange = 0.5f;
+    public int attackDamage = 1;
+    public LayerMask enemyLayers;
 
     private Rigidbody2D rb;
     private Animator anim;
     private Vector2 movement;
-
+    private Vector2 lastMoveDirection;
 
     public AudioClip stepSound;
     private AudioSource audioSource;
@@ -24,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
         anim = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
         playerInitialSpeed = moveSpeed;
+        lastMoveDirection = Vector2.right;
     }
 
     void Update()
@@ -46,6 +51,11 @@ public class PlayerMovement : MonoBehaviour
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
         movement = movement.normalized;
+
+        if (movement != Vector2.zero)
+        {
+            lastMoveDirection = movement;
+        }
     }
 
     void Move()
@@ -79,13 +89,25 @@ public class PlayerMovement : MonoBehaviour
 
     void OnAttack()
     {
-
         if (Input.GetMouseButtonDown(0) && canAttack)
         {
             isAttack = true;
             moveSpeed = 0;
             canAttack = false;
             anim.SetTrigger("Attack");
+
+            Vector2 attackDirection = lastMoveDirection;
+            attackPoint.localPosition = attackDirection * attackRange;
+
+            Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
+            foreach (Collider2D enemy in hitEnemies)
+            {
+                EnemyHealth enemyHealth = enemy.GetComponent<EnemyHealth>();
+                if (enemyHealth != null)
+                {
+                    enemyHealth.TakeDamage(attackDamage);
+                }
+            }
             Invoke(nameof(ResetAttack), attackCooldown);
         }
     }
@@ -116,10 +138,8 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-
     void PlayStepSound()
     {
-
         if (movement.sqrMagnitude > 0 && !isAttack)
         {
             if (!isWalking)
@@ -142,6 +162,11 @@ public class PlayerMovement : MonoBehaviour
             }
         }
     }
-}
 
-//TMNC gastei umas 3 horas nisso 
+    void OnDrawGizmosSelected()
+    {
+        if (attackPoint == null)
+            return;
+        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
+    }
+}
