@@ -4,7 +4,10 @@ public class Inventory : MonoBehaviour
 {
     public static Inventory instance;
 
-    public GameObject facaSlotImage; // arraste a imagem da faca desativada aqui no Inspector
+    [Header("Referências dos ícones")]
+    public GameObject facaSlotImage;
+    public GameObject cenouraSlotImage;
+    public GameObject trigoSlotImage;
 
     void Awake()
     {
@@ -13,11 +16,20 @@ public class Inventory : MonoBehaviour
 
     public void Add(Item item)
     {
-        if (item.itemName == "Faca")
+        switch (item.itemName)
         {
-            facaSlotImage.SetActive(true);
+            case "Faca":
+                facaSlotImage.SetActive(true);
+                break;
+            case "Cenoura":
+                cenouraSlotImage.SetActive(true);
+                break;
+            case "Trigo":
+                trigoSlotImage.SetActive(true);
+                break;
+            default:
+                Debug.LogWarning("Item não reconhecido: " + item.itemName);
+                break;
         }
-
-        // Se quiser adicionar outros itens no futuro, pode usar mais condições
     }
 }
