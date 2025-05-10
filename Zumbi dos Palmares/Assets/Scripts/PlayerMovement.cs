@@ -3,6 +3,7 @@ using System.Collections;
 
 public class PlayerMovement : MonoBehaviour
 {
+    
     public float moveSpeed = 5f;
     public float boostSpeed = 8f;
     private float playerInitialSpeed;
@@ -45,6 +46,9 @@ public class PlayerMovement : MonoBehaviour
         HandleAttack();
         HandleSpeedBoost();
         PlayStepSound();
+
+
+       
     }
 
     void FixedUpdate()
@@ -190,4 +194,6 @@ public class PlayerMovement : MonoBehaviour
         hasKnife = true;
         Debug.Log("Faca coletada! Agora o jogador pode atacar.");
     }
+
+   
 }
