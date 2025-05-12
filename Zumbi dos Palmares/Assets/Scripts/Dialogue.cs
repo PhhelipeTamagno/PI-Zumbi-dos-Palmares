@@ -6,4 +6,5 @@ public class Dialogue : ScriptableObject
     public string characterName;
     [TextArea(2, 5)]
     public string[] sentences;
+    public Sprite npcSprite; // Nova imagem do NPC
 }

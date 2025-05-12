@@ -1,29 +1,37 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class DialogueManager : MonoBehaviour
 {
-    public GameObject dialoguePanel; // Novo campo para ativar/desativar
+    public GameObject dialoguePanel;
     public TMP_Text nameText;
     public TMP_Text dialogueText;
+
+    public Image npcImage; // Imagem do NPC
+    public Button nextButton; // Botão "Próximo"
+    public Button closeButton; // Botão "Sair"
 
     private Queue<string> sentences;
 
     void Start()
     {
         sentences = new Queue<string>();
-        dialoguePanel.SetActive(false); // Garante que começa invisível
+        dialoguePanel.SetActive(false);
+
+        nextButton.onClick.AddListener(DisplayNextSentence);
+        closeButton.onClick.AddListener(CloseDialogueManually);
     }
 
     public void StartDialogue(Dialogue dialogue)
     {
-        dialoguePanel.SetActive(true); // Mostra o painel
-
+        dialoguePanel.SetActive(true);
         nameText.text = dialogue.characterName;
-        sentences.Clear();
+        npcImage.sprite = dialogue.npcSprite;
 
+        sentences.Clear();
         foreach (string sentence in dialogue.sentences)
         {
             sentences.Enqueue(sentence);
@@ -51,13 +59,13 @@ public class DialogueManager : MonoBehaviour
         foreach (char letter in sentence.ToCharArray())
         {
             dialogueText.text += letter;
-            yield return null;
+            yield return new WaitForSeconds(0.02f); // Pequeno atraso por letra
         }
     }
 
     void EndDialogue()
     {
-        dialoguePanel.SetActive(false); // Esconde o painel
+        dialoguePanel.SetActive(false);
     }
 
     public void CloseDialogueManually()
@@ -65,5 +73,4 @@ public class DialogueManager : MonoBehaviour
         dialoguePanel.SetActive(false);
         sentences.Clear();
     }
-
 }
