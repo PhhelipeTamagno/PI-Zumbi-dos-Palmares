@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: "Bar\xE3o"
   sentences:
-  - "V\xE1 trabalhar escravo!!\n"
-  - "Colha Trigo e cenoura nas planta\xE7\xF5es.\n"
+  - 'Esta me olhando por que!?
+
+'
+  - "V\xE1 trabalhar escravo!!\n\n"
   npcSprite: {fileID: -3188702180127858350, guid: 25ffc5bb977b7b2439b58e0fff9851c9, type: 3}
