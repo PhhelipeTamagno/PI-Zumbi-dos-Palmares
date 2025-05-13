@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Faca
   m_EditorClassIdentifier: 
   itemName: Faca
-  itemIcon: {fileID: 712035800519618848, guid: 7455bcd8f2457894a99a09b24ad4f484, type: 3}
-  description: "Uma faca afiada, \xFAtil para combate.\n"
+  icon: {fileID: 712035800519618848, guid: 7455bcd8f2457894a99a09b24ad4f484, type: 3}
+  isUsable: 1

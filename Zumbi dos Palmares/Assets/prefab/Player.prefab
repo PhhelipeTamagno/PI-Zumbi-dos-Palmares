@@ -46,6 +46,7 @@ GameObject:
   - component: {fileID: 5733379722726371322}
   - component: {fileID: 7175994592087977937}
   - component: {fileID: 6787693361244943676}
+  - component: {fileID: 2798641483156709671}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -338,3 +339,17 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2798641483156709671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7175994593143721313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0426a3f4e870ab46be3a9f405ee447f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hotbar: {fileID: 0}
+  knifeItem: {fileID: 11400000, guid: 2a195c33a13df9a4caa0c746805c7d75, type: 2}
