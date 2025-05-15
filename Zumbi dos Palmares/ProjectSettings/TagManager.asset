@@ -9,6 +9,7 @@ TagManager:
   - Danger
   - Enemy
   - Faca
+  - Wood
   layers:
   - Default
   - TransparentFX
