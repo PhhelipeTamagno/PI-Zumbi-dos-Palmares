@@ -14,6 +14,8 @@ public class PlayerMovement : MonoBehaviour
 
     public AudioClip stepSound;
     public AudioClip woodStepSound;
+    public AudioClip attackSound1;
+    public AudioClip attackSound2;
     private AudioClip originalStepSound;
     private AudioSource audioSource;
     private bool isWalking = false;
@@ -38,7 +40,6 @@ public class PlayerMovement : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         playerInitialSpeed = moveSpeed;
         lastMoveDirection = Vector2.right;
-
         originalStepSound = stepSound;
     }
 
@@ -110,8 +111,38 @@ public class PlayerMovement : MonoBehaviour
             moveSpeed = 0;
             canAttack = false;
             anim.SetTrigger("Attack");
+
+            PlayAttackSound();
+
             PerformAttack();
             Invoke(nameof(ResetAttack), attackCooldown);
+        }
+    }
+
+    void PlayAttackSound()
+    {
+        if (audioSource != null)
+        {
+            audioSource.Stop();
+            audioSource.loop = false;
+
+            if (attackSound1 != null)
+            {
+                audioSource.PlayOneShot(attackSound1);
+            }
+
+            if (attackSound2 != null)
+            {
+                Invoke(nameof(PlaySecondAttackSound), 0.2f); // ajuste esse tempo conforme sua animação
+            }
+        }
+    }
+
+    void PlaySecondAttackSound()
+    {
+        if (audioSource != null && attackSound2 != null)
+        {
+            audioSource.PlayOneShot(attackSound2);
         }
     }
 
@@ -126,7 +157,7 @@ public class PlayerMovement : MonoBehaviour
 
         foreach (Collider2D enemy in hitEnemies)
         {
-            // aqui você pode aplicar dano no inimigo
+            // aplicar dano no inimigo
         }
     }
 
@@ -174,7 +205,8 @@ public class PlayerMovement : MonoBehaviour
             if (isWalking)
             {
                 isWalking = false;
-                audioSource.Stop();
+                if (!isAttack && audioSource.clip != attackSound1 && audioSource.clip != attackSound2)
+                    audioSource.Stop();
             }
         }
     }
