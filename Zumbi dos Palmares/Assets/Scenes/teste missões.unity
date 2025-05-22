@@ -1416,6 +1416,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textoMissao: {fileID: 1749478913}
+  somVitoria: {fileID: 8300000, guid: 29d05f7f4c6975a499a9a79d11d70f48, type: 3}
 --- !u!4 &1342895823
 Transform:
   m_ObjectHideFlags: 0
