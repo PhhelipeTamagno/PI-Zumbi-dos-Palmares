@@ -4,7 +4,6 @@ public class Cenoura : MonoBehaviour
 {
     private MissaoManager missaoManager;
     public AudioClip[] sonsColetar;
-    public GameObject audioPrefab;
 
     void Start()
     {
