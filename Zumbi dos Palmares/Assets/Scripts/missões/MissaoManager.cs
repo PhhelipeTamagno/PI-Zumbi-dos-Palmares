@@ -5,6 +5,7 @@ public class MissaoManager : MonoBehaviour
 {
     public TextMeshProUGUI textoMissao;
     public AudioClip somVitoria;
+
     private int cenourasTotais;
     private int cenourasColetadas;
 
@@ -19,6 +20,7 @@ public class MissaoManager : MonoBehaviour
     public void ColetouCenoura()
     {
         cenourasColetadas++;
+
         if (cenourasColetadas >= cenourasTotais)
         {
             textoMissao.text = "Vá dormir, por favor";
