@@ -33,6 +33,8 @@ public class PlayerMovement : MonoBehaviour
     [Header("Armas")]
     private bool hasKnife = false;
 
+    private bool isFacingRight = true;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -89,13 +91,27 @@ public class PlayerMovement : MonoBehaviour
 
     void Flip()
     {
-        if (movement.x > 0)
+        if (movement.x > 0 && !isFacingRight)
         {
+            isFacingRight = true;
             transform.eulerAngles = new Vector3(0f, 0f, 0f);
+            FlipAttackPoint();
         }
-        else if (movement.x < 0)
+        else if (movement.x < 0 && isFacingRight)
         {
+            isFacingRight = false;
             transform.eulerAngles = new Vector3(0f, 180f, 0f);
+            FlipAttackPoint();
+        }
+    }
+
+    void FlipAttackPoint()
+    {
+        if (attackPoint != null)
+        {
+            Vector3 localPos = attackPoint.localPosition;
+            localPos.x *= -1;
+            attackPoint.localPosition = localPos;
         }
     }
 
@@ -133,7 +149,7 @@ public class PlayerMovement : MonoBehaviour
 
             if (attackSound2 != null)
             {
-                Invoke(nameof(PlaySecondAttackSound), 0.2f); // ajuste esse tempo conforme sua animação
+                Invoke(nameof(PlaySecondAttackSound), 0.2f); // ajuste conforme a animação
             }
         }
     }
@@ -163,7 +179,6 @@ public class PlayerMovement : MonoBehaviour
                 enemyScript.TakeDamage(attackDamage);
             }
         }
-
     }
 
     void ResetAttack()
