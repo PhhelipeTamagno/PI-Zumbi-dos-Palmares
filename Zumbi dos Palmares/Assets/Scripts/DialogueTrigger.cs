@@ -4,6 +4,8 @@ public class DialogueTrigger : MonoBehaviour
 {
     public Dialogue dialogueAntesCenouras;
     public Dialogue dialogueDepoisCenouras;
+    public Dialogue dialogueDepoisCafe;        // diálogo após café (barão fala para ir coletar cana)
+    public Dialogue dialogueDepoisCana;        // diálogo após cana (barão fala para ir dormir)
 
     public GameObject objetoParaDesativar; // <- objeto com o BoxCollider2D
 
@@ -34,6 +36,18 @@ public class DialogueTrigger : MonoBehaviour
                 missaoManager.FalouComBarao();
                 DesativarObjetoSeNecessario();
             }
+            else if (etapa == 4)
+            {
+                FindObjectOfType<DialogueManager>()?.StartDialogue(dialogueDepoisCafe);
+                missaoManager.FalouComBarao();
+                DesativarObjetoSeNecessario();
+            }
+            else if (etapa == 6)
+            {
+                FindObjectOfType<DialogueManager>()?.StartDialogue(dialogueDepoisCana);
+                missaoManager.FalouComBarao();
+                DesativarObjetoSeNecessario();
+            }
         }
     }
 
@@ -41,8 +55,7 @@ public class DialogueTrigger : MonoBehaviour
     {
         if (!jaDesativouObjeto && objetoParaDesativar != null)
         {
-            objetoParaDesativar.SetActive(false); // ou só desativa o collider se preferir
-            // objetoParaDesativar.GetComponent<BoxCollider2D>().enabled = false;
+            objetoParaDesativar.SetActive(false);
             jaDesativouObjeto = true;
         }
     }
