@@ -9,8 +9,10 @@ public class MissaoManager : MonoBehaviour
     public string textoFaleComBarao = "Fale com o Barão";
     public string textoColeteCenouras = "Colete todas as cenouras";
     public string textoFaleComBaraoNovamente = "Fale com o Barão novamente";
-    public string textoColeteCafe = "Agora vá perto da mansão e colete os cafés. E vê se não bisbilhota por aí!";
-    public string textoMissaoCafeColetado = "Cafés coletados! Agora vá para a próxima etapa.";
+    public string textoColeteCafe = "Agora vá perto da mansão e colete os cafés.";
+    public string textoMissaoCafeColetado = "Fale com o Barão novamente.";  
+    public string textoColeteCana = "Agora vá até o barco e colete as canas de açúcar.";
+    public string textoMissaoCanaColetada = "Boa! Pode descansar agora.";
 
     private int cenourasTotais;
     private int cenourasColetadas;
@@ -18,9 +20,13 @@ public class MissaoManager : MonoBehaviour
     private int cafesTotais;
     private int cafesColetados;
 
+    private int canasTotais;
+    private int canasColetadas;
+
     public int etapaMissao = 0;
 
     private bool cafeColetado = false;
+    private bool canaColetada = false;
 
     void Start()
     {
@@ -32,7 +38,11 @@ public class MissaoManager : MonoBehaviour
         cafesTotais = cafes.Length;
         cafesColetados = 0;
 
-        textoMissao.text = textoFaleComBarao; // Começa com falar com barão
+        GameObject[] canas = GameObject.FindGameObjectsWithTag("Cana");
+        canasTotais = canas.Length;
+        canasColetadas = 0;
+
+        textoMissao.text = textoFaleComBarao;
     }
 
     public void ColetouCenoura()
@@ -61,6 +71,11 @@ public class MissaoManager : MonoBehaviour
             textoMissao.text = textoColeteCafe;
             etapaMissao = 3;
         }
+        else if (etapaMissao == 4)
+        {
+            textoMissao.text = textoColeteCana;
+            etapaMissao = 5;
+        }
     }
 
     public void CafeColetado()
@@ -72,8 +87,23 @@ public class MissaoManager : MonoBehaviour
         if (cafesColetados >= cafesTotais && !cafeColetado)
         {
             cafeColetado = true;
-            textoMissao.text = textoMissaoCafeColetado;
+            textoMissao.text = textoMissaoCafeColetado;  // aqui mostra "Fale com o Barão novamente."
             etapaMissao = 4;
+            TocarSomVitoria();
+        }
+    }
+
+    public void CanaColetada()
+    {
+        if (etapaMissao != 5) return;
+
+        canasColetadas++;
+
+        if (canasColetadas >= canasTotais && !canaColetada)
+        {
+            canaColetada = true;
+            textoMissao.text = textoMissaoCanaColetada;
+            etapaMissao = 6;
             TocarSomVitoria();
         }
     }
