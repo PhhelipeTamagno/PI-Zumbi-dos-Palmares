@@ -14,5 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: 
   sentences:
-  - "\xD3timo... Agora v\xE1 para sua cela dormir."
+  - "Muito bem\u2026 agora vai l\xE1 perto da minha mans\xE3o e coleta os caf\xE9s.
+    E v\xEA se n\xE3o encosta em nada, ouviu?"
+  - "E nem pense em ficar fu\xE7ando por a\xED. Faz o que eu mandei e me deixe em
+    paz, escravo."
   npcSprite: {fileID: -3188702180127858350, guid: 25ffc5bb977b7b2439b58e0fff9851c9, type: 3}

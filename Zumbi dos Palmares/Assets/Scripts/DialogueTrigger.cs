@@ -5,8 +5,11 @@ public class DialogueTrigger : MonoBehaviour
     public Dialogue dialogueAntesCenouras;
     public Dialogue dialogueDepoisCenouras;
 
+    public GameObject objetoParaDesativar; // <- objeto com o BoxCollider2D
+
     private bool playerInRange = false;
     private MissaoManager missaoManager;
+    private bool jaDesativouObjeto = false;
 
     void Start()
     {
@@ -23,12 +26,24 @@ public class DialogueTrigger : MonoBehaviour
             {
                 FindObjectOfType<DialogueManager>()?.StartDialogue(dialogueAntesCenouras);
                 missaoManager.FalouComBarao();
+                DesativarObjetoSeNecessario();
             }
             else if (etapa == 2)
             {
                 FindObjectOfType<DialogueManager>()?.StartDialogue(dialogueDepoisCenouras);
                 missaoManager.FalouComBarao();
+                DesativarObjetoSeNecessario();
             }
+        }
+    }
+
+    void DesativarObjetoSeNecessario()
+    {
+        if (!jaDesativouObjeto && objetoParaDesativar != null)
+        {
+            objetoParaDesativar.SetActive(false); // ou só desativa o collider se preferir
+            // objetoParaDesativar.GetComponent<BoxCollider2D>().enabled = false;
+            jaDesativouObjeto = true;
         }
     }
 
