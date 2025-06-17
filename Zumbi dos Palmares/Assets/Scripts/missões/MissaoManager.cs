@@ -8,23 +8,41 @@ public class MissaoManager : MonoBehaviour
 
     private int cenourasTotais;
     private int cenourasColetadas;
+    public int etapaMissao = 0; // 0: fale com Barão, 1: coletar, 2: falar dnv
 
     void Start()
     {
         GameObject[] cenouras = GameObject.FindGameObjectsWithTag("Cenoura");
         cenourasTotais = cenouras.Length;
         cenourasColetadas = 0;
-        textoMissao.text = "Colete todas as cenouras";
+        textoMissao.text = "Fale com o Barão";
     }
 
     public void ColetouCenoura()
     {
+        if (etapaMissao != 1) return;
+
         cenourasColetadas++;
 
         if (cenourasColetadas >= cenourasTotais)
         {
-            textoMissao.text = "Vá dormir, por favor";
+            textoMissao.text = "Fale com o Barão novamente";
+            etapaMissao = 2;
             TocarSomVitoria();
+        }
+    }
+
+    public void FalouComBarao()
+    {
+        if (etapaMissao == 0)
+        {
+            textoMissao.text = "Colete todas as cenouras";
+            etapaMissao = 1;
+        }
+        else if (etapaMissao == 2)
+        {
+            textoMissao.text = "Vá para sua cela dormir";
+            etapaMissao = 3;
         }
     }
 

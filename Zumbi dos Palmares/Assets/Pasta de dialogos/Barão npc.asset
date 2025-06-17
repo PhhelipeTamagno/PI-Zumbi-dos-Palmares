@@ -14,8 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: "Bar\xE3o"
   sentences:
-  - 'Esta me olhando por que!?
-
-'
-  - "V\xE1 coletar cenouras escravo!!\n\n"
+  - "Vamos, escravo! Voc\xEA est\xE1 atrasado.\n"
+  - "Colete essas cenouras e r\xE1pido!\n\n"
   npcSprite: {fileID: -3188702180127858350, guid: 25ffc5bb977b7b2439b58e0fff9851c9, type: 3}
