@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Path_Tile_4
   m_EditorClassIdentifier: 
   m_Sprite: {fileID: 1131293131, guid: dc07ed1d396da5045a9a103766e5060f, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.990566, g: 0.990566, b: 0.990566, a: 1}
   m_Transform:
     e00: 1
     e01: 0
