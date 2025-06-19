@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41a6cd280718e3d45b863077bc3e36c4, type: 3}
   m_Name: "Bar\xE3o npc"
   m_EditorClassIdentifier: 
-  characterName: "Bar\xE3o"
+  characterName: Marcos
   sentences:
   - "Vamos, escravo! Voc\xEA est\xE1 atrasado.\n"
   - "Colete essas cenouras e r\xE1pido!\n\n"
