@@ -21,11 +21,17 @@ EditorBuildSettings:
     path: Assets/Scenes/Jogo 1/Jogo 2.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/Jogo 1/Jogo 4.unity
-    guid: ac0eed3d8e3144045953fea6e23691bd
+    path: Assets/Scenes/Jogo 1/Jogo 3.unity
+    guid: bd6b6415a5d25dd43ba0073f6394b229
   - enabled: 1
     path: Assets/Scenes/Jogo 1/Cutscene Senzala.unity
     guid: 7cf49c25207fcaa4ab88941c8f742281
+  - enabled: 1
+    path: Assets/Scenes/Jogo 1/Jogo 4.unity
+    guid: 10695fc3536a1b247bde004ce66ea5fa
+  - enabled: 1
+    path: Assets/Scenes/Jogo 1/Jogo 5.unity
+    guid: ac0eed3d8e3144045953fea6e23691bd
   - enabled: 1
     path: Assets/Scenes/Settings 2.unity
     guid: 26f2455824c05844a93742b18f468442
