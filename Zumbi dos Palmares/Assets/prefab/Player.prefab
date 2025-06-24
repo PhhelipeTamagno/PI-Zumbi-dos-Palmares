@@ -1,5 +1,73 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3240845947254828119
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2323156942808846288}
+  - component: {fileID: 802638477796914249}
+  m_Layer: 0
+  m_Name: AttackPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2323156942808846288
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3240845947254828119}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7175994592087977940}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &802638477796914249
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3240845947254828119}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0.43161675, y: 0}
+  m_Radius: 0.71293116
 --- !u!1 &7175994593143721313
 GameObject:
   m_ObjectHideFlags: 0
@@ -15,7 +83,7 @@ GameObject:
   - component: {fileID: 5733379722726371322}
   - component: {fileID: 7175994592087977937}
   - component: {fileID: 6787693361244943676}
-  - component: {fileID: 2798641483156709671}
+  - component: {fileID: 6550535132390074149}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -32,10 +100,12 @@ Transform:
   m_GameObject: {fileID: 7175994593143721313}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 71.3, y: -5.7, z: 0}
+  m_LocalPosition: {x: -15.8, y: 0.13, z: 0}
   m_LocalScale: {x: 0.64645, y: 0.64645, z: 0.64645}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 2323156942808846288}
+  - {fileID: 9091788306553925435}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3307383079966814444
@@ -180,17 +250,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 3
   boostSpeed: 5
-  stepSound: {fileID: 8300000, guid: 495d93e750d52d24480495d6dec33798, type: 3}
-  woodStepSound: {fileID: 0}
-  attackSound1: {fileID: 0}
-  attackSound2: {fileID: 0}
-  attackDamage: 25
-  attackPoint: {fileID: 0}
+  hotbarController: {fileID: 9040488240784880301, guid: 1be18ab86d1b56543a37c8c7df375742, type: 3}
+  knifeItemID: 0
+  attackDamage: 1
+  attackPoint: {fileID: 9091788306553925435}
   attackRange: 0.5
   enemyLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   attackCooldown: 0.5
+  attackSound1: {fileID: 8300000, guid: b25ca59fee6338d4e91ab207ffacde9a, type: 3}
+  attackSound2: {fileID: 8300000, guid: 7b180238515664a4180b149248a51a1b, type: 3}
 --- !u!95 &7175994592087977937
 Animator:
   serializedVersion: 7
@@ -310,7 +380,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &2798641483156709671
+--- !u!114 &6550535132390074149
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -319,8 +389,86 @@ MonoBehaviour:
   m_GameObject: {fileID: 7175994593143721313}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0426a3f4e870ab46be3a9f405ee447f, type: 3}
+  m_Script: {fileID: 11500000, guid: 800e458b4af8273438a5a9ab1532bb0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hotbar: {fileID: 0}
-  knifeItem: {fileID: 11400000, guid: 2a195c33a13df9a4caa0c746805c7d75, type: 2}
+  maxHealth: 5
+  currentHealth: 5
+  hearts:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  fullHeart: {fileID: -168421969075237668, guid: 07c2696321c66374a83ae0e896b3fd73, type: 3}
+  emptyHeart: {fileID: -249628310123516169, guid: 07c2696321c66374a83ae0e896b3fd73, type: 3}
+  flashDuration: 0.1
+  flashCount: 5
+--- !u!1 &8280091746290601148
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9091788306553925435}
+  - component: {fileID: 6139124085370508450}
+  m_Layer: 0
+  m_Name: AttackPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9091788306553925435
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8280091746290601148}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7175994592087977940}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &6139124085370508450
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8280091746290601148}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0.43161675, y: 0}
+  m_Radius: 0.71293116
