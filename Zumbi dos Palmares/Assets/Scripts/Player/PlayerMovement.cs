@@ -3,276 +3,159 @@ using System.Collections;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [Header("Movimentação")]
     public float moveSpeed = 5f;
     public float boostSpeed = 8f;
-    private float playerInitialSpeed;
+    private float defaultSpeed;
 
-    private Rigidbody2D rb;
-    private Animator anim;
-    private Vector2 movement;
-    private Vector2 lastMoveDirection;
+    [Header("Referências")]
+    public HotbarController hotbarController;
+    public int knifeItemID = 0;            // ID da faca no catálogo
 
-    public AudioClip stepSound;
-    public AudioClip woodStepSound;
-    public AudioClip attackSound1;
-    public AudioClip attackSound2;
-    private AudioClip originalStepSound;
-    private AudioSource audioSource;
-    private bool isWalking = false;
-    private bool isOnWood = false;
-
-    [Header("Ataque")]
+    [Header("Combate")]
     public int attackDamage = 25;
     public Transform attackPoint;
     public float attackRange = 0.5f;
     public LayerMask enemyLayers;
-    private bool isAttack = false;
-    private bool canAttack = true;
     public float attackCooldown = 0.5f;
+    public AudioClip attackSound1, attackSound2;
 
-    [Header("Armas")]
-    private bool hasKnife = false;
-
-    private bool isFacingRight = true;
+    /* ----- internos ----- */
+    Rigidbody2D rb;
+    Animator anim;
+    AudioSource au;
+    Vector2 move;
+    bool facingRight = true;
+    bool isAttacking, canAttack = true;
+    private bool knifeCollected = false;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        audioSource = GetComponent<AudioSource>();
-        playerInitialSpeed = moveSpeed;
-        lastMoveDirection = Vector2.right;
-        originalStepSound = stepSound;
+        au = GetComponent<AudioSource>();
+        defaultSpeed = moveSpeed;
+
+        if (hotbarController == null) hotbarController = FindObjectOfType<HotbarController>();
     }
 
     void Update()
     {
-        ProcessInput();
-        Animate();
-        Flip();
+        ReadInput();
         HandleAttack();
-        HandleSpeedBoost();
-        PlayStepSound();
+        HandleMoveSpeed();
+        Animate();
+        FlipSprite();
     }
 
-    void FixedUpdate()
+    void FixedUpdate() => rb.linearVelocity = move * moveSpeed;
+
+    /* ---------- INPUT ---------- */
+    void ReadInput()
     {
-        Move();
+        move.x = Input.GetAxisRaw("Horizontal");
+        move.y = Input.GetAxisRaw("Vertical");
+        move.Normalize();
     }
 
-    void ProcessInput()
-    {
-        movement.x = Input.GetAxisRaw("Horizontal");
-        movement.y = Input.GetAxisRaw("Vertical");
-        movement = movement.normalized;
-
-        if (movement != Vector2.zero)
-        {
-            lastMoveDirection = movement;
-        }
-    }
-
-    void Move()
-    {
-        rb.linearVelocity = movement * moveSpeed;
-    }
-
-    void Animate()
-    {
-        if (isAttack)
-        {
-            anim.SetInteger("Movimento", 2);
-        }
-        else
-        {
-            anim.SetInteger("Movimento", movement.sqrMagnitude > 0 ? 1 : 0);
-        }
-    }
-
-    void Flip()
-    {
-        if (movement.x > 0 && !isFacingRight)
-        {
-            isFacingRight = true;
-            transform.eulerAngles = new Vector3(0f, 0f, 0f);
-            FlipAttackPoint();
-        }
-        else if (movement.x < 0 && isFacingRight)
-        {
-            isFacingRight = false;
-            transform.eulerAngles = new Vector3(0f, 180f, 0f);
-            FlipAttackPoint();
-        }
-    }
-
-    void FlipAttackPoint()
-    {
-        if (attackPoint != null)
-        {
-            Vector3 localPos = attackPoint.localPosition;
-            localPos.x *= -1;
-            attackPoint.localPosition = localPos;
-        }
-    }
-
+    /* ---------- COMBATE ---------- */
     void HandleAttack()
     {
-        if (!hasKnife) return;
+        bool knifeEquipped = hotbarController && hotbarController.GetSelectedItemID() == knifeItemID;
+
+        if (!knifeEquipped) return;
 
         if (Input.GetMouseButtonDown(0) && canAttack)
         {
-            Debug.Log("Ataque iniciado!");
-
-            isAttack = true;
+            isAttacking = true;
             moveSpeed = 0;
             canAttack = false;
-            anim.SetTrigger("Attack");
 
+            anim.SetTrigger("Attack");
             PlayAttackSound();
 
-            PerformAttack();
+            DealDamage();
             Invoke(nameof(ResetAttack), attackCooldown);
         }
     }
 
-    void PlayAttackSound()
+    void DealDamage()
     {
-        if (audioSource != null)
+        Collider2D[] hits = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
+        foreach (var col in hits)
         {
-            audioSource.Stop();
-            audioSource.loop = false;
-
-            if (attackSound1 != null)
-            {
-                audioSource.PlayOneShot(attackSound1);
-            }
-
-            if (attackSound2 != null)
-            {
-                Invoke(nameof(PlaySecondAttackSound), 0.2f); // ajuste conforme a animação
-            }
-        }
-    }
-
-    void PlaySecondAttackSound()
-    {
-        if (audioSource != null && attackSound2 != null)
-        {
-            audioSource.PlayOneShot(attackSound2);
-        }
-    }
-
-    void PerformAttack()
-    {
-        Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
-
-        if (hitEnemies.Length == 0)
-        {
-            Debug.Log("Nenhum inimigo atingido.");
-        }
-
-        foreach (Collider2D enemy in hitEnemies)
-        {
-            Enemy enemyScript = enemy.GetComponent<Enemy>();
-            if (enemyScript != null)
-            {
-                enemyScript.TakeDamage(attackDamage);
-            }
+            var en = col.GetComponent<Enemy>();
+            if (en) en.TakeDamage(attackDamage);
         }
     }
 
     void ResetAttack()
     {
-        isAttack = false;
-        moveSpeed = playerInitialSpeed;
+        isAttacking = false;
+        moveSpeed = defaultSpeed;
         canAttack = true;
     }
 
-    void HandleSpeedBoost()
+    void PlayAttackSound()
+    {
+        if (!au) return;
+
+        au.Stop();
+        au.loop = false;
+        if (attackSound1) au.PlayOneShot(attackSound1);
+        if (attackSound2) Invoke(nameof(PlaySecondAttackClip), 0.2f);
+    }
+    void PlaySecondAttackClip() { if (au && attackSound2) au.PlayOneShot(attackSound2); }
+
+    /* ---------- MOVIMENTO ---------- */
+    void HandleMoveSpeed()
     {
         if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
-        {
             moveSpeed = boostSpeed;
-        }
-        else if (Input.GetKey(KeyCode.LeftControl))
-        {
-            moveSpeed = playerInitialSpeed * 0.5f;
-        }
-        else if (!isAttack)
-        {
-            moveSpeed = playerInitialSpeed;
-        }
+        else if (!isAttacking)
+            moveSpeed = defaultSpeed;
     }
 
-    void PlayStepSound()
+    /* ---------- VISUAL ---------- */
+    void Animate() => anim.SetInteger("Movimento", isAttacking ? 2 : (move.sqrMagnitude > 0 ? 1 : 0));
+
+    void FlipSprite()
     {
-        if (movement.sqrMagnitude > 0 && !isAttack)
+        if (move.x > 0 && !facingRight || move.x < 0 && facingRight)
         {
-            if (!isWalking)
+            facingRight = !facingRight;
+            transform.Rotate(0, 180, 0);
+            if (attackPoint)
             {
-                isWalking = true;
-
-                if (audioSource != null)
-                {
-                    audioSource.clip = isOnWood ? woodStepSound : originalStepSound;
-                    audioSource.loop = true;
-                    audioSource.Play();
-                }
-            }
-        }
-        else
-        {
-            if (isWalking)
-            {
-                isWalking = false;
-                if (!isAttack && audioSource.clip != attackSound1 && audioSource.clip != attackSound2)
-                    audioSource.Stop();
+                Vector3 lp = attackPoint.localPosition;
+                lp.x *= -1;
+                attackPoint.localPosition = lp;
             }
         }
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    /* ---------- COLETA ---------- */
+    /// <summary>Chamado pelo KnifePickup quando o player encosta na faca.</summary>
+
+    public void CollectKnife()
     {
-        if (other.CompareTag("Wood"))
-        {
-            isOnWood = true;
+        if (knifeCollected) return;
 
-            if (isWalking && audioSource != null)
-            {
-                audioSource.Stop();
-                audioSource.clip = woodStepSound;
-                audioSource.Play();
-            }
+        if (hotbarController)
+        {
+            hotbarController.AddItemToHotbar(knifeItemID);
+            knifeCollected = true;
         }
     }
 
-    void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.CompareTag("Wood"))
-        {
-            isOnWood = false;
 
-            if (isWalking && audioSource != null)
-            {
-                audioSource.Stop();
-                audioSource.clip = originalStepSound;
-                audioSource.Play();
-            }
-        }
-    }
-
+    /* ---------- GIZMOS ---------- */
     void OnDrawGizmosSelected()
     {
-        if (attackPoint != null)
+        if (attackPoint)
         {
             Gizmos.color = Color.red;
             Gizmos.DrawWireSphere(attackPoint.position, attackRange);
         }
-    }
-
-    public void CollectKnife()
-    {
-        hasKnife = true;
-        Debug.Log("Faca coletada! Agora o jogador pode atacar.");
     }
 }

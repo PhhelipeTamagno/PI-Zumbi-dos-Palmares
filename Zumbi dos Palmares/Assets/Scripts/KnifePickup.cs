@@ -1,5 +1,4 @@
 using UnityEngine;
-using System.Collections;
 
 public class KnifePickup : MonoBehaviour
 {
@@ -8,7 +7,7 @@ public class KnifePickup : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             other.GetComponent<PlayerMovement>().CollectKnife();
-            Destroy(gameObject); // remove a faca da cena
+            Destroy(gameObject);// remove a faca da cena
         }
     }
 }

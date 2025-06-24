@@ -39,23 +39,17 @@ public class Enemy : MonoBehaviour
         if (player == null) return;
 
         float distance = Vector2.Distance(transform.position, player.position);
-
         if (distance <= detectionRange)
         {
-            ChasePlayer();
+            Vector2 direction = (player.position - transform.position).normalized;
+            transform.position += (Vector3)direction * moveSpeed * Time.deltaTime;
         }
-    }
-
-    void ChasePlayer()
-    {
-        Vector2 direction = (player.position - transform.position).normalized;
-        transform.position += (Vector3)direction * moveSpeed * Time.deltaTime;
     }
 
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
-        Debug.Log("Inimigo levou " + damage + " de dano. Vida restante: " + currentHealth);
+        Debug.Log("Inimigo levou " + damage + " de dano. Vida: " + currentHealth);
 
         if (spriteRenderer != null)
         {

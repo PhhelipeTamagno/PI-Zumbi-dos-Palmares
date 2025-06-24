@@ -3,60 +3,72 @@ using UnityEngine.UI;
 
 public class HotbarController : MonoBehaviour
 {
-    public ItemType[] itemTypes; // deve ter o mesmo tamanho que itemIcons
-    public GameObject[] itemSlots;      // Slot1, Slot2, Slot3...
-    public Sprite[] itemIcons;          // Ícones dos itens
-    private bool[] hasItem;
+    [Header("Configuração do Catálogo de Itens")]
+    public Sprite[] itemIcons;          // indexado pelo ID do item
+    public ItemType[] itemTypes;        // mesmo tamanho que itemIcons
 
-    private int selectedSlot = -1;      // Nenhum slot selecionado no início
+    [Header("Slots Visuais da Hotbar")]
+    public GameObject[] itemSlots;      // Slot1, Slot2, Slot3…
 
+    /* ----- estado interno ----- */
+    private int[] slotItemID;           // ID do item em cada slot (-1 = vazio)
+    private int selectedSlot = -1;
+
+    /* ========================== */
     void Start()
     {
-        hasItem = new bool[itemSlots.Length];
-
-        for (int i = 0; i < itemSlots.Length; i++)
+        /* inicializa arrays de estado */
+        slotItemID = new int[itemSlots.Length];
+        for (int i = 0; i < slotItemID.Length; i++)
         {
-            hasItem[i] = false;
-
+            slotItemID[i] = -1;                 // slot vazio
             Transform icon = itemSlots[i].transform.Find("Icon");
-            if (icon != null)
-                icon.gameObject.SetActive(false); // Esconde o ícone
+            if (icon != null) icon.gameObject.SetActive(false);
         }
     }
 
     void Update()
     {
-        // Seleciona o slot com as teclas 1, 2, 3...
+        /* teclas numéricas 1,2,3… para selecionar slot */
         for (int i = 0; i < itemSlots.Length; i++)
         {
-            if (Input.GetKeyDown(KeyCode.Alpha1 + i))
-            {
-                SelectSlot(i); // ← CHAMA ESTA FUNÇÃO
-            }
+            if (Input.GetKeyDown(KeyCode.Alpha1 + i)) SelectSlot(i);
         }
 
-        // Usa o item ao pressionar a tecla E
-        if (Input.GetKeyDown(KeyCode.E) && selectedSlot != -1 && hasItem[selectedSlot])
+        /* tecla E usa o item do slot selecionado */
+        if (Input.GetKeyDown(KeyCode.E) && selectedSlot != -1 && slotItemID[selectedSlot] != -1)
         {
             UseItem(selectedSlot);
         }
     }
 
+    /* ---------- API pública ---------- */
+
+    /// <summary> Adiciona um item (por ID) no primeiro slot livre. </summary>
     public void AddItemToHotbar(int itemID)
     {
+        // Evita adicionar duplicado
+        for (int i = 0; i < slotItemID.Length; i++)
+        {
+            if (slotItemID[i] == itemID)
+            {
+                Debug.Log("Item já está na hotbar.");
+                return;
+            }
+        }
+
+        // Procura slot vazio
         for (int i = 0; i < itemSlots.Length; i++)
         {
-            if (!hasItem[i])
+            if (slotItemID[i] == -1)
             {
+                slotItemID[i] = itemID;
+
                 Transform icon = itemSlots[i].transform.Find("Icon");
                 icon.GetComponent<Image>().sprite = itemIcons[itemID];
                 icon.gameObject.SetActive(true);
 
-                hasItem[i] = true;
-
-                // (Opcional) selecionar automaticamente o primeiro slot preenchido
                 SelectSlot(i);
-
                 return;
             }
         }
@@ -64,46 +76,55 @@ public class HotbarController : MonoBehaviour
         Debug.Log("Hotbar cheia!");
     }
 
-    // ⬇️ AQUI ESTÁ O MÉTODO QUE VOCÊ PRECISA ADICIONAR
-    void SelectSlot(int i)
-    {
-        if (!hasItem[i])
-        {
-            Debug.Log("Slot " + (i + 1) + " está vazio.");
-            return;
-        }
 
-        selectedSlot = i;
-        Debug.Log("Slot " + (i + 1) + " selecionado.");
+    /// <summary> Devolve o ID do item atualmente selecionado (-1 se nada). </summary>
+    public int GetSelectedItemID()
+    {
+        return selectedSlot != -1 ? slotItemID[selectedSlot] : -1;
     }
 
-    void UseItem(int i)
+    /// <summary> True se o item selecionado é do tipo Equipable. </summary>
+    public bool IsEquipableSelected()
     {
-        Debug.Log("Usando item do slot " + (i + 1));
+        int id = GetSelectedItemID();
+        return id != -1 && itemTypes[id] == ItemType.Equipable;
+    }
 
-        // Aqui você aplicaria o efeito real (curar, equipar, etc.)
+    /* ---------- lógica interna ---------- */
 
-        // Verifica o tipo do item
-        if (itemTypes.Length > i && itemTypes[i] == ItemType.Consumable)
+    void SelectSlot(int i)
+    {
+        if (slotItemID[i] == -1)
         {
-            // Consumir o item (poções, etc.)
-            Transform icon = itemSlots[i].transform.Find("Icon");
+            Debug.Log($"Slot {i + 1} vazio.");
+            return;
+        }
+        selectedSlot = i;
+        Debug.Log($"Slot {i + 1} selecionado.");
+    }
+
+    void UseItem(int slotIndex)
+    {
+        int id = slotItemID[slotIndex];
+        if (id == -1) return;
+
+        Debug.Log($"Usando item {id} no slot {slotIndex + 1}");
+
+        if (itemTypes[id] == ItemType.Consumable)
+        {
+            // consumir e remover
+            Transform icon = itemSlots[slotIndex].transform.Find("Icon");
             icon.gameObject.SetActive(false);
-            hasItem[i] = false;
-            selectedSlot = -1;
+            slotItemID[slotIndex] = -1;
+            if (selectedSlot == slotIndex) selectedSlot = -1;
             Debug.Log("Item consumido.");
         }
         else
         {
-            // Item é equipável (ex: espada), apenas ativa o uso
-            Debug.Log("Item equipável usado (não removido da hotbar).");
+            // é equipável: só mantém selecionado
+            Debug.Log("Item equipável usado (permanece no slot).");
         }
     }
 
-    public enum ItemType
-    {
-        Consumable,
-        Equipable
-    }
-
+    public enum ItemType { Consumable, Equipable }
 }

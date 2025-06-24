@@ -25,7 +25,7 @@ public class PlayerHealthUI : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         if (spriteRenderer == null)
         {
-            Debug.LogWarning("SpriteRenderer não encontrado no objeto!");
+            Debug.LogWarning("SpriteRenderer não encontrado!");
         }
     }
 
@@ -54,10 +54,7 @@ public class PlayerHealthUI : MonoBehaviour
     {
         for (int i = 0; i < hearts.Length; i++)
         {
-            if (i < currentHealth)
-                hearts[i].sprite = fullHeart;
-            else
-                hearts[i].sprite = emptyHeart;
+            hearts[i].sprite = i < currentHealth ? fullHeart : emptyHeart;
         }
     }
 
@@ -67,9 +64,9 @@ public class PlayerHealthUI : MonoBehaviour
 
         for (int i = 0; i < flashCount; i++)
         {
-            spriteRenderer.color = new Color(1f, 1f, 1f, 0.2f);
+            spriteRenderer.color = new Color(1, 1, 1, 0.2f);
             yield return new WaitForSeconds(flashDuration);
-            spriteRenderer.color = new Color(1f, 1f, 1f, 1f);
+            spriteRenderer.color = Color.white;
             yield return new WaitForSeconds(flashDuration);
         }
     }
@@ -77,8 +74,8 @@ public class PlayerHealthUI : MonoBehaviour
     void Die()
     {
         Debug.Log("Player morreu!");
-        Destroy(gameObject); // Remove o player da cena
-        Invoke(nameof(RestartScene), 1f); // Espera 1s antes de reiniciar
+        Destroy(gameObject);
+        Invoke(nameof(RestartScene), 1f);
     }
 
     void RestartScene()
