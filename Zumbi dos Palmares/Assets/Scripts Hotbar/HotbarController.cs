@@ -99,9 +99,24 @@ public class HotbarController : MonoBehaviour
             Debug.Log($"Slot {i + 1} vazio.");
             return;
         }
+
+        // Desativa o destaque de todos
+        for (int s = 0; s < itemSlots.Length; s++)
+        {
+            Transform highlight = itemSlots[s].transform.Find("Highlight");
+            if (highlight != null)
+                highlight.gameObject.SetActive(false);
+        }
+
+        // Ativa o destaque do slot selecionado
+        Transform selectedHighlight = itemSlots[i].transform.Find("Highlight");
+        if (selectedHighlight != null)
+            selectedHighlight.gameObject.SetActive(true);
+
         selectedSlot = i;
         Debug.Log($"Slot {i + 1} selecionado.");
     }
+
 
     void UseItem(int slotIndex)
     {
