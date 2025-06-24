@@ -15287,7 +15287,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 162.02583
+  field of view: 160.2
   orthographic: 0
   orthographic size: 5
   m_Depth: 0
@@ -15314,7 +15314,7 @@ Transform:
   m_GameObject: {fileID: 1432782783}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.19, y: -1.1, z: -0.5656379}
+  m_LocalPosition: {x: 0.56, y: -1.1, z: -0.5656379}
   m_LocalScale: {x: 0.95581, y: 0.95581, z: 0.95581}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -15341,7 +15341,7 @@ MonoBehaviour:
   m_VolumeLayerMask:
     serializedVersion: 2
     m_Bits: 1
-  m_VolumeTrigger: {fileID: 0}
+  m_VolumeTrigger: {fileID: 1432782786}
   m_VolumeFrameworkUpdateModeOption: 2
   m_RenderPostProcessing: 0
   m_Antialiasing: 0
