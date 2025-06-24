@@ -15873,6 +15873,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1118840764}
     m_Modifications:
+    - target: {fileID: 179525693740118601, guid: 11b4b81115a924f478b76ac49f0f80ca, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1877390362447319862, guid: 11b4b81115a924f478b76ac49f0f80ca, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8352594896234132807, guid: 11b4b81115a924f478b76ac49f0f80ca, type: 3}
       propertyPath: m_Name
       value: HotBar
