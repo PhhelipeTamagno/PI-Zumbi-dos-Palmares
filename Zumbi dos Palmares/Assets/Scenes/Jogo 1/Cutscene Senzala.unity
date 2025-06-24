@@ -13455,7 +13455,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bd1b46e2aed7634f88beebb5f146620, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: Jogo 4
+  sceneName: Jogo 5
 --- !u!61 &705545316
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -15538,6 +15538,7 @@ GameObject:
   - component: {fileID: 2005316612}
   - component: {fileID: 2005316611}
   - component: {fileID: 2005316610}
+  - component: {fileID: 2005316613}
   m_Layer: 0
   m_Name: Square
   m_TagString: Untagged
@@ -15637,6 +15638,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2005316613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2005316609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cad9b9f7f561bf24ca8e66a507c10827, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  proximaCena: Jogo 4
+  tempoDeEspera: 10
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
