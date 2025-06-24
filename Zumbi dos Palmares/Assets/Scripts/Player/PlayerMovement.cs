@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Referências")]
     public HotbarController hotbarController;
-    public int knifeItemID = 0;            // ID da faca no catálogo
+    public int knifeItemID = 0;
 
     [Header("Combate")]
     public int attackDamage = 25;
@@ -20,13 +20,13 @@ public class PlayerMovement : MonoBehaviour
     public float attackCooldown = 0.5f;
     public AudioClip attackSound1, attackSound2;
 
-    /* ----- internos ----- */
-    Rigidbody2D rb;
-    Animator anim;
-    AudioSource au;
-    Vector2 move;
-    bool facingRight = true;
-    bool isAttacking, canAttack = true;
+    // Internos
+    private Rigidbody2D rb;
+    private Animator anim;
+    private AudioSource au;
+    private Vector2 move;
+    private bool facingRight = true;
+    private bool isAttacking = false, canAttack = true;
     private bool knifeCollected = false;
 
     void Start()
@@ -36,7 +36,8 @@ public class PlayerMovement : MonoBehaviour
         au = GetComponent<AudioSource>();
         defaultSpeed = moveSpeed;
 
-        if (hotbarController == null) hotbarController = FindObjectOfType<HotbarController>();
+        if (hotbarController == null)
+            hotbarController = FindObjectOfType<HotbarController>();
     }
 
     void Update()
@@ -48,9 +49,11 @@ public class PlayerMovement : MonoBehaviour
         FlipSprite();
     }
 
-    void FixedUpdate() => rb.linearVelocity = move * moveSpeed;
+    void FixedUpdate()
+    {
+        rb.linearVelocity = move * moveSpeed;
+    }
 
-    /* ---------- INPUT ---------- */
     void ReadInput()
     {
         move.x = Input.GetAxisRaw("Horizontal");
@@ -58,11 +61,9 @@ public class PlayerMovement : MonoBehaviour
         move.Normalize();
     }
 
-    /* ---------- COMBATE ---------- */
     void HandleAttack()
     {
         bool knifeEquipped = hotbarController && hotbarController.GetSelectedItemID() == knifeItemID;
-
         if (!knifeEquipped) return;
 
         if (Input.GetMouseButtonDown(0) && canAttack)
@@ -74,20 +75,28 @@ public class PlayerMovement : MonoBehaviour
             anim.SetTrigger("Attack");
             PlayAttackSound();
 
-            DealDamage();
+            // Agora o dano será aplicado via evento da animação
             Invoke(nameof(ResetAttack), attackCooldown);
         }
     }
 
-    void DealDamage()
+    // ✅ Chamado via Animation Event no ponto do golpe
+    public void ApplyDamage()
     {
+        Debug.Log("Tentando aplicar dano...");
+
         Collider2D[] hits = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
         foreach (var col in hits)
         {
-            var en = col.GetComponent<Enemy>();
-            if (en) en.TakeDamage(attackDamage);
+            var enemy = col.GetComponent<Enemy>();
+            if (enemy != null)
+            {
+                Debug.Log("Inimigo atingido!");
+                enemy.TakeDamage(attackDamage);
+            }
         }
     }
+
 
     void ResetAttack()
     {
@@ -105,9 +114,13 @@ public class PlayerMovement : MonoBehaviour
         if (attackSound1) au.PlayOneShot(attackSound1);
         if (attackSound2) Invoke(nameof(PlaySecondAttackClip), 0.2f);
     }
-    void PlaySecondAttackClip() { if (au && attackSound2) au.PlayOneShot(attackSound2); }
 
-    /* ---------- MOVIMENTO ---------- */
+    void PlaySecondAttackClip()
+    {
+        if (au && attackSound2)
+            au.PlayOneShot(attackSound2);
+    }
+
     void HandleMoveSpeed()
     {
         if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
@@ -116,26 +129,26 @@ public class PlayerMovement : MonoBehaviour
             moveSpeed = defaultSpeed;
     }
 
-    /* ---------- VISUAL ---------- */
-    void Animate() => anim.SetInteger("Movimento", isAttacking ? 2 : (move.sqrMagnitude > 0 ? 1 : 0));
+    void Animate()
+    {
+        anim.SetInteger("Movimento", isAttacking ? 2 : (move.sqrMagnitude > 0 ? 1 : 0));
+    }
 
     void FlipSprite()
     {
-        if (move.x > 0 && !facingRight || move.x < 0 && facingRight)
+        if ((move.x > 0 && !facingRight) || (move.x < 0 && facingRight))
         {
             facingRight = !facingRight;
             transform.Rotate(0, 180, 0);
+
             if (attackPoint)
             {
-                Vector3 lp = attackPoint.localPosition;
-                lp.x *= -1;
-                attackPoint.localPosition = lp;
+                Vector3 localPos = attackPoint.localPosition;
+                localPos.x *= -1;
+                attackPoint.localPosition = localPos;
             }
         }
     }
-
-    /* ---------- COLETA ---------- */
-    /// <summary>Chamado pelo KnifePickup quando o player encosta na faca.</summary>
 
     public void CollectKnife()
     {
@@ -148,8 +161,6 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-
-    /* ---------- GIZMOS ---------- */
     void OnDrawGizmosSelected()
     {
         if (attackPoint)

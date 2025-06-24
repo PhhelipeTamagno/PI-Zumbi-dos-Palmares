@@ -2,36 +2,36 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    [Header("Vida")]
     public int maxHealth = 100;
     private int currentHealth;
 
+    [Header("Combate")]
+    public int damageToPlayer = 1;
+    public float damageCooldown = 1f;
+    private float lastDamageTime;
+
+    [Header("Detecção e Movimento")]
+    public float moveSpeed = 2f;
+    public float detectionRange = 5f;
+    private Transform player;
+
+    [Header("Feedback visual")]
     private SpriteRenderer spriteRenderer;
     private Color originalColor;
     public float flashDuration = 0.1f;
 
-    public float moveSpeed = 2f;
-    public float detectionRange = 5f;
-    public int damageToPlayer = 1;
-    public float damageCooldown = 1f;
-
-    private Transform player;
-    private float lastDamageTime;
-
     void Start()
     {
         currentHealth = maxHealth;
-        spriteRenderer = GetComponent<SpriteRenderer>();
 
+        spriteRenderer = GetComponent<SpriteRenderer>();
         if (spriteRenderer != null)
-        {
             originalColor = spriteRenderer.color;
-        }
 
         GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
         if (playerObj != null)
-        {
             player = playerObj.transform;
-        }
     }
 
     void Update()
@@ -49,7 +49,7 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
-        Debug.Log("Inimigo levou " + damage + " de dano. Vida: " + currentHealth);
+        Debug.Log("Inimigo levou " + damage + " de dano. Vida restante: " + currentHealth);
 
         if (spriteRenderer != null)
         {
@@ -58,9 +58,7 @@ public class Enemy : MonoBehaviour
         }
 
         if (currentHealth <= 0)
-        {
             Die();
-        }
     }
 
     System.Collections.IEnumerator FlashRed()
