@@ -33,11 +33,14 @@ EditorBuildSettings:
     path: Assets/Scenes/Jogo 1/Jogo 5.unity
     guid: 2bb37cf1db8b09c40a257a5cda07a814
   - enabled: 1
-    path: Assets/Scenes/Settings 2.unity
-    guid: 26f2455824c05844a93742b18f468442
-  - enabled: 1
     path: Assets/Scenes/Cutscene barco.unity
     guid: e8923c916fee99d45b2dcf968db3443e
+  - enabled: 1
+    path: Assets/Scenes/Jogo 1/Jogo 6.unity
+    guid: 907620514008e814d94dd3b5cf42f3c5
+  - enabled: 1
+    path: Assets/Scenes/Settings 2.unity
+    guid: 26f2455824c05844a93742b18f468442
   - enabled: 1
     path: Assets/Scenes/GameOver.unity
     guid: 50810e732041f7745a3b3ec93e9f06b6
