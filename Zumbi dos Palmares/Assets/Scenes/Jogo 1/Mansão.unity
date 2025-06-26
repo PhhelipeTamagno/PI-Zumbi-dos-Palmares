@@ -8225,6 +8225,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9ebf68a695ad7764fa2236c4081fc52e, type: 3}
+--- !u!114 &351494688 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5874221427406530582, guid: e9f8be5ff3564504e8c5fbc324f67e1e, type: 3}
+  m_PrefabInstance: {fileID: 1312647321}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &394412460
 GameObject:
   m_ObjectHideFlags: 0
@@ -8303,6 +8314,28 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &402370126 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5632387244960167233, guid: e9f8be5ff3564504e8c5fbc324f67e1e, type: 3}
+  m_PrefabInstance: {fileID: 1312647321}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &404217028 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4684075867645299321, guid: e9f8be5ff3564504e8c5fbc324f67e1e, type: 3}
+  m_PrefabInstance: {fileID: 1312647321}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &451824107
 GameObject:
   m_ObjectHideFlags: 0
@@ -25616,6 +25649,26 @@ PrefabInstance:
       propertyPath: woodStepSound
       value: 
       objectReference: {fileID: 8300000, guid: 78f126570062e0e4ab3fae5405b99877, type: 3}
+    - target: {fileID: 6550535132390074149, guid: 5fa5bdee3a1add84d8a277682f4eae88, type: 3}
+      propertyPath: 'hearts.Array.data[0]'
+      value: 
+      objectReference: {fileID: 402370126}
+    - target: {fileID: 6550535132390074149, guid: 5fa5bdee3a1add84d8a277682f4eae88, type: 3}
+      propertyPath: 'hearts.Array.data[1]'
+      value: 
+      objectReference: {fileID: 404217028}
+    - target: {fileID: 6550535132390074149, guid: 5fa5bdee3a1add84d8a277682f4eae88, type: 3}
+      propertyPath: 'hearts.Array.data[2]'
+      value: 
+      objectReference: {fileID: 1410662205}
+    - target: {fileID: 6550535132390074149, guid: 5fa5bdee3a1add84d8a277682f4eae88, type: 3}
+      propertyPath: 'hearts.Array.data[3]'
+      value: 
+      objectReference: {fileID: 2138817835}
+    - target: {fileID: 6550535132390074149, guid: 5fa5bdee3a1add84d8a277682f4eae88, type: 3}
+      propertyPath: 'hearts.Array.data[4]'
+      value: 
+      objectReference: {fileID: 351494688}
     - target: {fileID: 7175994592087977940, guid: 5fa5bdee3a1add84d8a277682f4eae88, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.9035431
@@ -25677,6 +25730,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5fa5bdee3a1add84d8a277682f4eae88, type: 3}
+--- !u!114 &1410662205 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8047033828140389478, guid: e9f8be5ff3564504e8c5fbc324f67e1e, type: 3}
+  m_PrefabInstance: {fileID: 1312647321}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1510394008
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -43608,6 +43672,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2138817835 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6909176182949172249, guid: e9f8be5ff3564504e8c5fbc324f67e1e, type: 3}
+  m_PrefabInstance: {fileID: 1312647321}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
