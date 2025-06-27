@@ -14,6 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Marcos
   sentences:
-  - "Vamos, escravo! Voc\xEA est\xE1 atrasado.\n"
-  - "Colete essas cenouras e r\xE1pido!\n\n"
+  - 'Vamos, escravo! Voce esta atrasado.
+
+'
+  - 'Colete essas cenouras e rapido!
+
+
+'
   npcSprite: {fileID: 4483504832982471387, guid: 8ab8bac50dfd83b4096a163ce1f6ebde, type: 3}

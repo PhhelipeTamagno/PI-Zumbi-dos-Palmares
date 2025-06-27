@@ -15,7 +15,6 @@ MonoBehaviour:
   characterName: Marcos
   sentences:
   - "Finalmente terminou essa porcaria das canas. Agora vai pra sua cela e fique
-    quieto, amanh\xE3 tem mais servi\xE7o."
-  - "N\xE3o ouse andar por a\xED \xE0 noite, ou o chicote vai fazer voc\xEA lembrar
-    quem manda."
+    quieto, amanha tem mais servi\xE7o."
+  - "N\xE3o ouse andar por ai a noite, ou o chicote vai fazer voce lembrar quem manda."
   npcSprite: {fileID: 4483504832982471387, guid: 8ab8bac50dfd83b4096a163ce1f6ebde, type: 3}
