@@ -1,22 +1,25 @@
 fileFormatVersion: 2
-guid: 71cb10557b2cc174b9a58cf627fa6628
+guid: cb86758c10fb8e647a7f4c3611967b8b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2053989363645956680
-    second: pixilart-sprite (1)_0
+      213: -347516340193853795
+    second: Sprite velho_0
   - first:
-      213: -996435834641883867
-    second: pixilart-sprite (1)_1
+      213: -3766672331975562497
+    second: Sprite velho_1
   - first:
-      213: -1493032810441443054
-    second: pixilart-sprite (1)_2
+      213: -5954558964777111436
+    second: Sprite velho_2
   - first:
-      213: 4089393204286459484
-    second: pixilart-sprite (1)_3
+      213: -3586559483225921855
+    second: Sprite velho_3
   - first:
-      213: 2512838835981015971
-    second: pixilart-sprite (1)_4
+      213: 8230966299718912837
+    second: Sprite velho_4
+  - first:
+      213: 3894277752646735173
+    second: Sprite velho_5
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -63,7 +66,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 64
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -108,16 +111,42 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Ampulhetas_0
+      name: Sprite velho_0
       rect:
         serializedVersion: 2
-        x: 24
-        y: 40
-        width: 11
+        x: 9
+        y: 297
+        width: 13
         height: 18
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -125,21 +154,21 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: b6c74cdb9d184f54ba74f59ce424c56f
-      internalID: 649778911
+      spriteID: d9ef915dabf5d2bf0800000000000000
+      internalID: -347516340193853795
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ampulhetas_1
+      name: Sprite velho_1
       rect:
         serializedVersion: 2
-        x: 88
-        y: 40
-        width: 11
+        x: 41
+        y: 297
+        width: 13
         height: 18
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -147,65 +176,65 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 8ef30cf364c3be2429a2dc9d8c6da76a
-      internalID: 2034796700
+      spriteID: ffaed4388771abbc0800000000000000
+      internalID: -3766672331975562497
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ampulhetas_2
+      name: Sprite velho_2
       rect:
         serializedVersion: 2
-        x: 152
-        y: 40
-        width: 11
-        height: 18
+        x: 73
+        y: 297
+        width: 13
+        height: 17
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: d1dc6860cf8094d46ba8441c275006f2
-      internalID: -967262215
+      spriteID: 470b75e8b282d5da0800000000000000
+      internalID: -5954558964777111436
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ampulhetas_3
+      name: Sprite velho_3
       rect:
         serializedVersion: 2
-        x: 216
-        y: 40
-        width: 11
-        height: 18
+        x: 105
+        y: 297
+        width: 13
+        height: 17
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: ab732709329402448a5c725453704e22
-      internalID: -1283089660
+      spriteID: 1c6a284072bf93ec0800000000000000
+      internalID: -3586559483225921855
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ampulhetas_4
+      name: Sprite velho_4
       rect:
         serializedVersion: 2
-        x: 280
-        y: 40
-        width: 11
+        x: 137
+        y: 297
+        width: 13
         height: 18
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -213,10 +242,32 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: dd7d9475869503c40a05f0e4fef339ef
-      internalID: -1917526282
+      spriteID: 54b05f47d344a3270800000000000000
+      internalID: 8230966299718912837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite velho_5
+      rect:
+        serializedVersion: 2
+        x: 169
+        y: 297
+        width: 13
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5451737bbf04b0630800000000000000
+      internalID: 3894277752646735173
       vertices: []
       indices: 
       edges: []
@@ -225,7 +276,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: ba5c2dba65f19a74eb5b95ef32713a9a
+    spriteID: 03a85f405dc4b7b44ad5af9ea811db10
     internalID: 0
     vertices: []
     indices: 
@@ -235,11 +286,12 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Ampulhetas_0: 649778911
-      Ampulhetas_1: 2034796700
-      Ampulhetas_2: -967262215
-      Ampulhetas_3: -1283089660
-      Ampulhetas_4: -1917526282
+      Sprite velho_0: -347516340193853795
+      Sprite velho_1: -3766672331975562497
+      Sprite velho_2: -5954558964777111436
+      Sprite velho_3: -3586559483225921855
+      Sprite velho_4: 8230966299718912837
+      Sprite velho_5: 3894277752646735173
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

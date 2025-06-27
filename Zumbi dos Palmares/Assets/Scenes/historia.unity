@@ -206,7 +206,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &516658470
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1137,20 +1137,25 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Voc\xEA \xE9 o Zumbi dos Palmares. Durante o dia, vai precisar obedecer
-    as ordens dos bandeirantes. Voc\xEA vai precisar fazer tarefas do tipo, arar,
-    cuidar da planta\xE7\xE3o, essas coisas. Se n\xE3o fizer, eles desconfiam, e
-    isso pode acabar com seu plano. Ent\xE3o age normal, finge que t\xE1 tudo certo.\n\nMas
-    \xE0 noite, o jogo muda. \xC9 quando voc\xEA come\xE7a as miss\xF5es de verdade.
-    Voc\xEA vai sair escondido, sem ningu\xE9m te ver, pra libertar o seu povo, pegar
-    chaves, sabotar coisas da fazenda e se preparar pra fugir. As miss\xF5es v\xE3o
-    ser no estilo stealth, ou seja, tudo no sil\xEAncio e sem chamar aten\xE7\xE3o.
-    Se te pegarem, pode ser o fim.\n\nSeu objetivo \xE9 libertar o m\xE1ximo de pessoas
-    poss\xEDvel e juntar tudo o que for preciso pra conseguir fugir da fazenda com
-    seguran\xE7a. Ent\xE3o presta aten\xE7\xE3o, porque cada escolha importa."
+  m_text: 'voce e o Zumbi dos Palmares. Durante o dia, vai precisar obedecer as ordens
+    dos bandeirantes. Voce vai precisar fazer tarefas do tipo, arar, cuidar da plantacao,
+    essas coisas. Se nao fizer, eles desconfiam, e isso pode acabar com seu plano.
+    Entao age normal, finge que ta tudo certo.
+
+
+    Mas a noite, o jogo muda. E
+    quando voce comeca as missoes de verdade. Voce vai sair escondido, sem ninguem
+    te ver, pra libertar o seu povo, pegar chaves, sabotar coisas da fazenda e se
+    preparar pra fugir. As missoes vao ser no estilo stealth, ou seja, tudo no silencio
+    e sem chamar atencao. Se te pegarem, pode ser o fim.
+
+
+    Seu objetivo e libertar
+    o maximo de pessoas possivel e juntar tudo o que for preciso pra conseguir fugir
+    da fazenda com seguranca. Entao presta atencao, porque cada escolha importa.'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 79fd48d903e893641ad451f2c5c3f81d, type: 2}
+  m_sharedMaterial: {fileID: 8222037407953206336, guid: 79fd48d903e893641ad451f2c5c3f81d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1237,6 +1242,7 @@ GameObject:
   - component: {fileID: 2030127268}
   - component: {fileID: 2030127267}
   - component: {fileID: 2030127266}
+  - component: {fileID: 2030127269}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1318,6 +1324,50 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2030127269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2030127265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_AllowHDROutput: 1
+  m_UseScreenCoordOverride: 0
+  m_ScreenSizeOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_ScreenCoordScaleBias: {x: 0, y: 0, z: 0, w: 0}
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
+  m_TaaSettings:
+    m_Quality: 3
+    m_FrameInfluence: 0.1
+    m_JitterScale: 1
+    m_MipBias: 0
+    m_VarianceClampScale: 0.9
+    m_ContrastAdaptiveSharpening: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
