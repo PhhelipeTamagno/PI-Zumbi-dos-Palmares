@@ -28,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
     private bool facingRight = true;
     private bool isAttacking = false, canAttack = true;
     private bool knifeCollected = false;
+    private bool attackBlockedByZone = false;
 
     void Start()
     {
@@ -64,7 +65,8 @@ public class PlayerMovement : MonoBehaviour
     void HandleAttack()
     {
         bool knifeEquipped = hotbarController && hotbarController.GetSelectedItemID() == knifeItemID;
-        if (!knifeEquipped) return;
+
+        if (!knifeEquipped || attackBlockedByZone) return;
 
         if (Input.GetMouseButtonDown(0) && canAttack)
         {
@@ -75,13 +77,11 @@ public class PlayerMovement : MonoBehaviour
             anim.SetTrigger("Attack");
             PlayAttackSound();
 
-            // Agora o dano será aplicado via evento da animação
             Invoke(nameof(ResetAttack), attackCooldown);
         }
     }
 
-    // ✅ Chamado via Animation Event no ponto do golpe
-    public void ApplyDamage()
+    public void ApplyDamage() // Chamada por Animation Event
     {
         Debug.Log("Tentando aplicar dano...");
 
@@ -96,7 +96,6 @@ public class PlayerMovement : MonoBehaviour
             }
         }
     }
-
 
     void ResetAttack()
     {
@@ -158,6 +157,24 @@ public class PlayerMovement : MonoBehaviour
         {
             hotbarController.AddItemToHotbar(knifeItemID);
             knifeCollected = true;
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("ZonaSemAtaque"))
+        {
+            if (hotbarController && hotbarController.GetSelectedItemID() == knifeItemID)
+                attackBlockedByZone = true;
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("ZonaSemAtaque"))
+        {
+            if (hotbarController && hotbarController.GetSelectedItemID() == knifeItemID)
+                attackBlockedByZone = false;
         }
     }
 
