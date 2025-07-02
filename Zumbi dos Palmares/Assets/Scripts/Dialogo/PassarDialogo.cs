@@ -23,6 +23,10 @@ public class PassarDialogo : MonoBehaviour
             if (dialogue != null && dialogueManager != null)
             {
                 dialogueManager.StartDialogue(dialogue);
+
+                // Desativa o Collider para não disparar novamente
+                gameObject.SetActive(false);
+
             }
         }
     }
