@@ -1,5 +1,5 @@
 using UnityEngine;
-using System.Collections;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -20,7 +20,15 @@ public class PlayerMovement : MonoBehaviour
     public float attackCooldown = 0.5f;
     public AudioClip attackSound1, attackSound2;
 
+    [Header("Stamina")]
+    public Slider staminaSlider;
+    public float maxStamina = 100f;
+    public float staminaDrainRate = 20f;     // por segundo
+    public float staminaRecoveryRate = 15f;  // por segundo
+
     // Internos
+    private float currentStamina;
+    private bool isRunning = false;
     private Rigidbody2D rb;
     private Animator anim;
     private AudioSource au;
@@ -36,6 +44,13 @@ public class PlayerMovement : MonoBehaviour
         anim = GetComponent<Animator>();
         au = GetComponent<AudioSource>();
         defaultSpeed = moveSpeed;
+
+        currentStamina = maxStamina;
+        if (staminaSlider != null)
+        {
+            staminaSlider.maxValue = maxStamina;
+            staminaSlider.value = maxStamina;
+        }
 
         if (hotbarController == null)
             hotbarController = FindObjectOfType<HotbarController>();
@@ -81,7 +96,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    public void ApplyDamage() // Chamada por Animation Event
+    public void ApplyDamage()
     {
         Debug.Log("Tentando aplicar dano...");
 
@@ -122,10 +137,29 @@ public class PlayerMovement : MonoBehaviour
 
     void HandleMoveSpeed()
     {
-        if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
+        bool wantsToRun = (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift));
+        isRunning = wantsToRun && move.sqrMagnitude > 0 && !isAttacking && currentStamina > 0;
+
+        if (isRunning)
+        {
             moveSpeed = boostSpeed;
-        else if (!isAttacking)
-            moveSpeed = defaultSpeed;
+            currentStamina -= staminaDrainRate * Time.deltaTime;
+            currentStamina = Mathf.Clamp(currentStamina, 0, maxStamina);
+        }
+        else
+        {
+            if (!isAttacking)
+                moveSpeed = defaultSpeed;
+
+            if (currentStamina < maxStamina)
+            {
+                currentStamina += staminaRecoveryRate * Time.deltaTime;
+                currentStamina = Mathf.Clamp(currentStamina, 0, maxStamina);
+            }
+        }
+
+        if (staminaSlider != null)
+            staminaSlider.value = currentStamina;
     }
 
     void Animate()
