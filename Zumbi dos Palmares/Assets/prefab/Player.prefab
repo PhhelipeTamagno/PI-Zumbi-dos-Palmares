@@ -261,6 +261,10 @@ MonoBehaviour:
   attackCooldown: 0.5
   attackSound1: {fileID: 8300000, guid: b25ca59fee6338d4e91ab207ffacde9a, type: 3}
   attackSound2: {fileID: 8300000, guid: 7b180238515664a4180b149248a51a1b, type: 3}
+  staminaSlider: {fileID: 217244121123303280, guid: e6cb8b57e08aaf341bd0583c42816d26, type: 3}
+  maxStamina: 100
+  staminaDrainRate: 20
+  staminaRecoveryRate: 15
 --- !u!95 &7175994592087977937
 Animator:
   serializedVersion: 7
