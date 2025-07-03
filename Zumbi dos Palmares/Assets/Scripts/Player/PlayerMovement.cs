@@ -20,11 +20,14 @@ public class PlayerMovement : MonoBehaviour
     public float attackCooldown = 0.5f;
     public AudioClip attackSound1, attackSound2;
 
+    [Header("Som de Passos")]
+    public AudioClip footstepSound;
+
     [Header("Stamina")]
     public Slider staminaSlider;
     public float maxStamina = 100f;
-    public float staminaDrainRate = 20f;     // por segundo
-    public float staminaRecoveryRate = 15f;  // por segundo
+    public float staminaDrainRate = 20f;
+    public float staminaRecoveryRate = 15f;
 
     // Internos
     private float currentStamina;
@@ -61,6 +64,7 @@ public class PlayerMovement : MonoBehaviour
         ReadInput();
         HandleAttack();
         HandleMoveSpeed();
+        HandleFootsteps();
         Animate();
         FlipSprite();
     }
@@ -141,7 +145,6 @@ public class PlayerMovement : MonoBehaviour
         bool moving = move.sqrMagnitude > 0;
         bool canRun = currentStamina > 0;
 
-        // Corrida somente se quiser correr, estiver se movendo, não estiver atacando e tiver stamina
         isRunning = wantsToRun && moving && !isAttacking && canRun;
 
         if (isRunning)
@@ -155,7 +158,6 @@ public class PlayerMovement : MonoBehaviour
             if (!isAttacking)
                 moveSpeed = defaultSpeed;
 
-            // Recupera stamina apenas se não estiver correndo
             if (currentStamina < maxStamina)
             {
                 currentStamina += staminaRecoveryRate * Time.deltaTime;
@@ -167,6 +169,23 @@ public class PlayerMovement : MonoBehaviour
             staminaSlider.value = currentStamina;
     }
 
+    void HandleFootsteps()
+    {
+        if (!au || isAttacking || footstepSound == null) return;
+
+        bool isMoving = move.sqrMagnitude > 0;
+
+        if (isMoving && !au.isPlaying)
+        {
+            au.clip = footstepSound;
+            au.loop = true;
+            au.Play();
+        }
+        else if (!isMoving && au.clip == footstepSound)
+        {
+            au.Stop();
+        }
+    }
 
     void Animate()
     {
