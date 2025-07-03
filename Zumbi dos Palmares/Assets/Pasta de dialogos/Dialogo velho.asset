@@ -15,4 +15,10 @@ MonoBehaviour:
   characterName: Velho
   sentences:
   - Ei voce venha aqui!!
+  - Eu preciso de sua ajuda! Para ajudar os escravos a escaparem
+  - "V\xE1 at\xE9 a casa do bar\xE3o, mas com cuidado para n\xE3o ser descoberto!\n"
+  - "e pegue madeiras para reconstruir a ponte para o barco, dando a  chance de voc\xEA
+    escapar desse inferno"
+  - "e lembre, depois de voc\xEA coletar as madeiras, v\xE1 at\xE9 essas senzalas,
+    e resgate os escravos"
   npcSprite: {fileID: 5435608014139152121, guid: 632c8667d5ce30b45a9a6990f92613fa, type: 3}
