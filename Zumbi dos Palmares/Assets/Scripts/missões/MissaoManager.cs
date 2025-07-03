@@ -1,4 +1,4 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using TMPro;
 
 public class MissaoManager : MonoBehaviour
@@ -6,12 +6,12 @@ public class MissaoManager : MonoBehaviour
     public TextMeshProUGUI textoMissao;
     public AudioClip somVitoria;
 
-    public string textoFaleComBarao = "Fale com o Barão";
+    public string textoFaleComBarao = "Fale com o BarÃ£o";
     public string textoColeteCenouras = "Colete todas as cenouras";
-    public string textoFaleComBaraoNovamente = "Fale com o Barão novamente";
-    public string textoColeteCafe = "Agora vá perto da mansão e colete os cafés.";
-    public string textoMissaoCafeColetado = "Fale com o Barão novamente.";  
-    public string textoColeteCana = "Agora vá até o barco e colete as canas de açúcar.";
+    public string textoFaleComBaraoNovamente = "Fale com o BarÃ£o novamente";
+    public string textoColeteCafe = "Agora vÃ¡ perto da mansÃ£o e colete os cafÃ©s.";
+    public string textoMissaoCafeColetado = "Fale com o BarÃ£o novamente.";
+    public string textoColeteCana = "Agora vÃ¡ atÃ© o barco e colete as canas de aÃ§Ãºcar.";
     public string textoMissaoCanaColetada = "Boa! Pode descansar agora.";
 
     private int cenourasTotais;
@@ -27,6 +27,8 @@ public class MissaoManager : MonoBehaviour
 
     private bool cafeColetado = false;
     private bool canaColetada = false;
+
+    public GameObject objetoParaAtivarAposMissoes;
 
     void Start()
     {
@@ -76,6 +78,15 @@ public class MissaoManager : MonoBehaviour
             textoMissao.text = textoColeteCana;
             etapaMissao = 5;
         }
+        else if (etapaMissao == 6)
+        {
+            textoMissao.text = "Volte para sua cela. E nem pense em sair andando de noite.";
+
+            if (objetoParaAtivarAposMissoes != null)
+            {
+                objetoParaAtivarAposMissoes.SetActive(true);
+            }
+        }
     }
 
     public void CafeColetado()
@@ -87,7 +98,7 @@ public class MissaoManager : MonoBehaviour
         if (cafesColetados >= cafesTotais && !cafeColetado)
         {
             cafeColetado = true;
-            textoMissao.text = textoMissaoCafeColetado;  // aqui mostra "Fale com o Barão novamente."
+            textoMissao.text = textoMissaoCafeColetado;
             etapaMissao = 4;
             TocarSomVitoria();
         }
