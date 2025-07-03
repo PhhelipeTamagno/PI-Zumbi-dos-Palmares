@@ -48,4 +48,6 @@ public class SceneTrigger : MonoBehaviour
             Debug.LogWarning("Nome da cena não definido no Inspector!");
         }
     }
+   
+
 }
