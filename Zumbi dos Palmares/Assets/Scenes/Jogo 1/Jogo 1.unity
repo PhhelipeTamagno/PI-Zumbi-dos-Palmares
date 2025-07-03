@@ -15813,6 +15813,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1472097012246271413, guid: 11b4b81115a924f478b76ac49f0f80ca, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1877390362447319862, guid: 11b4b81115a924f478b76ac49f0f80ca, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -16446,7 +16450,7 @@ GameObject:
   - component: {fileID: 942625340}
   - component: {fileID: 942625339}
   m_Layer: 0
-  m_Name: New Piskel_0 (1)
+  m_Name: tocha
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19556,7 +19560,7 @@ GameObject:
   - component: {fileID: 1733837721}
   - component: {fileID: 1733837720}
   m_Layer: 0
-  m_Name: time_for_adventure
+  m_Name: Music
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20207,12 +20211,59 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &2113598978
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2113598980}
+  - component: {fileID: 2113598979}
+  m_Layer: 0
+  m_Name: MouseController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2113598979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2113598978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 036ec1e42b3b8c3479d8b5f839a44fe0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cursorTexture: {fileID: 2800000, guid: ea7c8731e825d5d49912a06fa8bf1786, type: 3}
+  hotspot: {x: 0, y: 0}
+  cursorMode: 0
+--- !u!4 &2113598980
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2113598978}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.5496778, y: -2.370478, z: -0.020137653}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 807152428}
   - {fileID: 157068234}
+  - {fileID: 807152428}
   - {fileID: 1432782786}
   - {fileID: 1939148629}
   - {fileID: 338372038}
@@ -20220,3 +20271,4 @@ SceneRoots:
   - {fileID: 942625341}
   - {fileID: 1118840764}
   - {fileID: 1733837721}
+  - {fileID: 2113598980}
