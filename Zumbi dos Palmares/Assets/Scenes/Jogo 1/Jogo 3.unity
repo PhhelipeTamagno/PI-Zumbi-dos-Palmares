@@ -360,6 +360,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: 7b180238515664a4180b149248a51a1b, type: 3}
     - target: {fileID: 5733379722726371322, guid: 5fa5bdee3a1add84d8a277682f4eae88, type: 3}
+      propertyPath: footstepSound
+      value: 
+      objectReference: {fileID: 8300000, guid: e894657493a66bf4f9aaef40a082109c, type: 3}
+    - target: {fileID: 5733379722726371322, guid: 5fa5bdee3a1add84d8a277682f4eae88, type: 3}
       propertyPath: staminaSlider
       value: 
       objectReference: {fileID: 949090434}
