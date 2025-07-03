@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class HotbarController : MonoBehaviour
 {
@@ -13,11 +14,19 @@ public class HotbarController : MonoBehaviour
     /* ----- estado interno ----- */
     private int[] slotItemID;           // ID do item em cada slot (-1 = vazio)
     private int selectedSlot = -1;
+    private static bool hotbarClearedThisSession = false;
 
     /* ========================== */
     void Start()
     {
         slotItemID = new int[itemSlots.Length];
+
+        if (!hotbarClearedThisSession)
+        {
+            ClearHotbarData(); // limpa uma vez por sessão
+            hotbarClearedThisSession = true;
+        }
+
         LoadHotbar();
     }
 
@@ -71,7 +80,6 @@ public class HotbarController : MonoBehaviour
         Debug.Log("Hotbar cheia!");
     }
 
-
     /// <summary> Devolve o ID do item atualmente selecionado (-1 se nada). </summary>
     public int GetSelectedItemID()
     {
@@ -112,7 +120,6 @@ public class HotbarController : MonoBehaviour
         Debug.Log($"Slot {i + 1} selecionado.");
     }
 
-
     void UseItem(int slotIndex)
     {
         int id = slotItemID[slotIndex];
@@ -122,7 +129,6 @@ public class HotbarController : MonoBehaviour
 
         if (itemTypes[id] == ItemType.Consumable)
         {
-            // consumir e remover
             Transform icon = itemSlots[slotIndex].transform.Find("Icon");
             icon.gameObject.SetActive(false);
             slotItemID[slotIndex] = -1;
@@ -131,7 +137,6 @@ public class HotbarController : MonoBehaviour
         }
         else
         {
-            // é equipável: só mantém selecionado
             Debug.Log("Item equipável usado (permanece no slot).");
         }
     }
@@ -165,6 +170,21 @@ public class HotbarController : MonoBehaviour
                 icon.gameObject.SetActive(false);
             }
         }
+    }
+
+    public void ClearHotbarData()
+    {
+        for (int i = 0; i < itemSlots.Length; i++)
+        {
+            PlayerPrefs.DeleteKey("HotbarSlot" + i);
+        }
+        PlayerPrefs.Save();
+    }
+    public void NovoJogo()
+    {
+        PlayerPrefs.DeleteAll();
+        PlayerPrefs.Save();
+        SceneManager.LoadScene("CenaInicial");
     }
 
 }
