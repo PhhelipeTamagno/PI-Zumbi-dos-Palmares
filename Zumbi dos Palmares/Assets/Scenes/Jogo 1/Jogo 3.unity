@@ -172,6 +172,18 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9040488240784880301, guid: 1be18ab86d1b56543a37c8c7df375742, type: 3}
+      propertyPath: itemIcons.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 9040488240784880301, guid: 1be18ab86d1b56543a37c8c7df375742, type: 3}
+      propertyPath: 'itemIcons.Array.data[2]'
+      value: 
+      objectReference: {fileID: 2373183141213679312, guid: a5c49e77919a1b84f96fd9425baffc08, type: 3}
+    - target: {fileID: 9040488240784880301, guid: 1be18ab86d1b56543a37c8c7df375742, type: 3}
+      propertyPath: 'itemIcons.Array.data[3]'
+      value: 
+      objectReference: {fileID: -8527442550737655860, guid: 5114a835435f07f43894758544503ae8, type: 3}
+    - target: {fileID: 9040488240784880301, guid: 1be18ab86d1b56543a37c8c7df375742, type: 3}
       propertyPath: 'itemSlots.Array.data[0]'
       value: 
       objectReference: {fileID: 729527928}
@@ -187,6 +199,10 @@ PrefabInstance:
       propertyPath: 'itemSlots.Array.data[3]'
       value: 
       objectReference: {fileID: 88209942}
+    - target: {fileID: 9040488240784880301, guid: 1be18ab86d1b56543a37c8c7df375742, type: 3}
+      propertyPath: 'itemTypes.Array.data[2]'
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -14776,6 +14792,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: faca
       objectReference: {fileID: 0}
+    - target: {fileID: 7881934229354907430, guid: 5af0950a431af3c4990af6c274546406, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -16827,6 +16847,10 @@ PrefabInstance:
     - target: {fileID: 8982405890236575818, guid: 3cda2fa7d8840084e9b1280256c258d2, type: 3}
       propertyPath: m_Name
       value: Cenoura slot
+      objectReference: {fileID: 0}
+    - target: {fileID: 8982405890236575818, guid: 3cda2fa7d8840084e9b1280256c258d2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -17,15 +17,10 @@ public class HotbarController : MonoBehaviour
     /* ========================== */
     void Start()
     {
-        /* inicializa arrays de estado */
         slotItemID = new int[itemSlots.Length];
-        for (int i = 0; i < slotItemID.Length; i++)
-        {
-            slotItemID[i] = -1;                 // slot vazio
-            Transform icon = itemSlots[i].transform.Find("Icon");
-            if (icon != null) icon.gameObject.SetActive(false);
-        }
+        LoadHotbar();
     }
+
 
     void Update()
     {
@@ -142,4 +137,34 @@ public class HotbarController : MonoBehaviour
     }
 
     public enum ItemType { Consumable, Equipable }
+
+    public void SaveHotbar()
+    {
+        for (int i = 0; i < slotItemID.Length; i++)
+        {
+            PlayerPrefs.SetInt("HotbarSlot" + i, slotItemID[i]);
+        }
+        PlayerPrefs.Save();
+    }
+
+    public void LoadHotbar()
+    {
+        for (int i = 0; i < slotItemID.Length; i++)
+        {
+            int id = PlayerPrefs.GetInt("HotbarSlot" + i, -1);
+            slotItemID[i] = id;
+
+            Transform icon = itemSlots[i].transform.Find("Icon");
+            if (id != -1)
+            {
+                icon.GetComponent<Image>().sprite = itemIcons[id];
+                icon.gameObject.SetActive(true);
+            }
+            else
+            {
+                icon.gameObject.SetActive(false);
+            }
+        }
+    }
+
 }
