@@ -138,7 +138,11 @@ public class PlayerMovement : MonoBehaviour
     void HandleMoveSpeed()
     {
         bool wantsToRun = (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift));
-        isRunning = wantsToRun && move.sqrMagnitude > 0 && !isAttacking && currentStamina > 0;
+        bool moving = move.sqrMagnitude > 0;
+        bool canRun = currentStamina > 0;
+
+        // Corrida somente se quiser correr, estiver se movendo, não estiver atacando e tiver stamina
+        isRunning = wantsToRun && moving && !isAttacking && canRun;
 
         if (isRunning)
         {
@@ -151,6 +155,7 @@ public class PlayerMovement : MonoBehaviour
             if (!isAttacking)
                 moveSpeed = defaultSpeed;
 
+            // Recupera stamina apenas se não estiver correndo
             if (currentStamina < maxStamina)
             {
                 currentStamina += staminaRecoveryRate * Time.deltaTime;
@@ -161,6 +166,7 @@ public class PlayerMovement : MonoBehaviour
         if (staminaSlider != null)
             staminaSlider.value = currentStamina;
     }
+
 
     void Animate()
     {
