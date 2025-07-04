@@ -1,4 +1,4 @@
-using System.Collections;
+Ôªøusing System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,8 +11,8 @@ public class DialogueManager : MonoBehaviour
     public TMP_Text dialogueText;
 
     public Image npcImage; // Imagem do NPC
-    public Button nextButton; // Bot„o "PrÛximo"
-    public Button closeButton; // Bot„o "Sair"
+    public Button nextButton; // Bot√£o "Pr√≥ximo"
+    public Button closeButton; // Bot√£o "Sair"
 
     private Queue<string> sentences;
 
