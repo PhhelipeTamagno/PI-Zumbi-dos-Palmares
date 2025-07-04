@@ -5,53 +5,61 @@ using UnityEngine.SceneManagement;
 public class HotbarController : MonoBehaviour
 {
     [Header("Configuração do Catálogo de Itens")]
-    public Sprite[] itemIcons;          // indexado pelo ID do item
-    public ItemType[] itemTypes;        // mesmo tamanho que itemIcons
+    public Sprite[] itemIcons;
+    public ItemType[] itemTypes;
 
     [Header("Slots Visuais da Hotbar")]
-    public GameObject[] itemSlots;      // Slot1, Slot2, Slot3…
+    public GameObject[] itemSlots;
 
-    /* ----- estado interno ----- */
-    private int[] slotItemID;           // ID do item em cada slot (-1 = vazio)
+    private int[] slotItemID;
     private int selectedSlot = -1;
     private static bool hotbarClearedThisSession = false;
 
-    /* ========================== */
     void Start()
     {
         slotItemID = new int[itemSlots.Length];
 
         if (!hotbarClearedThisSession)
         {
-            ClearHotbarData(); // limpa uma vez por sessão
+            ClearHotbarData();
             hotbarClearedThisSession = true;
         }
 
         LoadHotbar();
     }
 
-
     void Update()
     {
-        /* teclas numéricas 1,2,3… para selecionar slot */
+        // Teclas 1, 2, 3...
         for (int i = 0; i < itemSlots.Length; i++)
         {
-            if (Input.GetKeyDown(KeyCode.Alpha1 + i)) SelectSlot(i);
+            if (Input.GetKeyDown(KeyCode.Alpha1 + i))
+                SelectSlot(i);
         }
 
-        /* tecla E usa o item do slot selecionado */
+        // Scroll do mouse
+        float scroll = Input.GetAxis("Mouse ScrollWheel");
+        if (scroll != 0f)
+        {
+            int newSlot = selectedSlot;
+            if (scroll > 0f) newSlot++;
+            else if (scroll < 0f) newSlot--;
+
+            if (newSlot < 0) newSlot = itemSlots.Length - 1;
+            if (newSlot >= itemSlots.Length) newSlot = 0;
+
+            SelectSlot(newSlot);
+        }
+
+        // Usar item (tecla E)
         if (Input.GetKeyDown(KeyCode.E) && selectedSlot != -1 && slotItemID[selectedSlot] != -1)
         {
             UseItem(selectedSlot);
         }
     }
 
-    /* ---------- API pública ---------- */
-
-    /// <summary> Adiciona um item (por ID) no primeiro slot livre. </summary>
     public void AddItemToHotbar(int itemID)
     {
-        // Evita adicionar duplicado
         for (int i = 0; i < slotItemID.Length; i++)
         {
             if (slotItemID[i] == itemID)
@@ -61,7 +69,6 @@ public class HotbarController : MonoBehaviour
             }
         }
 
-        // Procura slot vazio
         for (int i = 0; i < itemSlots.Length; i++)
         {
             if (slotItemID[i] == -1)
@@ -80,30 +87,20 @@ public class HotbarController : MonoBehaviour
         Debug.Log("Hotbar cheia!");
     }
 
-    /// <summary> Devolve o ID do item atualmente selecionado (-1 se nada). </summary>
     public int GetSelectedItemID()
     {
         return selectedSlot != -1 ? slotItemID[selectedSlot] : -1;
     }
 
-    /// <summary> True se o item selecionado é do tipo Equipable. </summary>
     public bool IsEquipableSelected()
     {
         int id = GetSelectedItemID();
         return id != -1 && itemTypes[id] == ItemType.Equipable;
     }
 
-    /* ---------- lógica interna ---------- */
-
     void SelectSlot(int i)
     {
-        if (slotItemID[i] == -1)
-        {
-            Debug.Log($"Slot {i + 1} vazio.");
-            return;
-        }
-
-        // Desativa o destaque de todos
+        // Desativa destaque de todos
         for (int s = 0; s < itemSlots.Length; s++)
         {
             Transform highlight = itemSlots[s].transform.Find("Highlight");
@@ -111,13 +108,17 @@ public class HotbarController : MonoBehaviour
                 highlight.gameObject.SetActive(false);
         }
 
-        // Ativa o destaque do slot selecionado
+        // Ativa destaque do slot selecionado
         Transform selectedHighlight = itemSlots[i].transform.Find("Highlight");
         if (selectedHighlight != null)
             selectedHighlight.gameObject.SetActive(true);
 
         selectedSlot = i;
-        Debug.Log($"Slot {i + 1} selecionado.");
+
+        if (slotItemID[i] != -1)
+            Debug.Log($"Slot {i + 1} selecionado com item ID {slotItemID[i]}.");
+        else
+            Debug.Log($"Slot {i + 1} selecionado (vazio).");
     }
 
     void UseItem(int slotIndex)
@@ -132,7 +133,10 @@ public class HotbarController : MonoBehaviour
             Transform icon = itemSlots[slotIndex].transform.Find("Icon");
             icon.gameObject.SetActive(false);
             slotItemID[slotIndex] = -1;
-            if (selectedSlot == slotIndex) selectedSlot = -1;
+
+            if (selectedSlot == slotIndex)
+                selectedSlot = -1;
+
             Debug.Log("Item consumido.");
         }
         else
@@ -180,11 +184,11 @@ public class HotbarController : MonoBehaviour
         }
         PlayerPrefs.Save();
     }
+
     public void NovoJogo()
     {
         PlayerPrefs.DeleteAll();
         PlayerPrefs.Save();
         SceneManager.LoadScene("CenaInicial");
     }
-
 }
