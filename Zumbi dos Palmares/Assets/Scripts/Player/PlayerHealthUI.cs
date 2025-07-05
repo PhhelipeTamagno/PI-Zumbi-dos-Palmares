@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Collections;
@@ -19,14 +19,16 @@ public class PlayerHealthUI : MonoBehaviour
 
     void Start()
     {
-        currentHealth = maxHealth;
-        UpdateHearts();
-
         spriteRenderer = GetComponent<SpriteRenderer>();
         if (spriteRenderer == null)
         {
-            Debug.LogWarning("SpriteRenderer n�o encontrado!");
+            Debug.LogWarning("SpriteRenderer não encontrado!");
         }
+
+        // Carrega a vida salva (se existir), senão usa maxHealth
+        currentHealth = PlayerPrefs.GetInt("PlayerHealth", maxHealth);
+        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+        UpdateHearts();
     }
 
     public void TakeDamage(int amount)
@@ -35,6 +37,7 @@ public class PlayerHealthUI : MonoBehaviour
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
         UpdateHearts();
 
+        SaveHealth(); // ← Salva ao perder vida
         StartCoroutine(FlashSprite());
 
         if (currentHealth <= 0)
@@ -48,6 +51,8 @@ public class PlayerHealthUI : MonoBehaviour
         currentHealth += amount;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
         UpdateHearts();
+
+        SaveHealth(); // ← Salva ao curar
     }
 
     void UpdateHearts()
@@ -74,6 +79,7 @@ public class PlayerHealthUI : MonoBehaviour
     void Die()
     {
         Debug.Log("Player morreu!");
+        PlayerPrefs.DeleteKey("PlayerHealth"); // zera vida ao morrer
         Destroy(gameObject);
         Invoke(nameof(RestartScene), 1f);
     }
@@ -81,5 +87,11 @@ public class PlayerHealthUI : MonoBehaviour
     void RestartScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    void SaveHealth()
+    {
+        PlayerPrefs.SetInt("PlayerHealth", currentHealth);
+        PlayerPrefs.Save();
     }
 }
