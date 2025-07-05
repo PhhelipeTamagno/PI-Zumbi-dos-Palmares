@@ -26,6 +26,9 @@ public class HotbarController : MonoBehaviour
         }
 
         LoadHotbar();
+
+        PlayerPrefs.DeleteAll();
+        PlayerPrefs.Save();
     }
 
 
@@ -188,9 +191,10 @@ public class HotbarController : MonoBehaviour
 
     public void NovoJogo()
     {
-        PlayerPrefs.DeleteAll(); // já apaga TODOS os itens salvos, inclusive a faca
+        PlayerPrefs.DeleteAll(); // limpa toda a hotbar e progresso anterior
         PlayerPrefs.Save();
         SceneManager.LoadScene("CenaInicial");
     }
+
 
 }

@@ -3,10 +3,10 @@ using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
+    /* ---------- INSPECTOR ---------- */
     [Header("Movimentação")]
     public float moveSpeed = 5f;
     public float boostSpeed = 8f;
-    private float defaultSpeed;
 
     [Header("Referências")]
     public HotbarController hotbarController;
@@ -29,37 +29,38 @@ public class PlayerMovement : MonoBehaviour
     public float staminaDrainRate = 20f;
     public float staminaRecoveryRate = 15f;
 
-    // Internos
+    /* ---------- INTERNOS ---------- */
+    private float defaultSpeed;
     private float currentStamina;
-    private bool isRunning = false;
+    private bool isRunning, isAttacking, canAttack = true;
+    private bool facingRight = true, attackBlockedByZone = false;
     private Rigidbody2D rb;
     private Animator anim;
     private AudioSource au;
     private Vector2 move;
-    private bool facingRight = true;
-    private bool isAttacking = false, canAttack = true;
-    private bool attackBlockedByZone = false;
 
+    /* ---------- UNITY ---------- */
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponentInChildren<Animator>();
         au = GetComponent<AudioSource>();
-        defaultSpeed = moveSpeed;
 
+        defaultSpeed = moveSpeed;
         currentStamina = maxStamina;
-        if (staminaSlider != null)
+
+        if (staminaSlider)
         {
             staminaSlider.maxValue = maxStamina;
             staminaSlider.value = maxStamina;
         }
 
+        // tenta obter a hotbar caso não tenha sido arrastada no Inspector
         if (hotbarController == null)
             hotbarController = FindObjectOfType<HotbarController>();
 
-        // Adiciona a faca na hotbar no início, se não tiver
-        if (hotbarController != null)
-            hotbarController.AddItemToHotbar(knifeItemID);
+        /* NÃO adicione mais a faca automaticamente aqui.
+           Ela só será adicionada via coleta (KnifePickup). */
     }
 
     void Update()
@@ -74,9 +75,10 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        rb.linearVelocity = move * moveSpeed;
+        rb.linearVelocity = move * moveSpeed;          // corrigido: velocity
     }
 
+    /* ---------- MOVIMENTO ---------- */
     void ReadInput()
     {
         move.x = Input.GetAxisRaw("Horizontal");
@@ -84,6 +86,7 @@ public class PlayerMovement : MonoBehaviour
         move.Normalize();
     }
 
+    /* ---------- COMBATE ---------- */
     void HandleAttack()
     {
         bool knifeEquipped = hotbarController &&
@@ -98,97 +101,85 @@ public class PlayerMovement : MonoBehaviour
 
             anim.SetTrigger("Attack");
             PlayAttackSound();
-
             Invoke(nameof(ResetAttack), attackCooldown);
         }
     }
 
-    public void ApplyDamage()
+    public void ApplyDamage() // Animation Event
     {
-        Collider2D[] hits = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
+        Collider2D[] hits = Physics2D.OverlapCircleAll(
+            attackPoint.position, attackRange, enemyLayers);
+
         foreach (var col in hits)
         {
-            var enemy = col.GetComponent<Enemy>();
-            if (enemy != null)
-            {
-                enemy.TakeDamage(attackDamage);
-            }
+            Enemy enemy = col.GetComponent<Enemy>();
+            if (enemy) enemy.TakeDamage(attackDamage);
         }
     }
 
-    void ResetAttack()
-    {
-        isAttacking = false;
-        canAttack = true;
-    }
+    void ResetAttack() { isAttacking = false; canAttack = true; }
 
     void PlayAttackSound()
     {
         if (!au) return;
-
         au.Stop();
-        au.loop = false;
         if (attackSound1) au.PlayOneShot(attackSound1);
         if (attackSound2) Invoke(nameof(PlaySecondAttackClip), 0.2f);
     }
 
     void PlaySecondAttackClip()
     {
-        if (au && attackSound2)
-            au.PlayOneShot(attackSound2);
+        if (au && attackSound2) au.PlayOneShot(attackSound2);
     }
 
+    /* ---------- STAMINA / CORRIDA ---------- */
     void HandleMoveSpeed()
     {
-        bool wantsToRun = (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift));
-        bool moving = move.sqrMagnitude > 0;
-        bool canRun = currentStamina > 0;
+        bool wantsRun = Input.GetKey(KeyCode.LeftShift) ||
+                        Input.GetKey(KeyCode.RightShift);
+        bool moving = move.sqrMagnitude > 0f;
+        bool canRun = currentStamina > 0f;
 
-        isRunning = wantsToRun && moving && !isAttacking && canRun;
+        isRunning = wantsRun && moving && !isAttacking && canRun;
 
         if (isRunning)
         {
             moveSpeed = boostSpeed;
             currentStamina -= staminaDrainRate * Time.deltaTime;
-            currentStamina = Mathf.Clamp(currentStamina, 0, maxStamina);
         }
         else
         {
             moveSpeed = defaultSpeed;
-
             if (currentStamina < maxStamina)
-            {
                 currentStamina += staminaRecoveryRate * Time.deltaTime;
-                currentStamina = Mathf.Clamp(currentStamina, 0, maxStamina);
-            }
         }
 
-        if (staminaSlider != null)
-            staminaSlider.value = currentStamina;
+        currentStamina = Mathf.Clamp(currentStamina, 0, maxStamina);
+        if (staminaSlider) staminaSlider.value = currentStamina;
     }
 
+    /* ---------- SONS DE PASSO ---------- */
     void HandleFootsteps()
     {
-        if (!au || isAttacking || footstepSound == null) return;
+        if (!au || isAttacking || !footstepSound) return;
 
-        bool isMoving = move.sqrMagnitude > 0;
-
-        if (isMoving && !au.isPlaying)
+        if (move.sqrMagnitude > 0 && !au.isPlaying)
         {
             au.clip = footstepSound;
             au.loop = true;
             au.Play();
         }
-        else if (!isMoving && au.clip == footstepSound)
+        else if (move.sqrMagnitude == 0 && au.clip == footstepSound)
         {
             au.Stop();
         }
     }
 
+    /* ---------- ANIMAÇÃO & FLIP ---------- */
     void Animate()
     {
-        int moveState = isAttacking ? 2 : (move.sqrMagnitude > 0 ? 1 : 0);
-        anim.SetInteger("Movimento", moveState);
+        int state = isAttacking ? 2 : (move.sqrMagnitude > 0 ? 1 : 0);
+        anim.SetInteger("Movimento", state);
     }
 
     void FlipSprite()
@@ -200,37 +191,30 @@ public class PlayerMovement : MonoBehaviour
 
             if (attackPoint)
             {
-                Vector3 localPos = attackPoint.localPosition;
-                localPos.x *= -1;
-                attackPoint.localPosition = localPos;
+                Vector3 p = attackPoint.localPosition;
+                p.x *= -1;
+                attackPoint.localPosition = p;
             }
         }
     }
 
-    void OnTriggerEnter2D(Collider2D other)
+    /* ---------- ZONA SEM ATAQUE ---------- */
+    void OnTriggerEnter2D(Collider2D col)
     {
-        if (other.CompareTag("ZonaSemAtaque"))
-        {
-            if (hotbarController && hotbarController.GetSelectedItemID() == knifeItemID)
-                attackBlockedByZone = true;
-        }
+        if (col.CompareTag("ZonaSemAtaque"))
+            attackBlockedByZone = true;
+    }
+    void OnTriggerExit2D(Collider2D col)
+    {
+        if (col.CompareTag("ZonaSemAtaque"))
+            attackBlockedByZone = false;
     }
 
-    void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.CompareTag("ZonaSemAtaque"))
-        {
-            if (hotbarController && hotbarController.GetSelectedItemID() == knifeItemID)
-                attackBlockedByZone = false;
-        }
-    }
-
+    /* ---------- GIZMOS ---------- */
     void OnDrawGizmosSelected()
     {
-        if (attackPoint)
-        {
-            Gizmos.color = Color.red;
-            Gizmos.DrawWireSphere(attackPoint.position, attackRange);
-        }
+        if (!attackPoint) return;
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }
 }
