@@ -5,62 +5,66 @@ using System.Collections;
 
 public class PlayerHealthUI : MonoBehaviour
 {
+    [Header("Configuração de Vida")]
     public int maxHealth = 3;
     public int currentHealth;
 
+    [Header("Corações na UI")]
     public Image[] hearts;
     public Sprite fullHeart;
     public Sprite emptyHeart;
 
+    [Header("Feedback de Dano")]
     public float flashDuration = 0.1f;
     public int flashCount = 5;
 
     private SpriteRenderer spriteRenderer;
+    private const string HEALTH_KEY = "PlayerHealth";
 
+    /* ----------------------------- */
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         if (spriteRenderer == null)
-        {
             Debug.LogWarning("SpriteRenderer não encontrado!");
-        }
 
-        // Carrega a vida salva (se existir), senão usa maxHealth
-        currentHealth = PlayerPrefs.GetInt("PlayerHealth", maxHealth);
+        /* Se a cena foi carregada pelo botão “Novo Jogo”,
+           o menu deve ter chamado PlayerPrefs.DeleteKey(HEALTH_KEY).
+           Assim, HasKey = false e a vida começa cheia. */
+        if (PlayerPrefs.HasKey(HEALTH_KEY))
+            currentHealth = PlayerPrefs.GetInt(HEALTH_KEY, maxHealth);
+        else
+            currentHealth = maxHealth;
+
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
         UpdateHearts();
     }
 
+    /* ---------- API pública ---------- */
     public void TakeDamage(int amount)
     {
-        currentHealth -= amount;
-        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+        currentHealth = Mathf.Clamp(currentHealth - amount, 0, maxHealth);
         UpdateHearts();
+        SaveHealth();
 
-        SaveHealth(); // ← Salva ao perder vida
         StartCoroutine(FlashSprite());
 
         if (currentHealth <= 0)
-        {
             Die();
-        }
     }
 
     public void Heal(int amount)
     {
-        currentHealth += amount;
-        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+        currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
         UpdateHearts();
-
-        SaveHealth(); // ← Salva ao curar
+        SaveHealth();
     }
 
+    /* ---------- Internos ---------- */
     void UpdateHearts()
     {
         for (int i = 0; i < hearts.Length; i++)
-        {
             hearts[i].sprite = i < currentHealth ? fullHeart : emptyHeart;
-        }
     }
 
     IEnumerator FlashSprite()
@@ -79,7 +83,7 @@ public class PlayerHealthUI : MonoBehaviour
     void Die()
     {
         Debug.Log("Player morreu!");
-        PlayerPrefs.DeleteKey("PlayerHealth"); // zera vida ao morrer
+        PlayerPrefs.DeleteKey(HEALTH_KEY);   // zera vida salva
         Destroy(gameObject);
         Invoke(nameof(RestartScene), 1f);
     }
@@ -91,7 +95,7 @@ public class PlayerHealthUI : MonoBehaviour
 
     void SaveHealth()
     {
-        PlayerPrefs.SetInt("PlayerHealth", currentHealth);
+        PlayerPrefs.SetInt(HEALTH_KEY, currentHealth);
         PlayerPrefs.Save();
     }
 }
