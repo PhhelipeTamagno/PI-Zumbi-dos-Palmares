@@ -38,13 +38,12 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 move;
     private bool facingRight = true;
     private bool isAttacking = false, canAttack = true;
-    private bool knifeCollected = false;
     private bool attackBlockedByZone = false;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        anim = GetComponent<Animator>();
+        anim = GetComponentInChildren<Animator>();
         au = GetComponent<AudioSource>();
         defaultSpeed = moveSpeed;
 
@@ -57,6 +56,10 @@ public class PlayerMovement : MonoBehaviour
 
         if (hotbarController == null)
             hotbarController = FindObjectOfType<HotbarController>();
+
+        // Adiciona a faca na hotbar no início, se não tiver
+        if (hotbarController != null)
+            hotbarController.AddItemToHotbar(knifeItemID);
     }
 
     void Update()
@@ -83,14 +86,14 @@ public class PlayerMovement : MonoBehaviour
 
     void HandleAttack()
     {
-        bool knifeEquipped = hotbarController && hotbarController.GetSelectedItemID() == knifeItemID;
+        bool knifeEquipped = hotbarController &&
+                             hotbarController.GetSelectedItemID() == knifeItemID;
 
         if (!knifeEquipped || attackBlockedByZone) return;
 
         if (Input.GetMouseButtonDown(0) && canAttack)
         {
             isAttacking = true;
-            moveSpeed = 0;
             canAttack = false;
 
             anim.SetTrigger("Attack");
@@ -102,15 +105,12 @@ public class PlayerMovement : MonoBehaviour
 
     public void ApplyDamage()
     {
-        Debug.Log("Tentando aplicar dano...");
-
         Collider2D[] hits = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
         foreach (var col in hits)
         {
             var enemy = col.GetComponent<Enemy>();
             if (enemy != null)
             {
-                Debug.Log("Inimigo atingido!");
                 enemy.TakeDamage(attackDamage);
             }
         }
@@ -119,7 +119,6 @@ public class PlayerMovement : MonoBehaviour
     void ResetAttack()
     {
         isAttacking = false;
-        moveSpeed = defaultSpeed;
         canAttack = true;
     }
 
@@ -155,8 +154,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            if (!isAttacking)
-                moveSpeed = defaultSpeed;
+            moveSpeed = defaultSpeed;
 
             if (currentStamina < maxStamina)
             {
@@ -189,7 +187,8 @@ public class PlayerMovement : MonoBehaviour
 
     void Animate()
     {
-        anim.SetInteger("Movimento", isAttacking ? 2 : (move.sqrMagnitude > 0 ? 1 : 0));
+        int moveState = isAttacking ? 2 : (move.sqrMagnitude > 0 ? 1 : 0);
+        anim.SetInteger("Movimento", moveState);
     }
 
     void FlipSprite()
@@ -205,17 +204,6 @@ public class PlayerMovement : MonoBehaviour
                 localPos.x *= -1;
                 attackPoint.localPosition = localPos;
             }
-        }
-    }
-
-    public void CollectKnife()
-    {
-        if (knifeCollected) return;
-
-        if (hotbarController)
-        {
-            hotbarController.AddItemToHotbar(knifeItemID);
-            knifeCollected = true;
         }
     }
 
