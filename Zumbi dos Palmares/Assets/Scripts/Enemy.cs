@@ -2,6 +2,11 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+
+    [Header("Alerta Visual")]
+    public GameObject exclamationMark;
+    private bool playerInRange = false;
+
     [Header("Vida")]
     public int maxHealth = 100;
     private int currentHealth;
@@ -43,8 +48,23 @@ public class Enemy : MonoBehaviour
         {
             Vector2 direction = (player.position - transform.position).normalized;
             transform.position += (Vector3)direction * moveSpeed * Time.deltaTime;
+
+            if (!playerInRange)
+            {
+                ShowExclamation(true);
+                playerInRange = true;
+            }
+        }
+        else
+        {
+            if (playerInRange)
+            {
+                ShowExclamation(false);
+                playerInRange = false;
+            }
         }
     }
+
 
     public void TakeDamage(int damage)
     {
@@ -86,4 +106,11 @@ public class Enemy : MonoBehaviour
             }
         }
     }
+
+    void ShowExclamation(bool show)
+    {
+        if (exclamationMark != null)
+            exclamationMark.SetActive(show);
+    }
+
 }

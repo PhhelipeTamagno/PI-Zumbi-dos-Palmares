@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class HotbarController : MonoBehaviour
 {
@@ -10,34 +10,33 @@ public class HotbarController : MonoBehaviour
 
     [Header("Slots Visuais")]
     public GameObject[] itemSlots;
+    public TextMeshProUGUI[] quantidadeTexts; // ⬅️ TextMeshPro agora
 
     private int[] slotItemID;
+    private int[] slotItemQtd;
     private int selectedSlot = -1;
     private static bool hotbarClearedThisSession = false;
 
-    /* ---------- UNITY ---------- */
     void Start()
     {
         slotItemID = new int[itemSlots.Length];
+        slotItemQtd = new int[itemSlots.Length];
 
         if (!hotbarClearedThisSession)
         {
-            ClearHotbarData();              // limpa só na PRIMEIRA cena da execução
+            ClearHotbarData();
             hotbarClearedThisSession = true;
         }
 
         LoadHotbar();
-        // 🔴 NÃO coloque DeleteAll aqui!
     }
 
     void Update()
     {
-        // Teclas 1‑2‑3…
         for (int i = 0; i < itemSlots.Length; i++)
             if (Input.GetKeyDown(KeyCode.Alpha1 + i))
                 SelectSlot(i);
 
-        // Scroll do mouse
         float scroll = Input.GetAxis("Mouse ScrollWheel");
         if (scroll != 0f)
         {
@@ -47,30 +46,39 @@ public class HotbarController : MonoBehaviour
             SelectSlot(newSlot);
         }
 
-        // Usar item – tecla E
         if (Input.GetKeyDown(KeyCode.E) && selectedSlot != -1 && slotItemID[selectedSlot] != -1)
             UseItem(selectedSlot);
     }
 
-    /* ---------- API PÚBLICA ---------- */
     public void AddItemToHotbar(int itemID)
     {
-        // Evita duplicar
         for (int i = 0; i < slotItemID.Length; i++)
-            if (slotItemID[i] == itemID) { Debug.Log("Item já está na hotbar."); return; }
+        {
+            if (slotItemID[i] == itemID)
+            {
+                slotItemQtd[i]++;
+                UpdateQuantidadeText(i);
+                SaveHotbar();
+                return;
+            }
+        }
 
-        // Procura slot vazio
         for (int i = 0; i < itemSlots.Length; i++)
+        {
             if (slotItemID[i] == -1)
             {
                 slotItemID[i] = itemID;
-                itemSlots[i].transform.Find("Icon").GetComponent<Image>().sprite = itemIcons[itemID];
+                slotItemQtd[i] = 1;
+
+                itemSlots[i].transform.Find("Icon").GetComponent<UnityEngine.UI.Image>().sprite = itemIcons[itemID];
                 itemSlots[i].transform.Find("Icon").gameObject.SetActive(true);
 
+                UpdateQuantidadeText(i);
                 SelectSlot(i);
-                SaveHotbar();                // salva mudança
+                SaveHotbar();
                 return;
             }
+        }
 
         Debug.Log("Hotbar cheia!");
     }
@@ -84,14 +92,11 @@ public class HotbarController : MonoBehaviour
         return id != -1 && itemTypes[id] == ItemType.Equipable;
     }
 
-    /* ---------- INTERNOS ---------- */
     void SelectSlot(int i)
     {
-        // Desliga highlights
         for (int s = 0; s < itemSlots.Length; s++)
             itemSlots[s].transform.Find("Highlight").gameObject.SetActive(false);
 
-        // Liga highlight do selecionado
         itemSlots[i].transform.Find("Highlight").gameObject.SetActive(true);
         selectedSlot = i;
     }
@@ -103,21 +108,45 @@ public class HotbarController : MonoBehaviour
 
         if (itemTypes[id] == ItemType.Consumable)
         {
-            itemSlots[slot].transform.Find("Icon").gameObject.SetActive(false);
-            slotItemID[slot] = -1;
-            if (selectedSlot == slot) selectedSlot = -1;
+            slotItemQtd[slot]--;
+            if (slotItemQtd[slot] <= 0)
+            {
+                slotItemID[slot] = -1;
+                itemSlots[slot].transform.Find("Icon").gameObject.SetActive(false);
+                if (selectedSlot == slot) selectedSlot = -1;
+            }
+
+            UpdateQuantidadeText(slot);
         }
 
-        SaveHotbar();                        // salva mudança
+        SaveHotbar();
     }
 
-    /* ---------- SALVAR / CARREGAR ---------- */
+    void UpdateQuantidadeText(int index)
+    {
+        if (quantidadeTexts == null || quantidadeTexts.Length <= index) return;
+
+        if (slotItemID[index] != -1 && slotItemQtd[index] > 1)
+        {
+            quantidadeTexts[index].text = slotItemQtd[index].ToString();
+            quantidadeTexts[index].gameObject.SetActive(true);
+        }
+        else
+        {
+            quantidadeTexts[index].text = "";
+            quantidadeTexts[index].gameObject.SetActive(false);
+        }
+    }
+
     public enum ItemType { Consumable, Equipable }
 
-   public void SaveHotbar()
+    public void SaveHotbar()
     {
         for (int i = 0; i < slotItemID.Length; i++)
+        {
             PlayerPrefs.SetInt("HotbarSlot" + i, slotItemID[i]);
+            PlayerPrefs.SetInt("HotbarQtd" + i, slotItemQtd[i]);
+        }
         PlayerPrefs.Save();
     }
 
@@ -126,25 +155,32 @@ public class HotbarController : MonoBehaviour
         for (int i = 0; i < slotItemID.Length; i++)
         {
             int id = PlayerPrefs.GetInt("HotbarSlot" + i, -1);
-            slotItemID[i] = id;
+            int qtd = PlayerPrefs.GetInt("HotbarQtd" + i, 0);
 
-            var icon = itemSlots[i].transform.Find("Icon").GetComponent<Image>();
+            slotItemID[i] = id;
+            slotItemQtd[i] = qtd;
+
+            var icon = itemSlots[i].transform.Find("Icon").GetComponent<UnityEngine.UI.Image>();
             icon.gameObject.SetActive(id != -1);
             if (id != -1) icon.sprite = itemIcons[id];
+
+            UpdateQuantidadeText(i);
         }
     }
 
     void ClearHotbarData()
     {
         for (int i = 0; i < itemSlots.Length; i++)
+        {
             PlayerPrefs.DeleteKey("HotbarSlot" + i);
+            PlayerPrefs.DeleteKey("HotbarQtd" + i);
+        }
         PlayerPrefs.Save();
     }
 
-    /* ---------- NOVO JOGO ---------- */
     public void NovoJogo()
     {
-        PlayerPrefs.DeleteAll();             // limpa tudo de propósito
+        PlayerPrefs.DeleteAll();
         PlayerPrefs.Save();
         SceneManager.LoadScene("CenaInicial");
     }

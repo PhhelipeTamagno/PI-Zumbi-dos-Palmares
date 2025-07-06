@@ -2,18 +2,19 @@ using UnityEngine;
 
 public class KnifePickup : MonoBehaviour
 {
-    public int itemID = 0; // ID da faca na hotbar
+    public int knifeID = 0; // ID correspondente à faca no catálogo da Hotbar
 
-    private void OnTriggerEnter2D(Collider2D other)
+    void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
-            var player = other.GetComponent<PlayerMovement>();
-            if (player && player.hotbarController)
+            HotbarController hotbar = FindObjectOfType<HotbarController>();
+            if (hotbar != null)
             {
-                player.hotbarController.AddItemToHotbar(itemID);
-                Destroy(gameObject); // some com a faca física
+                hotbar.AddItemToHotbar(knifeID);
             }
+
+            Destroy(gameObject); // Destroi a faca após pegar
         }
     }
 }
