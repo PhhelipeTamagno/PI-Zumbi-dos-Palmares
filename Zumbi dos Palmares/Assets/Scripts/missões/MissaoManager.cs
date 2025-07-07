@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class MissaoManager : MonoBehaviour
@@ -30,6 +31,17 @@ public class MissaoManager : MonoBehaviour
 
     public GameObject objetoParaAtivarAposMissoes;
 
+    [Header("Fade Escurecimento")]
+    public Image fadeImage;            // Referência à Image preta no Canvas
+    public float fadeDuration = 5f;    // Tempo do fade em segundos
+    public float delayBeforeFade = 3f; // Delay antes de começar o fade
+
+    private bool startFade = false;
+    private float fadeTimer = 0f;
+
+    private bool waitingToFade = false;
+    private float delayTimer = 0f;
+
     void Start()
     {
         GameObject[] cenouras = GameObject.FindGameObjectsWithTag("Cenoura");
@@ -45,6 +57,51 @@ public class MissaoManager : MonoBehaviour
         canasColetadas = 0;
 
         textoMissao.text = textoFaleComBarao;
+
+        // Deixa a imagem preta desativada e transparente no começo
+        if (fadeImage != null)
+        {
+            fadeImage.gameObject.SetActive(false);
+            Color c = fadeImage.color;
+            c.a = 0f;
+            fadeImage.color = c;
+        }
+    }
+
+    void Update()
+    {
+        if (waitingToFade)
+        {
+            if (!fadeImage.gameObject.activeSelf)
+                fadeImage.gameObject.SetActive(true); // Ativa só quando vai começar fade
+
+            delayTimer += Time.deltaTime;
+            if (delayTimer >= delayBeforeFade)
+            {
+                waitingToFade = false;
+                startFade = true;
+                fadeTimer = 0f;
+            }
+        }
+
+        if (startFade)
+        {
+            fadeTimer += Time.deltaTime;
+            float alpha = Mathf.Clamp01(fadeTimer / fadeDuration);
+
+            // Limita alpha máximo para 0.5 (50% opacidade)
+            alpha = Mathf.Min(alpha, 0.5f);
+
+            Color c = fadeImage.color;
+            c.a = alpha;
+            fadeImage.color = c;
+
+            if (alpha >= 0.5f)
+            {
+                startFade = false;
+            }
+        }
+
     }
 
     public void ColetouCenoura()
@@ -116,6 +173,12 @@ public class MissaoManager : MonoBehaviour
             textoMissao.text = textoMissaoCanaColetada;
             etapaMissao = 6;
             TocarSomVitoria();
+
+            if (fadeImage != null)
+            {
+                waitingToFade = true;
+                delayTimer = 0f;
+            }
         }
     }
 

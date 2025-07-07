@@ -10,7 +10,7 @@ public class HotbarController : MonoBehaviour
 
     [Header("Slots Visuais")]
     public GameObject[] itemSlots;
-    public TextMeshProUGUI[] quantidadeTexts; // ⬅️ TextMeshPro agora
+    // public TextMeshProUGUI[] quantidadeTexts; // REMOVIDO
 
     private int[] slotItemID;
     private int[] slotItemQtd;
@@ -57,7 +57,7 @@ public class HotbarController : MonoBehaviour
             if (slotItemID[i] == itemID)
             {
                 slotItemQtd[i]++;
-                UpdateQuantidadeText(i);
+                // UpdateQuantidadeText(i); // REMOVIDO
                 SaveHotbar();
                 return;
             }
@@ -73,7 +73,7 @@ public class HotbarController : MonoBehaviour
                 itemSlots[i].transform.Find("Icon").GetComponent<UnityEngine.UI.Image>().sprite = itemIcons[itemID];
                 itemSlots[i].transform.Find("Icon").gameObject.SetActive(true);
 
-                UpdateQuantidadeText(i);
+                // UpdateQuantidadeText(i); // REMOVIDO
                 SelectSlot(i);
                 SaveHotbar();
                 return;
@@ -116,12 +116,13 @@ public class HotbarController : MonoBehaviour
                 if (selectedSlot == slot) selectedSlot = -1;
             }
 
-            UpdateQuantidadeText(slot);
+            // UpdateQuantidadeText(slot); // REMOVIDO
         }
 
         SaveHotbar();
     }
 
+    /*
     void UpdateQuantidadeText(int index)
     {
         if (quantidadeTexts == null || quantidadeTexts.Length <= index) return;
@@ -137,6 +138,7 @@ public class HotbarController : MonoBehaviour
             quantidadeTexts[index].gameObject.SetActive(false);
         }
     }
+    */
 
     public enum ItemType { Consumable, Equipable }
 
@@ -164,7 +166,7 @@ public class HotbarController : MonoBehaviour
             icon.gameObject.SetActive(id != -1);
             if (id != -1) icon.sprite = itemIcons[id];
 
-            UpdateQuantidadeText(i);
+            // UpdateQuantidadeText(i); // REMOVIDO
         }
     }
 
