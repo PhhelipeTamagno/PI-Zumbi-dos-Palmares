@@ -769,6 +769,7 @@ GameObject:
   - component: {fileID: 1253823056}
   - component: {fileID: 1253823055}
   - component: {fileID: 1253823054}
+  - component: {fileID: 1253823059}
   m_Layer: 5
   m_Name: Play
   m_TagString: Untagged
@@ -869,9 +870,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 11500000, guid: 1a52fd56a74293948b13e7f64d33433d, type: 3}
         m_TargetAssemblyTypeName: PlaySound, Assembly-CSharp
-        m_MethodName: PlayClickSound
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -931,6 +932,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1253823052}
   m_CullTransparentMesh: 1
+--- !u!114 &1253823059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1253823052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a52fd56a74293948b13e7f64d33433d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  changeSceneButton: {fileID: 1253823056}
+  sceneIndexToLoad: 3
 --- !u!1 &1354208796
 GameObject:
   m_ObjectHideFlags: 0
@@ -1108,15 +1123,15 @@ RectTransform:
   m_GameObject: {fileID: 1384254128}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.769, y: 1.769, z: 1.769}
+  m_LocalScale: {x: 1.3937421, y: 1.3937421, z: 1.3937421}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1036767792}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -662, y: -443}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: -562.23, y: -433.02}
+  m_SizeDelta: {x: 343.17, y: 64.32}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1384254130
 MonoBehaviour:
@@ -1138,25 +1153,22 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Voce e o Zumbi dos Palmares. Durante o dia, vai precisar obedecer as ordens
-    dos bandeirantes. Voce vai precisar fazer tarefas do tipo, arar, cuidar da plantacao,
-    essas coisas. Se nao fizer, eles desconfiam, e isso pode acabar com seu plano.
-    Entao age normal, finge que ta tudo certo.
-
-
-    Mas a noite, o jogo muda. E
-    quando voce comeca as missoes de verdade. Voce vai sair escondido, sem ninguem
-    te ver, pra libertar o seu povo, pegar chaves, sabotar coisas da fazenda e se
-    preparar pra fugir. As missoes vao ser no estilo stealth, ou seja, tudo no silencio
-    e sem chamar atencao. Se te pegarem, pode ser o fim.
-
-
-    Seu objetivo e libertar
-    o maximo de pessoas possivel e juntar tudo o que for preciso pra conseguir fugir
-    da fazenda com seguranca. Entao presta atencao, porque cada escolha importa.'
+  m_text: "Voc\xEA \xE9 Zumbi dos Palmares. Durante o dia, ser\xE1 necess\xE1rio
+    obedecer \xE0s ordens dos bandeirantes. Suas tarefas incluir\xE3o arar a terra,
+    cuidar das planta\xE7\xF5es e executar outras atividades rotineiras. Caso se
+    recuse a colaborar, poder\xE1 levantar suspeitas \u2014 e isso colocaria todo
+    o seu plano em risco. Portanto, comporte-se com discri\xE7\xE3o e aparente normalidade.\n\nNo
+    entanto, \xE0 noite, a situa\xE7\xE3o se transforma. \xC9 nesse momento que as
+    verdadeiras miss\xF5es come\xE7am. De forma silenciosa e sem ser notado, voc\xEA
+    sair\xE1 para libertar seu povo, encontrar chaves, sabotar estruturas da fazenda
+    e preparar a grande fuga. Todas as a\xE7\xF5es dever\xE3o ser conduzidas com
+    extremo sigilo. Ser descoberto pode significar o fim de tudo.\n\nSeu objetivo
+    \xE9 libertar o maior n\xFAmero poss\xEDvel de pessoas e reunir os recursos necess\xE1rios
+    para uma fuga segura. Cada decis\xE3o ser\xE1 crucial, portanto, mantenha-se
+    atento: sua estrat\xE9gia pode ser a diferen\xE7a entre a liberdade e a captura.\n\n"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 79fd48d903e893641ad451f2c5c3f81d, type: 2}
-  m_sharedMaterial: {fileID: 8222037407953206336, guid: 79fd48d903e893641ad451f2c5c3f81d, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
