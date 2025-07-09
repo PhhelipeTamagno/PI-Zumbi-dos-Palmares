@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Velho
   sentences:
-  - O Zumbi... vem ca um instante, mas sem fazer barulho, ta?
-  - Tem uma faca escondida atras duma arvore grande, perto da mansao do barao...
-    ta enfiada no tronco, quase ninguem repara.
-  - "Aquilo la nao e so ferro nao, Zumbi\u2026 e coragem guardada. Use ela com juizo.
-    Um dia, ce vai libertar a gente disso tudo."
+  - "Zumbi... vem c\xE1 um instante, mas sem fazer barulho, t\xE1?\r"
+  - "\rTem uma faca escondida atr\xE1s de uma \xE1rvore grande, perto da mans\xE3o
+    do bar\xE3o... est\xE1 enfiada no tronco, quase ningu\xE9m repara.\r\n"
+  - "Aquilo l\xE1 n\xE3o \xE9 s\xF3 ferro, n\xE3o, Zumbi... \xE9 coragem guardada.
+    Use-a com ju\xEDzo. Um dia, c\xEA vai libertar a gente disso tudo."
   npcSprite: {fileID: 5435608014139152121, guid: 632c8667d5ce30b45a9a6990f92613fa, type: 3}

@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Escravo
   sentences:
-  - Ei Zumbi, Nos precisamos fugir esta noite
+  - "Ei, Zumbi, n\xF3s precisamos fugir esta noite.\r"
   npcSprite: {fileID: 5931842347579807508, guid: e40b9dcd3911fb941a1dc132363a07b1, type: 3}

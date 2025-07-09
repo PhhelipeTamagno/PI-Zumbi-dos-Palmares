@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Marcos
   sentences:
-  - "Muito bem\u2026 agora vai l\xE1 perto do celeiro e coleta os cafes. E ve se
-    nao encosta em nada, ouviu?"
-  - "E nem pense em ficar fu\xE7ando por ai. Faz o que eu mandei e me deixe em paz,
-    escravo."
+  - "Muito bem... Agora v\xE1 at\xE9 perto do celeiro e colha os caf\xE9s. E veja
+    se n\xE3o encosta em nada, entendeu?"
+  - "E nem pense em ficar fu\xE7ando por a\xED. Fa\xE7a o que eu mandei e me deixe
+    em paz, escravo."
   npcSprite: {fileID: 4483504832982471387, guid: 8ab8bac50dfd83b4096a163ce1f6ebde, type: 3}

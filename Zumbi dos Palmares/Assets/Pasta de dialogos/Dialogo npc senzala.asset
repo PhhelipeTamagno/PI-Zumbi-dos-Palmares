@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Escravo
   sentences:
-  - "Francisco Nzumbi, n\xF3s precisamos muito da sua ajuda. Por favor, nos salve
-    de todo esse mal."
+  - "Francisco Nzumbi, n\xF3s precisamos muito da sua ajuda. Por favor, salve-nos
+    de todo esse mal.\r"
   npcSprite: {fileID: 5931842347579807508, guid: e40b9dcd3911fb941a1dc132363a07b1, type: 3}

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Marcos
   sentences:
-  - 'Voce acha que pode descansar? Nem pense nisso! Sua proxima tarefa e pegar as
-    canas no porto. '
-  - "Fa\xE7a o que eu mandei, e faca direito. Ou vai ver o que e puni\xE7ao."
+  - "Voc\xEA acha que pode descansar? Nem pense nisso! Sua pr\xF3xima tarefa \xE9
+    pegar as canas perto daquele rio."
+  - "Fa\xE7a o que eu mandei, e fa\xE7a direito. Ou vai ver o que \xE9 puni\xE7\xE3o."
   npcSprite: {fileID: 4483504832982471387, guid: 8ab8bac50dfd83b4096a163ce1f6ebde, type: 3}
