@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6480455010596182406}
   - component: {fileID: 4180862803223453313}
   - component: {fileID: 2311385842935426240}
+  - component: {fileID: 2396705706038682343}
   m_Layer: 3
   m_Name: enemy
   m_TagString: Enemy
@@ -29,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 4897856255243864835}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 71.69, y: -11.65, z: 0}
+  m_LocalPosition: {x: 65.42, y: -16.36, z: 0}
   m_LocalScale: {x: 3.621361, y: 3.621361, z: 3.621361}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -148,7 +149,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 37.61
+  m_Mass: 4173.39
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 0
@@ -162,7 +163,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 7
 --- !u!114 &2311385842935426240
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -175,9 +176,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01186ae8862e6d64497e50a1a2462c33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  exclamationMark: {fileID: 0}
   maxHealth: 3
   damageToPlayer: 1
   damageCooldown: 2
-  moveSpeed: 2
-  detectionRange: 5
+  moveSpeed: 0
+  detectionRange: 1
   flashDuration: 0.1
+--- !u!95 &2396705706038682343
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4897856255243864835}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f4613e3e9a536a54dbe29fdb5e060903, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
