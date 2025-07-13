@@ -4,6 +4,10 @@ using TMPro;
 
 public class HotbarController : MonoBehaviour
 {
+    [Header("Itens Especiais")]
+    public int cenouraID = 1;
+    public int curaPorCenoura = 1;
+
     [Header("Catálogo de Itens")]
     public Sprite[] itemIcons;
     public ItemType[] itemTypes;
@@ -106,8 +110,19 @@ public class HotbarController : MonoBehaviour
         int id = slotItemID[slot];
         if (id == -1) return;
 
-        if (itemTypes[id] == ItemType.Consumable)
+        PlayerHealthUI playerHealth = GameObject.FindGameObjectWithTag("Player")?.GetComponent<PlayerHealthUI>();
+        if (playerHealth == null) return;
+
+        if (id == cenouraID && itemTypes[id] == ItemType.Consumable)
         {
+            if (playerHealth.currentHealth >= playerHealth.maxHealth)
+            {
+                Debug.Log("Você está com a vida cheia.");
+                return;
+            }
+
+            playerHealth.Heal(curaPorCenoura);
+
             slotItemQtd[slot]--;
             if (slotItemQtd[slot] <= 0)
             {
@@ -115,12 +130,11 @@ public class HotbarController : MonoBehaviour
                 itemSlots[slot].transform.Find("Icon").gameObject.SetActive(false);
                 if (selectedSlot == slot) selectedSlot = -1;
             }
-
-            // UpdateQuantidadeText(slot); // REMOVIDO
         }
 
         SaveHotbar();
     }
+
 
     /*
     void UpdateQuantidadeText(int index)
