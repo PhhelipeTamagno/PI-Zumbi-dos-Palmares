@@ -18922,6 +18922,26 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6418357077087164198, guid: c99913a0c15d4af40a57e6f3356a3b25, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6418357077087164198, guid: c99913a0c15d4af40a57e6f3356a3b25, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2064823971}
+    - target: {fileID: 6418357077087164198, guid: c99913a0c15d4af40a57e6f3356a3b25, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: TrocarCena
+      objectReference: {fileID: 0}
+    - target: {fileID: 6418357077087164198, guid: c99913a0c15d4af40a57e6f3356a3b25, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: BotaoTrocarCena, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6418357077087164198, guid: c99913a0c15d4af40a57e6f3356a3b25, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Menu 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7317001959904158529, guid: c99913a0c15d4af40a57e6f3356a3b25, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -19080,6 +19100,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 23f6e8c922fc45946b77d4fc269f98f7, type: 3}
+--- !u!114 &2064823971 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8680990201627276766, guid: 23f6e8c922fc45946b77d4fc269f98f7, type: 3}
+  m_PrefabInstance: {fileID: 2064823970}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a9a5c4925fbb6548bf033193405c889, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2099519757
 GameObject:
   m_ObjectHideFlags: 0
