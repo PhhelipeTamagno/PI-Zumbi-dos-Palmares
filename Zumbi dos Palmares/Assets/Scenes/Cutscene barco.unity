@@ -303,7 +303,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82a3df2f72db7964db55010d4e78a57f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: "Cr\xE9dito"
+  sceneName: "Cr\xE9ditos"
   delay: 4.5
 --- !u!4 &428277174
 Transform:
