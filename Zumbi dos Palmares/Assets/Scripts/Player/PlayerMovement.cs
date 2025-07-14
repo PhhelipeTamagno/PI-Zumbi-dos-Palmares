@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -29,6 +30,10 @@ public class PlayerMovement : MonoBehaviour
     public float staminaDrainRate = 20f;
     public float staminaRecoveryRate = 15f;
 
+    [Header("Vida")]
+    public int maxHealth = 3;
+    public int currentHealth = 3;
+
     /* ---------- INTERNOS ---------- */
     private float defaultSpeed;
     private float currentStamina;
@@ -55,12 +60,8 @@ public class PlayerMovement : MonoBehaviour
             staminaSlider.value = maxStamina;
         }
 
-        // tenta obter a hotbar caso não tenha sido arrastada no Inspector
         if (hotbarController == null)
             hotbarController = FindObjectOfType<HotbarController>();
-
-        /* NÃO adicione mais a faca automaticamente aqui.
-           Ela só será adicionada via coleta (KnifePickup). */
     }
 
     void Update()
@@ -75,7 +76,7 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        rb.linearVelocity = move * moveSpeed;          // corrigido: velocity
+        rb.linearVelocity = move * moveSpeed;
     }
 
     /* ---------- MOVIMENTO ---------- */
@@ -89,8 +90,7 @@ public class PlayerMovement : MonoBehaviour
     /* ---------- COMBATE ---------- */
     void HandleAttack()
     {
-        bool knifeEquipped = hotbarController &&
-                             hotbarController.GetSelectedItemID() == knifeItemID;
+        bool knifeEquipped = hotbarController && hotbarController.GetSelectedItemID() == knifeItemID;
 
         if (!knifeEquipped || attackBlockedByZone) return;
 
@@ -107,9 +107,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void ApplyDamage() // Animation Event
     {
-        Collider2D[] hits = Physics2D.OverlapCircleAll(
-            attackPoint.position, attackRange, enemyLayers);
-
+        Collider2D[] hits = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
         foreach (var col in hits)
         {
             Enemy enemy = col.GetComponent<Enemy>();
@@ -135,8 +133,7 @@ public class PlayerMovement : MonoBehaviour
     /* ---------- STAMINA / CORRIDA ---------- */
     void HandleMoveSpeed()
     {
-        bool wantsRun = Input.GetKey(KeyCode.LeftShift) ||
-                        Input.GetKey(KeyCode.RightShift);
+        bool wantsRun = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
         bool moving = move.sqrMagnitude > 0f;
         bool canRun = currentStamina > 0f;
 
@@ -204,11 +201,34 @@ public class PlayerMovement : MonoBehaviour
         if (col.CompareTag("ZonaSemAtaque"))
             attackBlockedByZone = true;
     }
+
     void OnTriggerExit2D(Collider2D col)
     {
         if (col.CompareTag("ZonaSemAtaque"))
             attackBlockedByZone = false;
     }
+
+    /* ---------- VIDA & MORTE ---------- */
+    public void TakeDamage(int damage)
+    {
+        currentHealth -= damage;
+        if (currentHealth <= 0)
+        {
+            Die();
+        }
+    }
+
+    public void Die()
+    {
+        // Opcional: animação de morte ou som
+        Invoke(nameof(RestartScene), 2f);
+    }
+
+    void RestartScene()
+    {
+        SceneManager.LoadScene("jogo 5");
+    }
+
 
     /* ---------- GIZMOS ---------- */
     void OnDrawGizmosSelected()

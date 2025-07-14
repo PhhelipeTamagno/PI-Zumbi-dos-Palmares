@@ -21,16 +21,12 @@ public class PlayerHealthUI : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private const string HEALTH_KEY = "PlayerHealth";
 
-    /* ----------------------------- */
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         if (spriteRenderer == null)
             Debug.LogWarning("SpriteRenderer não encontrado!");
 
-        /* Se a cena foi carregada pelo botão “Novo Jogo”,
-           o menu deve ter chamado PlayerPrefs.DeleteKey(HEALTH_KEY).
-           Assim, HasKey = false e a vida começa cheia. */
         if (PlayerPrefs.HasKey(HEALTH_KEY))
             currentHealth = PlayerPrefs.GetInt(HEALTH_KEY, maxHealth);
         else
@@ -40,7 +36,6 @@ public class PlayerHealthUI : MonoBehaviour
         UpdateHearts();
     }
 
-    /* ---------- API pública ---------- */
     public void TakeDamage(int amount)
     {
         currentHealth = Mathf.Clamp(currentHealth - amount, 0, maxHealth);
@@ -60,7 +55,6 @@ public class PlayerHealthUI : MonoBehaviour
         SaveHealth();
     }
 
-    /* ---------- Internos ---------- */
     void UpdateHearts()
     {
         for (int i = 0; i < hearts.Length; i++)
@@ -83,14 +77,14 @@ public class PlayerHealthUI : MonoBehaviour
     void Die()
     {
         Debug.Log("Player morreu!");
-        PlayerPrefs.DeleteKey(HEALTH_KEY);   // zera vida salva
-        Destroy(gameObject);
-        Invoke(nameof(RestartScene), 1f);
-    }
+        PlayerPrefs.DeleteKey(HEALTH_KEY); // limpa vida salva
 
-    void RestartScene()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        // Em vez de destruir o jogador, chamamos o método de morte que reinicia corretamente
+        PlayerMovement pm = GetComponent<PlayerMovement>();
+        if (pm != null)
+            pm.Die();
+        else
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); // fallback
     }
 
     void SaveHealth()
