@@ -154,7 +154,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -537, y: -624}
+  m_AnchoredPosition: {x: -464, y: -624}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &218998549
@@ -171,7 +171,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textoTransform: {fileID: 218998548}
   pontoReset: {fileID: 1413983458}
-  velocidade: 30
+  velocidade: 90
 --- !u!114 &218998550
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -192,7 +192,27 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: "TROPY GAMES apresenta\r\n\r\n==============================\r\n      ZUMBI
+    DOS PALMARES\r\n==============================\r\n\r\nUM JOGO FEITO POR:\r\n\r\nENZO
+    FELIPE SCHLAGEL  \r\nPHELIPE TAMAGNO\r\n\r\n==============================\r\n         
+    CRIA\xC7\xC3O\r\n==============================\r\nGame Design  \r\nPrograma\xE7\xE3o 
+    \r\nLevel Design  \r\nRoteiro & Narrativa  \r\n\u2192 Enzo Felipe Schlagel  \r\n\u2192
+    Phelipe Tamagno\r\n\r\n==============================\r\n        ARTE & ASSETS\r\n==============================\r\nAnimated
+    Pixel Adventurer \u2013 Buros  \r\nLegacy Adventure Pack \u2013 VILLAGE \u2013
+    Anokolisa  \r\nFree \u2013 Adventure Pack \u2013 Grassland \u2013 Anokolisa 
+    \r\nHakurei Pixel Art Base Assets \u2013 FREE \u2013 Blackspire\r\n\r\n==============================\r\n       
+    TRILHA SONORA\r\n==============================\r\n\"Night Time Amb\" \u2013
+    Kane53126  \r\n\"Village Edit (1m46s)\" \u2013 Rimidal  \r\n\"Footsteps Stone
+    Sneaker\" \u2013 Xkeril  \r\n\"Steps on Dry Grass\" \u2013 Colloyiett  \r\n\"Crazy
+    Town\" \u2013 ID 368907  \r\n\"Cute Fantasy Free\" \u2013 Alexander Nakarada 
+    \r\n\"Gerald\u2019s Keys\" \u2013 Gerald Eckert  \r\n\r\nEfeitos Sonoros:  \r\nSwordOfKings128
+    \u2013 Port\xF5es e portas  \r\nCigaro30 \u2013 Vozes e grunhidos  \r\nVilkas
+    \u2013 UI Button Click\r\n\r\n==============================\r\n      AGRADECIMENTOS\r\n==============================\r\nA
+    Zumbi dos Palmares, s\xEDmbolo de resist\xEAncia.  \r\nAos povos ind\xEDgenas
+    e afro-brasileiros.  \r\nAos criadores de assets gratuitos.  \r\nA voc\xEA, jogador(a),
+    por libertar com a gente.\r\n\r\n==============================\r\n    EM DESENVOLVIMENTO\r\n==============================\r\nEste
+    jogo est\xE1 em fase de testes.  \r\nBugs podem ocorrer. Obrigado pela compreens\xE3o!\r\n\r\n==============================\r\n    
+    OBRIGADO POR JOGAR!\r\n==============================\r\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -257,7 +277,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -213.69437, w: -705.22205}
+  m_margin: {x: 0, y: 0, z: -449.8803, w: -705.22205}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
