@@ -180,7 +180,7 @@ MonoBehaviour:
   maxHealth: 3
   damageToPlayer: 1
   damageCooldown: 2
-  moveSpeed: 3
+  moveSpeed: 2.5
   detectionRange: 5
   flashDuration: 0.1
 --- !u!95 &2396705706038682343
