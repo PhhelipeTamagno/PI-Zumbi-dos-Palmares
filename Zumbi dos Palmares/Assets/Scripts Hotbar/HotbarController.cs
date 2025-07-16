@@ -8,13 +8,16 @@ public class HotbarController : MonoBehaviour
     public int cenouraID = 1;
     public int curaPorCenoura = 1;
 
+    [Header("Item Tocha")]
+    public int tochaID = 2;
+    public GameObject luzTocha;
+
     [Header("Catálogo de Itens")]
     public Sprite[] itemIcons;
     public ItemType[] itemTypes;
 
     [Header("Slots Visuais")]
     public GameObject[] itemSlots;
-    // public TextMeshProUGUI[] quantidadeTexts; // REMOVIDO
 
     private int[] slotItemID;
     private int[] slotItemQtd;
@@ -33,6 +36,10 @@ public class HotbarController : MonoBehaviour
         }
 
         LoadHotbar();
+
+        // Desativa luz da tocha no início
+        if (luzTocha != null)
+            luzTocha.SetActive(false);
     }
 
     void Update()
@@ -61,7 +68,6 @@ public class HotbarController : MonoBehaviour
             if (slotItemID[i] == itemID)
             {
                 slotItemQtd[i]++;
-                // UpdateQuantidadeText(i); // REMOVIDO
                 SaveHotbar();
                 return;
             }
@@ -77,7 +83,6 @@ public class HotbarController : MonoBehaviour
                 itemSlots[i].transform.Find("Icon").GetComponent<UnityEngine.UI.Image>().sprite = itemIcons[itemID];
                 itemSlots[i].transform.Find("Icon").gameObject.SetActive(true);
 
-                // UpdateQuantidadeText(i); // REMOVIDO
                 SelectSlot(i);
                 SaveHotbar();
                 return;
@@ -103,6 +108,18 @@ public class HotbarController : MonoBehaviour
 
         itemSlots[i].transform.Find("Highlight").gameObject.SetActive(true);
         selectedSlot = i;
+
+        // 🔥 Ativa a luz da tocha se o item for a tocha
+        if (slotItemID[i] == tochaID && itemTypes[tochaID] == ItemType.Equipable)
+        {
+            if (luzTocha != null)
+                luzTocha.SetActive(true);
+        }
+        else
+        {
+            if (luzTocha != null)
+                luzTocha.SetActive(false);
+        }
     }
 
     void UseItem(int slot)
@@ -129,30 +146,15 @@ public class HotbarController : MonoBehaviour
                 slotItemID[slot] = -1;
                 itemSlots[slot].transform.Find("Icon").gameObject.SetActive(false);
                 if (selectedSlot == slot) selectedSlot = -1;
+
+                // Desativa a luz da tocha se for ela
+                if (luzTocha != null)
+                    luzTocha.SetActive(false);
             }
         }
 
         SaveHotbar();
     }
-
-
-    /*
-    void UpdateQuantidadeText(int index)
-    {
-        if (quantidadeTexts == null || quantidadeTexts.Length <= index) return;
-
-        if (slotItemID[index] != -1 && slotItemQtd[index] > 1)
-        {
-            quantidadeTexts[index].text = slotItemQtd[index].ToString();
-            quantidadeTexts[index].gameObject.SetActive(true);
-        }
-        else
-        {
-            quantidadeTexts[index].text = "";
-            quantidadeTexts[index].gameObject.SetActive(false);
-        }
-    }
-    */
 
     public enum ItemType { Consumable, Equipable }
 
@@ -179,8 +181,6 @@ public class HotbarController : MonoBehaviour
             var icon = itemSlots[i].transform.Find("Icon").GetComponent<UnityEngine.UI.Image>();
             icon.gameObject.SetActive(id != -1);
             if (id != -1) icon.sprite = itemIcons[id];
-
-            // UpdateQuantidadeText(i); // REMOVIDO
         }
     }
 
