@@ -2,9 +2,20 @@ using UnityEngine;
 
 public class DialogueEtapas : MonoBehaviour
 {
+    [Header("Configurações de Diálogo")]
     public Dialogue dialogue; // arraste o ScriptableObject do diálogo aqui
 
+    [Header("UI")]
+    public GameObject teclaEIcon; // arraste o ícone que aparece quando o player chega perto
+
     private bool playerInRange = false;
+
+    void Start()
+    {
+        // Garante que o ícone está escondido no início
+        if (teclaEIcon != null)
+            teclaEIcon.SetActive(false);
+    }
 
     void Update()
     {
@@ -25,12 +36,20 @@ public class DialogueEtapas : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
+        {
             playerInRange = true;
+            if (teclaEIcon != null)
+                teclaEIcon.SetActive(true);
+        }
     }
 
     void OnTriggerExit2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
+        {
             playerInRange = false;
+            if (teclaEIcon != null)
+                teclaEIcon.SetActive(false);
+        }
     }
 }
