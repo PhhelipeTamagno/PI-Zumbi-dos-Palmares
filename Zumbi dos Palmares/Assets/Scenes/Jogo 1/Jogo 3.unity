@@ -14916,6 +14916,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneName: Jogo 4
+  teclaEIcon: {fileID: 0}
 --- !u!61 &705545316
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -18179,7 +18180,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 148325424508216761, guid: c99913a0c15d4af40a57e6f3356a3b25, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 245268252134556655, guid: c99913a0c15d4af40a57e6f3356a3b25, type: 3}
       propertyPath: m_IsActive
@@ -18195,15 +18196,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6067499140607566625, guid: c99913a0c15d4af40a57e6f3356a3b25, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6067499140607566625, guid: c99913a0c15d4af40a57e6f3356a3b25, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6067499140607566625, guid: c99913a0c15d4af40a57e6f3356a3b25, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6418357077087164198, guid: c99913a0c15d4af40a57e6f3356a3b25, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -18307,11 +18308,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8202312409270690843, guid: c99913a0c15d4af40a57e6f3356a3b25, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8202312409270690843, guid: c99913a0c15d4af40a57e6f3356a3b25, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:

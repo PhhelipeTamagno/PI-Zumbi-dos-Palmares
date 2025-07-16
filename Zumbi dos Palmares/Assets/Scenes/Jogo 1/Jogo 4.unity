@@ -14682,6 +14682,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneName: Jogo 5
+  teclaEIcon: {fileID: 0}
 --- !u!61 &705545316
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -15115,7 +15116,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -18867,7 +18868,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -18995,37 +18996,41 @@ PrefabInstance:
       propertyPath: m_Name
       value: Menu
       objectReference: {fileID: 0}
+    - target: {fileID: 148325424508216761, guid: c99913a0c15d4af40a57e6f3356a3b25, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 245268252134556655, guid: c99913a0c15d4af40a57e6f3356a3b25, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6067499140607566625, guid: c99913a0c15d4af40a57e6f3356a3b25, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6067499140607566625, guid: c99913a0c15d4af40a57e6f3356a3b25, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6067499140607566625, guid: c99913a0c15d4af40a57e6f3356a3b25, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6418357077087164198, guid: c99913a0c15d4af40a57e6f3356a3b25, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6418357077087164198, guid: c99913a0c15d4af40a57e6f3356a3b25, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 2064823971}
+      objectReference: {fileID: 2064823972}
     - target: {fileID: 6418357077087164198, guid: c99913a0c15d4af40a57e6f3356a3b25, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: TrocarCena
+      value: ExitGame
       objectReference: {fileID: 0}
     - target: {fileID: 6418357077087164198, guid: c99913a0c15d4af40a57e6f3356a3b25, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: BotaoTrocarCena, Assembly-CSharp
+      value: QuitGame, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 6418357077087164198, guid: c99913a0c15d4af40a57e6f3356a3b25, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
@@ -19113,11 +19118,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8202312409270690843, guid: c99913a0c15d4af40a57e6f3356a3b25, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8202312409270690843, guid: c99913a0c15d4af40a57e6f3356a3b25, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -19189,15 +19194,15 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 23f6e8c922fc45946b77d4fc269f98f7, type: 3}
---- !u!114 &2064823971 stripped
+--- !u!114 &2064823972 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8680990201627276766, guid: 23f6e8c922fc45946b77d4fc269f98f7, type: 3}
+  m_CorrespondingSourceObject: {fileID: 7435842671202815669, guid: 23f6e8c922fc45946b77d4fc269f98f7, type: 3}
   m_PrefabInstance: {fileID: 2064823970}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a9a5c4925fbb6548bf033193405c889, type: 3}
+  m_Script: {fileID: 11500000, guid: 159e6945f2261004fad0416d33066605, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2099519757
