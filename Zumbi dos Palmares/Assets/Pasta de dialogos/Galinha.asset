@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41a6cd280718e3d45b863077bc3e36c4, type: 3}
   m_Name: Galinha
   m_EditorClassIdentifier: 
-  characterName: "Galinha Rei\U0001F451"
+  characterName: Galinha Rei
   sentences:
   - "P\xF3\n"
   npcSprite: {fileID: 3416150400190533875, guid: 386af9a0d98197440873c49542f35283, type: 3}
