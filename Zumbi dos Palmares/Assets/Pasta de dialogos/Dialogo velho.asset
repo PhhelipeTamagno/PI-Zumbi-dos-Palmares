@@ -21,8 +21,7 @@ MonoBehaviour:
     Use-a com ju\xEDzo. Um dia, c\xEA vai libertar a gente disso tudo."
   - "Ah, e outra coisa Zumbi, se voc\xEA quiser escapar, vai ter que achar a chave
     para abrir o port\xE3o"
-  - "Mas presta aten\xE7\xE3o, a chave que voc\xEA vai precisar, fica com alguns
-    guardas perto do celeiro na parte da noite"
-  - "Ent\xE3o caso for pega-la, tome muito cuidado porque eles s\xE3o casca grossa,
-    Boa sorte Zumbi, contamos com voc\xEA."
+  - "Mas presta aten\xE7\xE3o, a chave que voc\xEA vai precisar, fica dentro da mans\xE3o."
+  - "Ent\xE3o caso for pega-la, v\xE1 de noite,por que \xE9 sempre rodeada de guardas
+    durante o dia."
   npcSprite: {fileID: 5435608014139152121, guid: 632c8667d5ce30b45a9a6990f92613fa, type: 3}
