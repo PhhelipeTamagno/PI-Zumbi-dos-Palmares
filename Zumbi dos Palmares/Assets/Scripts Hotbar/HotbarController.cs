@@ -107,10 +107,10 @@ public class HotbarController : MonoBehaviour
     public int GetSelectedItemID() =>
         selectedSlot != -1 ? slotItemID[selectedSlot] : -1;
 
-    public bool IsEquipableSelected()
+    public bool IsEquipavelSelected()
     {
         int id = GetSelectedItemID();
-        return id != -1 && itemTypes[id] == ItemType.Equipable;
+        return id != -1 && itemTypes[id] == ItemType.Equipavel;
     }
 
     void SelectSlot(int i)
@@ -127,7 +127,7 @@ public class HotbarController : MonoBehaviour
         int id = slotItemID[i];
 
         // Ativa a luz da tocha se o item for a tocha
-        if (id == tochaID && itemTypes[tochaID] == ItemType.Equipable)
+        if (id == tochaID && itemTypes[tochaID] == ItemType.Equipavel)
         {
             if (luzTocha != null)
                 luzTocha.SetActive(true);
@@ -147,7 +147,7 @@ public class HotbarController : MonoBehaviour
         PlayerHealthUI playerHealth = GameObject.FindGameObjectWithTag("Player")?.GetComponent<PlayerHealthUI>();
         if (playerHealth == null) return;
 
-        if (id == cenouraID && itemTypes[id] == ItemType.Consumable)
+        if (id == cenouraID && itemTypes[id] == ItemType.Consumivel)
         {
             if (playerHealth.currentHealth >= playerHealth.maxHealth)
             {
@@ -197,7 +197,7 @@ public class HotbarController : MonoBehaviour
         }
     }
 
-    public enum ItemType { Consumable, Equipable }
+    public enum ItemType { Consumivel, Equipavel }
 
     public void SaveHotbar()
     {
@@ -247,5 +247,4 @@ public class HotbarController : MonoBehaviour
         if (itemInfoPanel != null)
             itemInfoPanel.SetActive(false);
     }
-
 }
