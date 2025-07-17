@@ -40,6 +40,7 @@ SpriteAtlas:
     - {fileID: 2800000, guid: 6289bd125174b9e40873d45db2f54aee, type: 3}
     - {fileID: 2800000, guid: 7a5186754984929429a58c020bef6967, type: 3}
     - {fileID: 2800000, guid: 019f37f2ba8266e408e9010a2da52017, type: 3}
+    - {fileID: 2800000, guid: b337d8ee102e6444caafe25e839f7392, type: 3}
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
@@ -1717,6 +1718,15 @@ SpriteAtlas:
     - f47e048e692b82043ba21254c83548f2: -1331271316
     - f47e048e692b82043ba21254c83548f2: 756599304
     - f47e048e692b82043ba21254c83548f2: 856385020
+    - b337d8ee102e6444caafe25e839f7392: -2510476293373519475
+    - b337d8ee102e6444caafe25e839f7392: -270162840
+    - b337d8ee102e6444caafe25e839f7392: 765374256
+    - b337d8ee102e6444caafe25e839f7392: -1513329638
+    - b337d8ee102e6444caafe25e839f7392: 1053839035
+    - b337d8ee102e6444caafe25e839f7392: -1470452460
+    - b337d8ee102e6444caafe25e839f7392: -1296894695
+    - b337d8ee102e6444caafe25e839f7392: -1708015998
+    - b337d8ee102e6444caafe25e839f7392: -14130026
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
   - {fileID: 4032777960298285256, guid: 6289bd125174b9e40873d45db2f54aee, type: 3}
@@ -3392,6 +3402,15 @@ SpriteAtlas:
   - {fileID: -1331271316, guid: f47e048e692b82043ba21254c83548f2, type: 3}
   - {fileID: 756599304, guid: f47e048e692b82043ba21254c83548f2, type: 3}
   - {fileID: 856385020, guid: f47e048e692b82043ba21254c83548f2, type: 3}
+  - {fileID: -2510476293373519475, guid: b337d8ee102e6444caafe25e839f7392, type: 3}
+  - {fileID: -270162840, guid: b337d8ee102e6444caafe25e839f7392, type: 3}
+  - {fileID: 765374256, guid: b337d8ee102e6444caafe25e839f7392, type: 3}
+  - {fileID: -1513329638, guid: b337d8ee102e6444caafe25e839f7392, type: 3}
+  - {fileID: 1053839035, guid: b337d8ee102e6444caafe25e839f7392, type: 3}
+  - {fileID: -1470452460, guid: b337d8ee102e6444caafe25e839f7392, type: 3}
+  - {fileID: -1296894695, guid: b337d8ee102e6444caafe25e839f7392, type: 3}
+  - {fileID: -1708015998, guid: b337d8ee102e6444caafe25e839f7392, type: 3}
+  - {fileID: -14130026, guid: b337d8ee102e6444caafe25e839f7392, type: 3}
   m_PackedSpriteNamesToIndex:
   - New Piskel-1.png (10) (1)_0
   - New Piskel_0
@@ -5066,6 +5085,15 @@ SpriteAtlas:
   - Beach_Tile_5
   - Beach_Tile_8
   - Beach_Tile_9
+  - New Piskel_0
+  - New Piskel_1
+  - New Piskel_2
+  - New Piskel_3
+  - New Piskel_4
+  - New Piskel_5
+  - New Piskel_6
+  - New Piskel_7
+  - New Piskel_8
   m_RenderDataMap: {}
   m_Tag: Atlas
   m_IsVariant: 0
