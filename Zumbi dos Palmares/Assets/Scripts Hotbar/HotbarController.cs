@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using UnityEngine.UI;
 
 public class HotbarController : MonoBehaviour
 {
@@ -15,9 +16,16 @@ public class HotbarController : MonoBehaviour
     [Header("Catálogo de Itens")]
     public Sprite[] itemIcons;
     public ItemType[] itemTypes;
+    public string[] itemNomes;
+    public string[] itemDescricoes;
 
     [Header("Slots Visuais")]
     public GameObject[] itemSlots;
+
+    [Header("Painel de Informações")]
+    public GameObject itemInfoPanel;
+    public TMP_Text itemInfoText;
+    public Image itemInfoIcon;
 
     private int[] slotItemID;
     private int[] slotItemQtd;
@@ -37,16 +45,20 @@ public class HotbarController : MonoBehaviour
 
         LoadHotbar();
 
-        // Desativa luz da tocha no início
         if (luzTocha != null)
             luzTocha.SetActive(false);
+
+        if (itemInfoPanel != null)
+            itemInfoPanel.SetActive(false);
     }
 
     void Update()
     {
         for (int i = 0; i < itemSlots.Length; i++)
+        {
             if (Input.GetKeyDown(KeyCode.Alpha1 + i))
                 SelectSlot(i);
+        }
 
         float scroll = Input.GetAxis("Mouse ScrollWheel");
         if (scroll != 0f)
@@ -80,7 +92,7 @@ public class HotbarController : MonoBehaviour
                 slotItemID[i] = itemID;
                 slotItemQtd[i] = 1;
 
-                itemSlots[i].transform.Find("Icon").GetComponent<UnityEngine.UI.Image>().sprite = itemIcons[itemID];
+                itemSlots[i].transform.Find("Icon").GetComponent<Image>().sprite = itemIcons[itemID];
                 itemSlots[i].transform.Find("Icon").gameObject.SetActive(true);
 
                 SelectSlot(i);
@@ -109,8 +121,13 @@ public class HotbarController : MonoBehaviour
         itemSlots[i].transform.Find("Highlight").gameObject.SetActive(true);
         selectedSlot = i;
 
-        // 🔥 Ativa a luz da tocha se o item for a tocha
-        if (slotItemID[i] == tochaID && itemTypes[tochaID] == ItemType.Equipable)
+        if (itemInfoPanel != null)
+            itemInfoPanel.SetActive(false); // Oculta automaticamente ao trocar item
+
+        int id = slotItemID[i];
+
+        // Ativa a luz da tocha se o item for a tocha
+        if (id == tochaID && itemTypes[tochaID] == ItemType.Equipable)
         {
             if (luzTocha != null)
                 luzTocha.SetActive(true);
@@ -147,13 +164,37 @@ public class HotbarController : MonoBehaviour
                 itemSlots[slot].transform.Find("Icon").gameObject.SetActive(false);
                 if (selectedSlot == slot) selectedSlot = -1;
 
-                // Desativa a luz da tocha se for ela
                 if (luzTocha != null)
                     luzTocha.SetActive(false);
+
+                if (itemInfoPanel != null)
+                    itemInfoPanel.SetActive(false);
+                if (itemInfoIcon != null)
+                    itemInfoIcon.gameObject.SetActive(false);
             }
         }
 
         SaveHotbar();
+    }
+
+    public void MostrarInfoDoItemSelecionado()
+    {
+        if (selectedSlot == -1 || slotItemID[selectedSlot] == -1)
+        {
+            if (itemInfoPanel != null)
+                itemInfoPanel.SetActive(false);
+            return;
+        }
+
+        int id = slotItemID[selectedSlot];
+
+        if (itemInfoPanel != null && itemInfoText != null && itemInfoIcon != null)
+        {
+            itemInfoPanel.SetActive(true);
+            itemInfoText.text = $"<b>{itemNomes[id]}</b>\n{itemDescricoes[id]}\nTipo: {itemTypes[id]}";
+            itemInfoIcon.sprite = itemIcons[id];
+            itemInfoIcon.gameObject.SetActive(true);
+        }
     }
 
     public enum ItemType { Consumable, Equipable }
@@ -178,7 +219,7 @@ public class HotbarController : MonoBehaviour
             slotItemID[i] = id;
             slotItemQtd[i] = qtd;
 
-            var icon = itemSlots[i].transform.Find("Icon").GetComponent<UnityEngine.UI.Image>();
+            var icon = itemSlots[i].transform.Find("Icon").GetComponent<Image>();
             icon.gameObject.SetActive(id != -1);
             if (id != -1) icon.sprite = itemIcons[id];
         }
@@ -200,4 +241,11 @@ public class HotbarController : MonoBehaviour
         PlayerPrefs.Save();
         SceneManager.LoadScene("CenaInicial");
     }
+
+    public void FecharPainelInfo()
+    {
+        if (itemInfoPanel != null)
+            itemInfoPanel.SetActive(false);
+    }
+
 }
