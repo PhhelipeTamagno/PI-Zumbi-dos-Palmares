@@ -13,16 +13,18 @@ public class AnimalController : MonoBehaviour
     private int vidaAtual;
 
     private Vector2 destino;
-    private bool andando = false;
+    private bool Andando = false;
 
     private Rigidbody2D rb;
     private Vector2 pontoInicial;
     private SpriteRenderer sprite;
+    private Animator animator; // <- Novo
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>(); // <- Novo
         pontoInicial = transform.position;
         vidaAtual = vidaMaxima;
 
@@ -31,7 +33,10 @@ public class AnimalController : MonoBehaviour
 
     void Update()
     {
-        if (andando)
+        // Atualiza a animação
+        animator.SetBool("Andando", Andando); // <- Novo
+
+        if (Andando)
         {
             // Mover em direção ao destino
             rb.MovePosition(Vector2.MoveTowards(rb.position, destino, velocidade * Time.deltaTime));
@@ -44,7 +49,7 @@ public class AnimalController : MonoBehaviour
             // Chegou ao destino?
             if (Vector2.Distance(rb.position, destino) < 0.1f)
             {
-                andando = false;
+                Andando = false;
                 StartCoroutine(AndarAleatoriamente());
             }
         }
@@ -56,7 +61,7 @@ public class AnimalController : MonoBehaviour
 
         Vector2 novaPosicao = pontoInicial + Random.insideUnitCircle * raioMovimento;
         destino = novaPosicao;
-        andando = true;
+        Andando = true;
     }
 
     public void LevarDano(int dano)
