@@ -18,39 +18,37 @@ public class AnimalController : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 pontoInicial;
     private SpriteRenderer sprite;
-    private Animator animator; // <- Novo
+    private Animator animator;
+
+    private Coroutine movimentoCoroutine; // <- Para parar e reiniciar o movimento
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
-        animator = GetComponent<Animator>(); // <- Novo
+        animator = GetComponent<Animator>();
         pontoInicial = transform.position;
         vidaAtual = vidaMaxima;
 
-        StartCoroutine(AndarAleatoriamente());
+        movimentoCoroutine = StartCoroutine(AndarAleatoriamente());
     }
 
     void Update()
     {
-        // Atualiza a animação
-        animator.SetBool("Andando", Andando); // <- Novo
+        animator.SetBool("Andando", Andando);
 
         if (Andando)
         {
-            // Mover em direção ao destino
             rb.MovePosition(Vector2.MoveTowards(rb.position, destino, velocidade * Time.deltaTime));
 
-            // Flip horizontal se necessário
             Vector2 direcao = destino - rb.position;
             if (direcao.x != 0)
                 sprite.flipX = direcao.x < 0;
 
-            // Chegou ao destino?
             if (Vector2.Distance(rb.position, destino) < 0.1f)
             {
                 Andando = false;
-                StartCoroutine(AndarAleatoriamente());
+                movimentoCoroutine = StartCoroutine(AndarAleatoriamente());
             }
         }
     }
@@ -76,5 +74,19 @@ public class AnimalController : MonoBehaviour
     void Morrer()
     {
         Destroy(gameObject);
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (Andando)
+        {
+            // Parar o movimento atual
+            Andando = false;
+            if (movimentoCoroutine != null)
+                StopCoroutine(movimentoCoroutine);
+
+            // Iniciar nova direção
+            movimentoCoroutine = StartCoroutine(AndarAleatoriamente());
+        }
     }
 }
