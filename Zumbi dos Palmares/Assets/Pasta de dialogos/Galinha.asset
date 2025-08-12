@@ -15,4 +15,7 @@ MonoBehaviour:
   characterName: Galinha Rei
   sentences:
   - "P\xF3\n"
+  - "Os pecados que voc\xEA tenta enterrar s\xE3o os mesmos que v\xE3o cavar sua
+    cova\n"
+  - "P\xF3\n"
   npcSprite: {fileID: 3416150400190533875, guid: 386af9a0d98197440873c49542f35283, type: 3}
