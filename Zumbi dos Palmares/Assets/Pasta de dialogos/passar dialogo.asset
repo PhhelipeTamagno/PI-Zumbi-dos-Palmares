@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41a6cd280718e3d45b863077bc3e36c4, type: 3}
   m_Name: passar dialogo
   m_EditorClassIdentifier: 
-  characterName: 
+  characterName: Velho
   sentences:
   - "Ei zumbi vem c\xE1 meu chapa"
-  npcSprite: {fileID: 0}
+  npcSprite: {fileID: 5435608014139152121, guid: 632c8667d5ce30b45a9a6990f92613fa, type: 3}
