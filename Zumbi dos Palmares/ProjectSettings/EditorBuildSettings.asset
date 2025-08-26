@@ -47,5 +47,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Egg cutscene.unity
     guid: b3e15ea09d9077c42b57ceba5498f9e8
+  - enabled: 1
+    path: "Assets/Scenes/Jogo 1/Mans\xE3o.unity"
+    guid: 742a8f554185fa3459cfeef2f9e4c667
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
