@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41a6cd280718e3d45b863077bc3e36c4, type: 3}
   m_Name: Dialogo npc senzala
   m_EditorClassIdentifier: 
-  characterName: Escravo
+  characterName: "juli\xE3o"
   sentences:
   - "Francisco Nzumbi, n\xF3s precisamos muito da sua ajuda. Por favor, salve-nos
     de todo esse mal.\r"
