@@ -2,29 +2,46 @@ using UnityEngine;
 
 public class SettingsPanelController : MonoBehaviour
 {
-    public GameObject panel;      // Painel desativado no Inspector
-    public Animator panelAnimator;
+    public RectTransform panel;          // Painel desativado no início
+    public float duration = 0.5f;        // Duração da animação
+    public Vector2 targetPos = Vector2.zero; // Posição central da tela
+    public Vector2 hiddenPos = new Vector2(1920, 0); // Posição fora da tela (ajuste conforme a resolução)
 
-    private bool isOpen = false;
+    private bool isAnimating = false;
 
-    public void TogglePanel()
+    // Abre o painel
+    public void OpenPanel()
     {
-        if (!isOpen)
-        {
-            panel.SetActive(true);               // Ativa o painel
-            panelAnimator.SetBool("IsOpen", true);
-            isOpen = true;
-        }
-        else
-        {
-            panelAnimator.SetBool("IsOpen", false);
-            isOpen = false;
-        }
+        panel.gameObject.SetActive(true);
+        if (!isAnimating)
+            StartCoroutine(Slide(panel.anchoredPosition, targetPos));
     }
 
-    // Método chamado no final da animação de fechar
-    public void OnCloseAnimationEnd()
+    // Fecha o painel
+    public void ClosePanel()
     {
-        panel.SetActive(false); // Desativa o painel após a animação de saída
+        if (!isAnimating)
+            StartCoroutine(Slide(panel.anchoredPosition, hiddenPos, true));
+    }
+
+    // Coroutine que faz a animação de slide
+    private System.Collections.IEnumerator Slide(Vector2 startPos, Vector2 endPos, bool deactivateAfter = false)
+    {
+        isAnimating = true;
+        float elapsed = 0f;
+
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            panel.anchoredPosition = Vector2.Lerp(startPos, endPos, elapsed / duration);
+            yield return null;
+        }
+
+        panel.anchoredPosition = endPos;
+
+        if (deactivateAfter)
+            panel.gameObject.SetActive(false);
+
+        isAnimating = false;
     }
 }
