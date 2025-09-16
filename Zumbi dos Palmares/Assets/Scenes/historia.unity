@@ -1299,12 +1299,12 @@ MonoBehaviour:
     bandeirante: {fileID: 889556385}
     backgroundMoveAmount: 0.1
     bandeiranteMoveAmount: 0.5
-    narrationClip: {fileID: 8300000, guid: 94dda25c2eb23d84ea81524b6956139a, type: 3}
+    narrationClip: {fileID: 8300000, guid: 731b41b31037c964680fbec9e18352eb, type: 3}
   - background: {fileID: 1295906053}
     bandeirante: {fileID: 928214044}
     backgroundMoveAmount: 0.1
     bandeiranteMoveAmount: 0.5
-    narrationClip: {fileID: 0}
+    narrationClip: {fileID: 8300000, guid: 147f52ee536b9ae4a9ef17b79bd445bf, type: 3}
   moveSpeed: 1
   fadeDuration: 1
 --- !u!1660057539 &9223372036854775807
