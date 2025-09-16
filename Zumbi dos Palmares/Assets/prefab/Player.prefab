@@ -9,10 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2323156942808846288}
+  - component: {fileID: 4281035190817202152}
   m_Layer: 0
   m_Name: AttackPoint
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -25,12 +26,48 @@ Transform:
   m_GameObject: {fileID: 3240845947254828119}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.341, y: 0.046, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7175994592087977940}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &4281035190817202152
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3240845947254828119}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: -0.16186425, y: 0}
+  m_Radius: 1.1375109
 --- !u!1 &7175994593143721313
 GameObject:
   m_ObjectHideFlags: 0
@@ -63,7 +100,7 @@ Transform:
   m_GameObject: {fileID: 7175994593143721313}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -15.8, y: 0.13, z: 0}
+  m_LocalPosition: {x: -15.73, y: 0.11, z: 0}
   m_LocalScale: {x: 0.64645, y: 0.64645, z: 0.64645}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -183,7 +220,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 85.03
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 0
@@ -212,22 +249,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 3
   boostSpeed: 5
-  hotbarController: {fileID: 9040488240784880301, guid: 1be18ab86d1b56543a37c8c7df375742, type: 3}
+  hotbarController: {fileID: 0}
   knifeItemID: 0
   attackDamage: 1
-  attackPoint: {fileID: 0}
-  attackRange: 0.5
+  attackPoint: {fileID: 2323156942808846288}
+  attackRange: 0.8
   enemyLayers:
     serializedVersion: 2
     m_Bits: 8
   attackCooldown: 0.5
   attackSound1: {fileID: 8300000, guid: b25ca59fee6338d4e91ab207ffacde9a, type: 3}
   attackSound2: {fileID: 8300000, guid: 7b180238515664a4180b149248a51a1b, type: 3}
-  footstepSound: {fileID: 0}
-  staminaSlider: {fileID: 217244121123303280, guid: e6cb8b57e08aaf341bd0583c42816d26, type: 3}
+  footstepSound: {fileID: 8300000, guid: 495d93e750d52d24480495d6dec33798, type: 3}
+  staminaSlider: {fileID: 0}
   maxStamina: 100
   staminaDrainRate: 20
   staminaRecoveryRate: 15
+  maxHealth: 3
+  currentHealth: 3
 --- !u!95 &7175994592087977937
 Animator:
   serializedVersion: 7
@@ -265,13 +304,13 @@ AudioSource:
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1.1985245
+  MinDistance: 1.1985207
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
