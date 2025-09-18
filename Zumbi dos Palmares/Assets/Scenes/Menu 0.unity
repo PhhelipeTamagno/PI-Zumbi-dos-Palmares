@@ -4441,7 +4441,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 380996241219053814, guid: f167f6d37de9fe042b88060fac13227a, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 788927637597173950, guid: f167f6d37de9fe042b88060fac13227a, type: 3}
       propertyPath: m_Pivot.x
@@ -4654,7 +4654,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2023682958
 RectTransform:
   m_ObjectHideFlags: 0
