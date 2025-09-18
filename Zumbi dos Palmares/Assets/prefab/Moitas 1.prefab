@@ -153,7 +153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8454c9ef4f4164f4eaa71949a738dd33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enterBushSound: {fileID: 0}
+  enterBushSound: {fileID: 8300000, guid: 7f93ff033f738c14b9266b0e6eb35bca, type: 3}
   volume: 1
   bushEffect: {fileID: 3015115674301422092}
 --- !u!1001 &5761907236963309411
