@@ -49,7 +49,7 @@ public class PlayerHealthUI : MonoBehaviour
     }
 
     public void Heal(int amount)
-    {
+     {
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
         UpdateHearts();
         SaveHealth();
@@ -77,15 +77,21 @@ public class PlayerHealthUI : MonoBehaviour
     void Die()
     {
         Debug.Log("Player morreu!");
-        PlayerPrefs.DeleteKey(HEALTH_KEY); // limpa vida salva
+        PlayerPrefs.DeleteKey(HEALTH_KEY);
 
-        // Em vez de destruir o jogador, chamamos o método de morte que reinicia corretamente
+        // Tenta parar o movimento do jogador
         PlayerMovement pm = GetComponent<PlayerMovement>();
         if (pm != null)
-            pm.Die();
+            pm.enabled = false;
+
+        // Mostra a tela de morte
+        TelaMorte ds = FindObjectOfType<TelaMorte>();
+        if (ds != null)
+            ds.ShowDeathScreen();
         else
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); // fallback
     }
+
 
     void SaveHealth()
     {
