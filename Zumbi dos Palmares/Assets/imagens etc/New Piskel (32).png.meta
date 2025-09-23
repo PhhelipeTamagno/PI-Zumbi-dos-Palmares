@@ -151,12 +151,12 @@ TextureImporter:
       name: New Piskel (32)_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 44
-        width: 13
-        height: 13
+        x: 1
+        y: 45
+        width: 98
+        height: 11
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -170,37 +170,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: New Piskel (32)_1
-      rect:
-        serializedVersion: 2
-        x: 87
-        y: 44
-        width: 13
-        height: 13
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 24abf4d676a21b5c0800000000000000
-      internalID: -4201530353656022462
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: New Piskel (32)_2
       rect:
         serializedVersion: 2
         x: 0
-        y: 12
-        width: 12
-        height: 13
+        y: 13
+        width: 100
+        height: 11
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -213,33 +191,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: New Piskel (32)_3
-      rect:
-        serializedVersion: 2
-        x: 88
-        y: 12
-        width: 12
-        height: 13
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 972a965ddbe1f2b20800000000000000
-      internalID: 3111739668214424185
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 0e94a50f73dbfbb45a586e733c0b1e84
     internalID: 0
     vertices: []
     indices: 
