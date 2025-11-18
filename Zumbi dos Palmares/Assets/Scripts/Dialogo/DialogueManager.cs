@@ -10,9 +10,9 @@ public class DialogueManager : MonoBehaviour
     public TMP_Text nameText;
     public TMP_Text dialogueText;
 
-    public Image npcImage; // Imagem do NPC
-    public Button nextButton; // Botão "Próximo"
-    public Button closeButton; // Botão "Sair"
+    public Image npcImage;
+    public Button nextButton;
+    public Button closeButton;
 
     private Queue<string> sentences;
 
@@ -23,6 +23,15 @@ public class DialogueManager : MonoBehaviour
 
         nextButton.onClick.AddListener(DisplayNextSentence);
         closeButton.onClick.AddListener(CloseDialogueManually);
+    }
+
+    void Update()
+    {
+        // Avançar com a tecla F
+        if (dialoguePanel.activeSelf && Input.GetKeyDown(KeyCode.F))
+        {
+            DisplayNextSentence();
+        }
     }
 
     public void StartDialogue(Dialogue dialogue)
@@ -59,7 +68,7 @@ public class DialogueManager : MonoBehaviour
         foreach (char letter in sentence.ToCharArray())
         {
             dialogueText.text += letter;
-            yield return new WaitForSeconds(0.02f); // Pequeno atraso por letra
+            yield return new WaitForSeconds(0.02f);
         }
     }
 
