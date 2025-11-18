@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[RequireComponent(typeof(Animator), typeof(SpriteRenderer))]
+[RequireComponent(typeof(Animator), typeof(SpriteRenderer), typeof(Rigidbody2D))]
 public class Enemy : MonoBehaviour
 {
     [Header("Alerta Visual")]
@@ -29,12 +29,18 @@ public class Enemy : MonoBehaviour
     [Header("Animação")]
     private Animator animator;
 
+    private Rigidbody2D rb;
+
     void Start()
     {
         currentHealth = maxHealth;
 
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody2D>();
+
+        rb.gravityScale = 0;
+        rb.freezeRotation = true;
 
         if (spriteRenderer != null)
             originalColor = spriteRenderer.color;
@@ -52,8 +58,7 @@ public class Enemy : MonoBehaviour
 
         if (distance <= detectionRange)
         {
-            MoveTowardsPlayer();
-            SetAnimationState(isWalking: true, isAttacking: false);
+            SetAnimationState(true, false);
 
             if (!playerInRange)
             {
@@ -63,7 +68,7 @@ public class Enemy : MonoBehaviour
         }
         else
         {
-            SetAnimationState(isWalking: false, isAttacking: false);
+            SetAnimationState(false, false);
 
             if (playerInRange)
             {
@@ -72,13 +77,23 @@ public class Enemy : MonoBehaviour
             }
         }
 
-        FlipTowardsPlayer(); // <- Atualizado para virar com localScale
+        FlipTowardsPlayer();
+    }
+
+    void FixedUpdate()
+    {
+        if (player == null) return;
+
+        float distance = Vector2.Distance(transform.position, player.position);
+
+        if (distance <= detectionRange)
+            MoveTowardsPlayer();
     }
 
     void MoveTowardsPlayer()
     {
         Vector2 direction = (player.position - transform.position).normalized;
-        transform.position += (Vector3)direction * moveSpeed * Time.deltaTime;
+        rb.MovePosition(rb.position + direction * moveSpeed * Time.fixedDeltaTime);
     }
 
     void FlipTowardsPlayer()
@@ -88,9 +103,9 @@ public class Enemy : MonoBehaviour
         float direction = player.position.x - transform.position.x;
 
         if (direction < 0)
-            transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z); // olha para esquerda
+            transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
         else if (direction > 0)
-            transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z); // olha para direita
+            transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
     }
 
     void OnCollisionStay2D(Collision2D collision)
@@ -100,11 +115,10 @@ public class Enemy : MonoBehaviour
             PlayerHealthUI playerHealth = collision.gameObject.GetComponent<PlayerHealthUI>();
             if (playerHealth != null)
             {
-                SetAnimationState(isWalking: false, isAttacking: true);
+                SetAnimationState(false, true);
                 playerHealth.TakeDamage(damageToPlayer);
                 lastDamageTime = Time.time;
 
-                // Parar de atacar após 0.5s
                 Invoke(nameof(StopAttacking), 0.5f);
             }
         }
@@ -112,13 +126,12 @@ public class Enemy : MonoBehaviour
 
     void StopAttacking()
     {
-        SetAnimationState(isWalking: false, isAttacking: false);
+        SetAnimationState(false, false);
     }
 
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
-        Debug.Log("Inimigo levou " + damage + " de dano. Vida restante: " + currentHealth);
 
         if (spriteRenderer != null)
         {
@@ -139,7 +152,6 @@ public class Enemy : MonoBehaviour
 
     void Die()
     {
-        Debug.Log("Inimigo morreu!");
         Destroy(gameObject);
     }
 
