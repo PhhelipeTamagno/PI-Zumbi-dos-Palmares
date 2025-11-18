@@ -1,0 +1,13 @@
+{
+    "asset": "770ae4eaa8cbe9e47bdec4a50077a3bd",
+    "fileName": "019a7e11-b5f4-7764-90e8-d8044478e501.wav",
+    "prompt": "clicking a button and making a more cheerful sound",
+    "negativePrompt": "",
+    "model": "ee31b223-3fe1-4ae6-bf54-d8a80bb4b0e1",
+    "modelName": "Text to Sound",
+    "customSeed": -1,
+    "w3CTraceId": "1b32a68ea9e4eada84e16478bc1efb74",
+    "duration": 10.0,
+    "autoTrim": false,
+    "hasReference": false
+}
