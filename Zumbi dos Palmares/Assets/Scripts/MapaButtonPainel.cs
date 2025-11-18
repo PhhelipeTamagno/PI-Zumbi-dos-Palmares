@@ -16,6 +16,15 @@ public class MapaButtonPainel : MonoBehaviour
         painelDesfoque.SetActive(false);
     }
 
+    private void Update()
+    {
+        // Quando apertar TAB, alterna o painel
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            AlternarPainel();
+        }
+    }
+
     public void AlternarPainel()
     {
         painelAtivo = !painelAtivo;
