@@ -71,6 +71,9 @@ public class HotbarController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.E) && selectedSlot != -1 && slotItemID[selectedSlot] != -1)
             UseItem(selectedSlot);
+        if (Time.timeScale == 0f)
+            return;
+
     }
 
     public void AddItemToHotbar(int itemID)

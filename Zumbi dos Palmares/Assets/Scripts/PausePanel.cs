@@ -2,13 +2,13 @@ using UnityEngine;
 
 public class PausePanel : MonoBehaviour
 {
-    public GameObject uiPanel; // Arraste o painel no Inspector
+    public GameObject uiPanel;
     private bool isPaused = false;
 
     void Start()
     {
         if (uiPanel != null)
-            uiPanel.SetActive(false); // começa fechado
+            uiPanel.SetActive(false);
         else
             Debug.LogError("UI Panel não atribuído!");
     }
@@ -17,28 +17,29 @@ public class PausePanel : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape) && uiPanel != null)
         {
-            // Se o painel estiver fechado, abre
             if (!uiPanel.activeSelf)
-            {
                 OpenPanel();
-            }
-            // Se estiver aberto, fecha
             else
-            {
                 ClosePanel();
-            }
         }
     }
 
     public void OpenPanel()
     {
         uiPanel.SetActive(true);
-        isPaused = true;
+        Time.timeScale = 0f;
     }
 
     public void ClosePanel()
     {
         uiPanel.SetActive(false);
-        isPaused = false;
+        Time.timeScale = 1f;
     }
+
+
+    public static class GameState
+    {
+        public static bool IsPaused = false;
+    }
+
 }
