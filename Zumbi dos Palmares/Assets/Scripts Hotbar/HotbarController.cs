@@ -71,9 +71,9 @@ public class HotbarController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.E) && selectedSlot != -1 && slotItemID[selectedSlot] != -1)
             UseItem(selectedSlot);
+
         if (Time.timeScale == 0f)
             return;
-
     }
 
     public void AddItemToHotbar(int itemID)
@@ -125,11 +125,10 @@ public class HotbarController : MonoBehaviour
         selectedSlot = i;
 
         if (itemInfoPanel != null)
-            itemInfoPanel.SetActive(false); // Oculta automaticamente ao trocar item
+            itemInfoPanel.SetActive(false);
 
         int id = slotItemID[i];
 
-        // Ativa a luz da tocha se o item for a tocha
         if (id == tochaID && itemTypes[tochaID] == ItemType.Equipavel)
         {
             if (luzTocha != null)
@@ -249,5 +248,24 @@ public class HotbarController : MonoBehaviour
     {
         if (itemInfoPanel != null)
             itemInfoPanel.SetActive(false);
+    }
+
+    // ----------------------------------------------
+    //        🎮 FUNÇÃO DO BOTÃO DA UI
+    // ----------------------------------------------
+    public void TrocarSlotUI()
+    {
+        if (selectedSlot == -1)
+        {
+            SelectSlot(0);
+            return;
+        }
+
+        int newSlot = selectedSlot + 1;
+
+        if (newSlot >= itemSlots.Length)
+            newSlot = 0;
+
+        SelectSlot(newSlot);
     }
 }
