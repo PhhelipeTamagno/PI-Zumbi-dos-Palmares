@@ -5,22 +5,42 @@ public class InteractionZone : MonoBehaviour
     public GameObject imageToShow;
     private bool playerInZone = false;
 
+    void Start()
+    {
+        if (InteractionButton.Instance != null)
+            InteractionButton.Instance.onInteractionPressed += InteragirMobile;
+    }
+
+    void OnDestroy()
+    {
+        if (InteractionButton.Instance != null)
+            InteractionButton.Instance.onInteractionPressed -= InteragirMobile;
+    }
+
     void Update()
     {
         if (playerInZone && Input.GetKeyDown(KeyCode.E))
         {
-            // Alterna entre ativar e desativar a imagem
-            bool isActive = imageToShow.activeSelf;
-            imageToShow.SetActive(!isActive);
+            ToggleImage();
         }
+    }
+
+    // --- MOBILE ---
+    void InteragirMobile()
+    {
+        if (playerInZone)
+            ToggleImage();
+    }
+
+    void ToggleImage()
+    {
+        imageToShow.SetActive(!imageToShow.activeSelf);
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
-        {
             playerInZone = true;
-        }
     }
 
     void OnTriggerExit2D(Collider2D other)
@@ -28,12 +48,7 @@ public class InteractionZone : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerInZone = false;
-
-            // Se a imagem ainda estiver ativa, desativa ao sair
-            if (imageToShow.activeSelf)
-            {
-                imageToShow.SetActive(false);
-            }
+            imageToShow.SetActive(false);
         }
     }
 }

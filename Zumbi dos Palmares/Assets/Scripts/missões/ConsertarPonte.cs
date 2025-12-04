@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class ConsertarPonte : MonoBehaviour
 {
-    public Sprite ponteConsertada; // nova imagem da ponte
-    public GameObject[] objetosParaDesativar; // ex: colliders da ponte
-    public SpriteRenderer ponteRenderer; // SpriteRenderer da ponte
+    public Sprite ponteConsertada;
+    public GameObject[] objetosParaDesativar;
+    public SpriteRenderer ponteRenderer;
 
     private bool playerNaArea = false;
     private MissaoNoturnaManager missaoManager;
@@ -12,11 +12,36 @@ public class ConsertarPonte : MonoBehaviour
     void Start()
     {
         missaoManager = FindObjectOfType<MissaoNoturnaManager>();
+
+        // Registrar evento do botão mobile
+        if (InteractionButton.Instance != null)
+            InteractionButton.Instance.onInteractionPressed += InteragirMobile;
+    }
+
+    void OnDestroy()
+    {
+        if (InteractionButton.Instance != null)
+            InteractionButton.Instance.onInteractionPressed -= InteragirMobile;
     }
 
     void Update()
     {
-        if (playerNaArea && Input.GetKeyDown(KeyCode.E) && missaoManager.etapaMissaoNoturna == 2)
+        if (playerNaArea && Input.GetKeyDown(KeyCode.E))
+        {
+            TentarConsertar();
+        }
+    }
+
+    // --- MOBILE ---
+    void InteragirMobile()
+    {
+        if (playerNaArea)
+            TentarConsertar();
+    }
+
+    void TentarConsertar()
+    {
+        if (missaoManager.etapaMissaoNoturna == 2)
         {
             ponteRenderer.sprite = ponteConsertada;
 

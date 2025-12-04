@@ -16,8 +16,8 @@ public class InteragirComPortao : MonoBehaviour
     private AudioSource audioSource;
 
     [Header("Requisitos")]
-    public int chaveItemID = 0; // ID do item "chave" no sistema de hotbar
-    public HotbarController hotbar; // Referência ao HotbarController na cena
+    public int chaveItemID = 0;
+    public HotbarController hotbar;
 
     private bool pertoDoPortao = false;
 
@@ -27,20 +27,43 @@ public class InteragirComPortao : MonoBehaviour
         portaoFechado.SetActive(true);
         portaoAberto.SetActive(false);
         audioSource = GetComponent<AudioSource>();
+
+        // registra o botão mobile (se existir na cena)
+        if (InteractionButton.Instance != null)
+            InteractionButton.Instance.onInteractionPressed += InteragirMobile;
+    }
+
+    void OnDestroy()
+    {
+        if (InteractionButton.Instance != null)
+            InteractionButton.Instance.onInteractionPressed -= InteragirMobile;
     }
 
     void Update()
     {
+        // INTERAÇÃO NO PC
         if (pertoDoPortao && Input.GetKeyDown(KeyCode.E))
         {
-            if (hotbar != null && JogadorTemChave())
-            {
-                AlternarPortao();
-            }
-            else
-            {
-                mensagemInteracao.text = "Você precisa de uma chave para abrir o portão.";
-            }
+            TentarInteragir();
+        }
+    }
+
+    // INTERAÇÃO MOBILE (botão)
+    private void InteragirMobile()
+    {
+        if (pertoDoPortao)
+            TentarInteragir();
+    }
+
+    void TentarInteragir()
+    {
+        if (hotbar != null && JogadorTemChave())
+        {
+            AlternarPortao();
+        }
+        else
+        {
+            mensagemInteracao.text = "Você precisa de uma chave para abrir o portão.";
         }
     }
 
@@ -53,7 +76,7 @@ public class InteragirComPortao : MonoBehaviour
 
             if (hotbar != null && JogadorTemChave())
             {
-                mensagemInteracao.text = "Aperte E para abrir ou fechar o portão";
+                mensagemInteracao.text = "Aperte E / Botão para abrir/fechar o portão";
             }
             else
             {
@@ -101,12 +124,10 @@ public class InteragirComPortao : MonoBehaviour
     {
         for (int i = 0; i < hotbar.itemSlots.Length; i++)
         {
-            // Verifica se o item está em qualquer slot da hotbar
             if (hotbar.itemSlots[i].transform.Find("Icon").gameObject.activeSelf &&
                 hotbar.GetSelectedItemID() == id)
                 return true;
         }
-
         return false;
     }
 }
