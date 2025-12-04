@@ -3,23 +3,22 @@ using UnityEngine;
 public class DialogueEtapas : MonoBehaviour
 {
     [Header("Configurações de Diálogo")]
-    public Dialogue dialogue; // arraste o ScriptableObject do diálogo aqui
+    public Dialogue dialogue;
 
     [Header("UI")]
-    public GameObject teclaEIcon; // arraste o ícone que aparece quando o player chega perto
+    public GameObject teclaEIcon;
 
     private bool playerInRange = false;
 
     void Start()
     {
-        // Garante que o ícone está escondido no início
         if (teclaEIcon != null)
             teclaEIcon.SetActive(false);
     }
 
     void Update()
     {
-        if (playerInRange && Input.GetKeyDown(KeyCode.E))
+        if (playerInRange && (Input.GetKeyDown(KeyCode.E) || MobileInteractButton.pressed))
         {
             var dialogueManager = FindObjectOfType<DialogueManager>();
             if (dialogueManager != null && dialogue != null)

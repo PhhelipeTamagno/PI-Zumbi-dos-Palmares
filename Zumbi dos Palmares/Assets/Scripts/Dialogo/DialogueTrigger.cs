@@ -4,10 +4,10 @@ public class DialogueTrigger : MonoBehaviour
 {
     public Dialogue dialogueAntesCenouras;
     public Dialogue dialogueDepoisCenouras;
-    public Dialogue dialogueDepoisCafe;        // diálogo após café (barão fala para ir coletar cana)
-    public Dialogue dialogueDepoisCana;        // diálogo após cana (barão fala para ir dormir)
+    public Dialogue dialogueDepoisCafe;
+    public Dialogue dialogueDepoisCana;
 
-    public GameObject objetoParaDesativar; // <- objeto com o BoxCollider2D
+    public GameObject objetoParaDesativar;
 
     private bool playerInRange = false;
     private MissaoManager missaoManager;
@@ -20,7 +20,7 @@ public class DialogueTrigger : MonoBehaviour
 
     void Update()
     {
-        if (playerInRange && Input.GetKeyDown(KeyCode.E))
+        if (playerInRange && (Input.GetKeyDown(KeyCode.E) || MobileInteractButton.pressed))
         {
             int etapa = missaoManager.etapaMissao;
 
