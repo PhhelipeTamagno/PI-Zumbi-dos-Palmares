@@ -34,6 +34,9 @@ public class PlayerMovement : MonoBehaviour
     public int maxHealth = 3;
     public int currentHealth = 3;
 
+    /* ---------- MOBILE CONTROLS ---------- */
+    [HideInInspector] public bool mobileUp, mobileDown, mobileLeft, mobileRight;
+
     /* ---------- INTERNOS ---------- */
     private float defaultSpeed;
     private float currentStamina;
@@ -82,8 +85,24 @@ public class PlayerMovement : MonoBehaviour
     /* ---------- MOVIMENTO ---------- */
     void ReadInput()
     {
-        move.x = Input.GetAxisRaw("Horizontal");
-        move.y = Input.GetAxisRaw("Vertical");
+        // PC
+        float pcX = Input.GetAxisRaw("Horizontal");
+        float pcY = Input.GetAxisRaw("Vertical");
+
+        // Mobile
+        float mX = 0f;
+        float mY = 0f;
+
+        if (mobileUp) mY = 1f;
+        if (mobileDown) mY = -1f;
+        if (mobileLeft) mX = -1f;
+        if (mobileRight) mX = 1f;
+
+        // Se PC estiver sendo usado → usa PC
+        // Se estiver parado no PC → usa mobile
+        move.x = pcX != 0 ? pcX : mX;
+        move.y = pcY != 0 ? pcY : mY;
+
         move.Normalize();
     }
 
@@ -220,7 +239,6 @@ public class PlayerMovement : MonoBehaviour
 
     public void Die()
     {
-        // Opcional: animação de morte ou som
         Invoke(nameof(RestartScene), 2f);
     }
 
@@ -229,6 +247,18 @@ public class PlayerMovement : MonoBehaviour
         SceneManager.LoadScene("jogo 5");
     }
 
+    /* ---------- MOBILE BUTTONS ---------- */
+    public void MobileUpDown() { mobileUp = true; }
+    public void MobileUpUp() { mobileUp = false; }
+
+    public void MobileDownDown() { mobileDown = true; }
+    public void MobileDownUp() { mobileDown = false; }
+
+    public void MobileLeftDown() { mobileLeft = true; }
+    public void MobileLeftUp() { mobileLeft = false; }
+
+    public void MobileRightDown() { mobileRight = true; }
+    public void MobileRightUp() { mobileRight = false; }
 
     /* ---------- GIZMOS ---------- */
     void OnDrawGizmosSelected()
