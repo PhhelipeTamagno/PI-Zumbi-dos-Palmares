@@ -1,0 +1,338 @@
+fileFormatVersion: 2
+guid: e4cda1dccbc1539438b379917268a866
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6050092625394188816
+    second: HUD Pack 3 Buttons and Joysticks_0
+  - first:
+      213: -1354249180486333023
+    second: HUD Pack 3 Buttons and Joysticks_1
+  - first:
+      213: -2031007568048145154
+    second: HUD Pack 3 Buttons and Joysticks_2
+  - first:
+      213: -5364135382353120954
+    second: HUD Pack 3 Buttons and Joysticks_3
+  - first:
+      213: -2984245029852901375
+    second: HUD Pack 3 Buttons and Joysticks_4
+  - first:
+      213: -132511042732698002
+    second: HUD Pack 3 Buttons and Joysticks_5
+  - first:
+      213: -4179174090640699335
+    second: HUD Pack 3 Buttons and Joysticks_6
+  - first:
+      213: 3943891266915373635
+    second: HUD Pack 3 Buttons and Joysticks_7
+  - first:
+      213: 542102541399449659
+    second: HUD Pack 3 Buttons and Joysticks_8
+  - first:
+      213: 1305796364267279934
+    second: HUD Pack 3 Buttons and Joysticks_9
+  - first:
+      213: -7712498983359597243
+    second: HUD Pack 3 Buttons and Joysticks_10
+  - first:
+      213: 4161100044039779900
+    second: HUD Pack 3 Buttons and Joysticks_11
+  - first:
+      213: 3552682917383697208
+    second: HUD Pack 3 Buttons and Joysticks_12
+  - first:
+      213: 6997567095050758936
+    second: HUD Pack 3 Buttons and Joysticks_13
+  - first:
+      213: 1892443102705574174
+    second: HUD Pack 3 Buttons and Joysticks_14
+  - first:
+      213: -8409781299471140895
+    second: HUD Pack 3 Buttons and Joysticks_15
+  - first:
+      213: -2940177264674971504
+    second: HUD Pack 3 Buttons and Joysticks_16
+  - first:
+      213: -7971073725763293261
+    second: HUD Pack 3 Buttons and Joysticks_17
+  - first:
+      213: 8736870905912450354
+    second: HUD Pack 3 Buttons and Joysticks_18
+  - first:
+      213: 8162173333610315264
+    second: HUD Pack 3 Buttons and Joysticks_19
+  - first:
+      213: -5377945338961208468
+    second: HUD Pack 3 Buttons and Joysticks_20
+  - first:
+      213: 3928333251132817918
+    second: HUD Pack 3 Buttons and Joysticks_21
+  - first:
+      213: 4110885985467439803
+    second: HUD Pack 3 Buttons and Joysticks_22
+  - first:
+      213: 8899229736364975510
+    second: HUD Pack 3 Buttons and Joysticks_23
+  - first:
+      213: 5992193847503857686
+    second: HUD Pack 3 Buttons and Joysticks_24
+  - first:
+      213: 5090350908823234842
+    second: HUD Pack 3 Buttons and Joysticks_25
+  - first:
+      213: -678061854646852336
+    second: HUD Pack 3 Buttons and Joysticks_26
+  - first:
+      213: -3807074836961495338
+    second: HUD Pack 3 Buttons and Joysticks_27
+  - first:
+      213: 1465640921651226681
+    second: HUD Pack 3 Buttons and Joysticks_28
+  - first:
+      213: -2861419183922700225
+    second: HUD Pack 3 Buttons and Joysticks_29
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: HUD Pack 3 Buttons and Joysticks_0
+      rect:
+        serializedVersion: 2
+        x: 191
+        y: 88
+        width: 141
+        height: 159
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 012c4d2203f36f350800000000000000
+      internalID: 6050092625394188816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUD Pack 3 Buttons and Joysticks_1
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 246
+        width: 208
+        height: 130
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ad8fb3ab8db43de0800000000000000
+      internalID: -1354249180486333023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUD Pack 3 Buttons and Joysticks_2
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 246
+        width: 209
+        height: 130
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: efc3c5aa06960d3e0800000000000000
+      internalID: -2031007568048145154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HUD Pack 3 Buttons and Joysticks_26
+      rect:
+        serializedVersion: 2
+        x: 191
+        y: 376
+        width: 141
+        height: 159
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0152802f55a0796f0800000000000000
+      internalID: -678061854646852336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 24d120a83da5b5440adf99bbe95256be
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      HUD Pack 3 Buttons and Joysticks_0: 6050092625394188816
+      HUD Pack 3 Buttons and Joysticks_1: -1354249180486333023
+      HUD Pack 3 Buttons and Joysticks_10: -7712498983359597243
+      HUD Pack 3 Buttons and Joysticks_11: 4161100044039779900
+      HUD Pack 3 Buttons and Joysticks_12: 3552682917383697208
+      HUD Pack 3 Buttons and Joysticks_13: 6997567095050758936
+      HUD Pack 3 Buttons and Joysticks_14: 1892443102705574174
+      HUD Pack 3 Buttons and Joysticks_15: -8409781299471140895
+      HUD Pack 3 Buttons and Joysticks_16: -2940177264674971504
+      HUD Pack 3 Buttons and Joysticks_17: -7971073725763293261
+      HUD Pack 3 Buttons and Joysticks_18: 8736870905912450354
+      HUD Pack 3 Buttons and Joysticks_19: 8162173333610315264
+      HUD Pack 3 Buttons and Joysticks_2: -2031007568048145154
+      HUD Pack 3 Buttons and Joysticks_20: -5377945338961208468
+      HUD Pack 3 Buttons and Joysticks_21: 3928333251132817918
+      HUD Pack 3 Buttons and Joysticks_22: 4110885985467439803
+      HUD Pack 3 Buttons and Joysticks_23: 8899229736364975510
+      HUD Pack 3 Buttons and Joysticks_24: 5992193847503857686
+      HUD Pack 3 Buttons and Joysticks_25: 5090350908823234842
+      HUD Pack 3 Buttons and Joysticks_26: -678061854646852336
+      HUD Pack 3 Buttons and Joysticks_27: -3807074836961495338
+      HUD Pack 3 Buttons and Joysticks_28: 1465640921651226681
+      HUD Pack 3 Buttons and Joysticks_29: -2861419183922700225
+      HUD Pack 3 Buttons and Joysticks_3: -5364135382353120954
+      HUD Pack 3 Buttons and Joysticks_4: -2984245029852901375
+      HUD Pack 3 Buttons and Joysticks_5: -132511042732698002
+      HUD Pack 3 Buttons and Joysticks_6: -4179174090640699335
+      HUD Pack 3 Buttons and Joysticks_7: 3943891266915373635
+      HUD Pack 3 Buttons and Joysticks_8: 542102541399449659
+      HUD Pack 3 Buttons and Joysticks_9: 1305796364267279934
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
