@@ -2,9 +2,11 @@ using UnityEngine;
 
 public class MobileButtonMove : MonoBehaviour
 {
-    public float speed = 5f;
+    public float walkSpeed = 5f;
+    public float runSpeed = 8f;
 
     bool up, down, left, right;
+    bool run = false; // << NOVO
 
     void Update()
     {
@@ -15,7 +17,10 @@ public class MobileButtonMove : MonoBehaviour
         if (left) move += Vector2.left;
         if (right) move += Vector2.right;
 
-        transform.Translate(move.normalized * speed * Time.deltaTime);
+        // Escolhe velocidade
+        float currentSpeed = run ? runSpeed : walkSpeed;
+
+        transform.Translate(move.normalized * currentSpeed * Time.deltaTime);
     }
 
     public void UpPressed() { up = true; }
@@ -29,4 +34,15 @@ public class MobileButtonMove : MonoBehaviour
 
     public void RightPressed() { right = true; }
     public void RightReleased() { right = false; }
+
+    // --------- CORRER (NOVO) ---------
+    public void RunPressed()
+    {
+        run = true;
+    }
+
+    public void RunReleased()
+    {
+        run = false;
+    }
 }

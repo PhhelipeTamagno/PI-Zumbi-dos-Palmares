@@ -35,7 +35,8 @@ public class PlayerMovement : MonoBehaviour
     public int currentHealth = 3;
 
     /* ---------- MOBILE CONTROLS ---------- */
-    [HideInInspector] public bool mobileUp, mobileDown, mobileLeft, mobileRight;
+    public bool mobileUp, mobileDown, mobileLeft, mobileRight;
+    public bool mobileRun = false;   // << NOVO: botão de correr no mobile
 
     /* ---------- INTERNOS ---------- */
     private float defaultSpeed;
@@ -98,8 +99,6 @@ public class PlayerMovement : MonoBehaviour
         if (mobileLeft) mX = -1f;
         if (mobileRight) mX = 1f;
 
-        // Se PC estiver sendo usado → usa PC
-        // Se estiver parado no PC → usa mobile
         move.x = pcX != 0 ? pcX : mX;
         move.y = pcY != 0 ? pcY : mY;
 
@@ -152,7 +151,12 @@ public class PlayerMovement : MonoBehaviour
     /* ---------- STAMINA / CORRIDA ---------- */
     void HandleMoveSpeed()
     {
-        bool wantsRun = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift);
+        // PC SHIFT OU BOTÃO MOBILE
+        bool wantsRun =
+            Input.GetKey(KeyCode.LeftShift) ||
+            Input.GetKey(KeyCode.RightShift) ||
+            mobileRun;   // << AQUI FAZ O BOTÃO FUNCIONAR
+
         bool moving = move.sqrMagnitude > 0f;
         bool canRun = currentStamina > 0f;
 
@@ -191,13 +195,14 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    /* ---------- ANIMAÇÃO & FLIP ---------- */
+    /* ---------- ANIMAÇÃO ---------- */
     void Animate()
     {
         int state = isAttacking ? 2 : (move.sqrMagnitude > 0 ? 1 : 0);
         anim.SetInteger("Movimento", state);
     }
 
+    /* ---------- FLIP ---------- */
     void FlipSprite()
     {
         if ((move.x > 0 && !facingRight) || (move.x < 0 && facingRight))
@@ -227,14 +232,12 @@ public class PlayerMovement : MonoBehaviour
             attackBlockedByZone = false;
     }
 
-    /* ---------- VIDA & MORTE ---------- */
+    /* ---------- VIDA ---------- */
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
         if (currentHealth <= 0)
-        {
             Die();
-        }
     }
 
     public void Die()
@@ -259,6 +262,10 @@ public class PlayerMovement : MonoBehaviour
 
     public void MobileRightDown() { mobileRight = true; }
     public void MobileRightUp() { mobileRight = false; }
+
+    // ------ BOTÃO DE CORRER (NOVO) ------
+    public void RunButtonDown() { mobileRun = true; }
+    public void RunButtonUp() { mobileRun = false; }
 
     /* ---------- GIZMOS ---------- */
     void OnDrawGizmosSelected()
