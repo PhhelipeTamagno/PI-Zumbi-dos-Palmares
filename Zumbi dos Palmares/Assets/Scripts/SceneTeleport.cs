@@ -14,20 +14,6 @@ public class SceneTeleport : MonoBehaviour
         {
             imagemIndicativa.SetActive(false);
         }
-
-        // registra o método do botão mobile
-        if (InteractionButton.Instance != null)
-        {
-            InteractionButton.Instance.onInteractionPressed += InteragirMobile;
-        }
-    }
-
-    void OnDestroy()
-    {
-        if (InteractionButton.Instance != null)
-        {
-            InteractionButton.Instance.onInteractionPressed -= InteragirMobile;
-        }
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -54,15 +40,15 @@ public class SceneTeleport : MonoBehaviour
 
     void Update()
     {
-        // interação no PC
+        // interação no PC (tecla E)
         if (podeTrocarCena && Input.GetKeyDown(KeyCode.E))
         {
             TrocarCena();
         }
     }
 
-    // interação vinda do botão mobile
-    void InteragirMobile()
+    // interação do botão do Canvas
+    public void InteragirMobile()
     {
         if (podeTrocarCena)
         {

@@ -36,7 +36,8 @@ public class PlayerMovement : MonoBehaviour
 
     /* ---------- MOBILE CONTROLS ---------- */
     public bool mobileUp, mobileDown, mobileLeft, mobileRight;
-    public bool mobileRun = false;   // << NOVO: botão de correr no mobile
+    public bool mobileRun = false;
+    public bool mobileAttack = false; // AGORA EXISTE
 
     /* ---------- INTERNOS ---------- */
     private float defaultSpeed;
@@ -105,27 +106,29 @@ public class PlayerMovement : MonoBehaviour
         move.Normalize();
     }
 
-    /* ---------- COMBATE ---------- */
+    /* ---------- ATAQUE ---------- */
     void HandleAttack()
     {
         bool knifeEquipped = hotbarController && hotbarController.GetSelectedItemID() == knifeItemID;
-
         if (!knifeEquipped || attackBlockedByZone) return;
 
-        if (Input.GetMouseButtonDown(0) && canAttack)
+        // PC OU MOBILE
+        if ((Input.GetMouseButtonDown(0) || mobileAttack) && canAttack)
         {
             isAttacking = true;
             canAttack = false;
 
             anim.SetTrigger("Attack");
             PlayAttackSound();
+
             Invoke(nameof(ResetAttack), attackCooldown);
         }
     }
 
-    public void ApplyDamage() // Animation Event
+    public void ApplyDamage()
     {
         Collider2D[] hits = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
+
         foreach (var col in hits)
         {
             Enemy enemy = col.GetComponent<Enemy>();
@@ -133,7 +136,12 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    void ResetAttack() { isAttacking = false; canAttack = true; }
+    void ResetAttack()
+    {
+        isAttacking = false;
+        canAttack = true;
+        mobileAttack = false;
+    }
 
     void PlayAttackSound()
     {
@@ -148,14 +156,13 @@ public class PlayerMovement : MonoBehaviour
         if (au && attackSound2) au.PlayOneShot(attackSound2);
     }
 
-    /* ---------- STAMINA / CORRIDA ---------- */
+    /* ---------- STAMINA ---------- */
     void HandleMoveSpeed()
     {
-        // PC SHIFT OU BOTÃO MOBILE
         bool wantsRun =
             Input.GetKey(KeyCode.LeftShift) ||
             Input.GetKey(KeyCode.RightShift) ||
-            mobileRun;   // << AQUI FAZ O BOTÃO FUNCIONAR
+            mobileRun;
 
         bool moving = move.sqrMagnitude > 0f;
         bool canRun = currentStamina > 0f;
@@ -178,7 +185,7 @@ public class PlayerMovement : MonoBehaviour
         if (staminaSlider) staminaSlider.value = currentStamina;
     }
 
-    /* ---------- SONS DE PASSO ---------- */
+    /* ---------- SONS ---------- */
     void HandleFootsteps()
     {
         if (!au || isAttacking || !footstepSound) return;
@@ -263,9 +270,14 @@ public class PlayerMovement : MonoBehaviour
     public void MobileRightDown() { mobileRight = true; }
     public void MobileRightUp() { mobileRight = false; }
 
-    // ------ BOTÃO DE CORRER (NOVO) ------
     public void RunButtonDown() { mobileRun = true; }
     public void RunButtonUp() { mobileRun = false; }
+
+    // ---------- BOTÃO DE ATAQUE ----------
+    public void MobileAttackButton()
+    {
+        mobileAttack = true;
+    }
 
     /* ---------- GIZMOS ---------- */
     void OnDrawGizmosSelected()

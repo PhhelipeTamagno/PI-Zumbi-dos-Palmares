@@ -25692,7 +25692,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 1.0950656, y: 0.84985703}
+  m_Offset: {x: 1.0950656, y: 0.6774802}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -25702,7 +25702,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 3.1901312, y: 0.92057455}
+  m_Size: {x: 3.1901312, y: 1.2653282}
   m_EdgeRadius: 0
 --- !u!114 &883057976
 MonoBehaviour:
@@ -27508,6 +27508,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -11421
       objectReference: {fileID: 0}
+    - target: {fileID: 940342077487193547, guid: 11b4b81115a924f478b76ac49f0f80ca, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 827
+      objectReference: {fileID: 0}
+    - target: {fileID: 940342077487193547, guid: 11b4b81115a924f478b76ac49f0f80ca, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -16993
+      objectReference: {fileID: 0}
     - target: {fileID: 961297475709714093, guid: 11b4b81115a924f478b76ac49f0f80ca, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 956.9219
@@ -27727,6 +27735,46 @@ PrefabInstance:
     - target: {fileID: 4712590904871853961, guid: 11b4b81115a924f478b76ac49f0f80ca, type: 3}
       propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823839519373009661, guid: 11b4b81115a924f478b76ac49f0f80ca, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823839519373009661, guid: 11b4b81115a924f478b76ac49f0f80ca, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823839519373009661, guid: 11b4b81115a924f478b76ac49f0f80ca, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1814915474}
+    - target: {fileID: 4823839519373009661, guid: 11b4b81115a924f478b76ac49f0f80ca, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823839519373009661, guid: 11b4b81115a924f478b76ac49f0f80ca, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: MobileAttackButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823839519373009661, guid: 11b4b81115a924f478b76ac49f0f80ca, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PlayerMovement, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4823839519373009661, guid: 11b4b81115a924f478b76ac49f0f80ca, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5009478223819082122, guid: 11b4b81115a924f478b76ac49f0f80ca, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 883057976}
+    - target: {fileID: 5009478223819082122, guid: 11b4b81115a924f478b76ac49f0f80ca, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: InteragirMobile
+      objectReference: {fileID: 0}
+    - target: {fileID: 5009478223819082122, guid: 11b4b81115a924f478b76ac49f0f80ca, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SceneTeleport, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 5238733120423304074, guid: 11b4b81115a924f478b76ac49f0f80ca, type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.size
