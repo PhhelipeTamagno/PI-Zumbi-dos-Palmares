@@ -215,6 +215,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8792884982715277361, guid: ef63ffd265033ff4bac5c85b3edab34b, type: 3}
+      propertyPath: m_text
+      value: Help
+      objectReference: {fileID: 0}
     - target: {fileID: 9159811157027877486, guid: ef63ffd265033ff4bac5c85b3edab34b, type: 3}
       propertyPath: m_Name
       value: Ajuda painel
@@ -292,6 +296,18 @@ PrefabInstance:
       propertyPath: 'itemIcons.Array.data[3]'
       value: 
       objectReference: {fileID: -8527442550737655860, guid: 5114a835435f07f43894758544503ae8, type: 3}
+    - target: {fileID: 9040488240784880301, guid: 1be18ab86d1b56543a37c8c7df375742, type: 3}
+      propertyPath: 'itemNomes.Array.data[0]'
+      value: Knife
+      objectReference: {fileID: 0}
+    - target: {fileID: 9040488240784880301, guid: 1be18ab86d1b56543a37c8c7df375742, type: 3}
+      propertyPath: 'itemNomes.Array.data[1]'
+      value: ' Carrot'
+      objectReference: {fileID: 0}
+    - target: {fileID: 9040488240784880301, guid: 1be18ab86d1b56543a37c8c7df375742, type: 3}
+      propertyPath: 'itemNomes.Array.data[2]'
+      value: Torch
+      objectReference: {fileID: 0}
     - target: {fileID: 9040488240784880301, guid: 1be18ab86d1b56543a37c8c7df375742, type: 3}
       propertyPath: 'itemSlots.Array.data[0]'
       value: 
@@ -1193,7 +1209,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '*info dos itens*'
+  m_text: '*item info*'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -15594,6 +15610,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7881934229354907430, guid: 5af0950a431af3c4990af6c274546406, type: 3}
+      propertyPath: m_TagString
+      value: Knife
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -15618,6 +15638,12 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1152065748}
     m_Modifications:
+    - target: {fileID: 22843356863068841, guid: f167f6d37de9fe042b88060fac13227a, type: 3}
+      propertyPath: m_text
+      value: 'Settings
+
+'
+      objectReference: {fileID: 0}
     - target: {fileID: 380996241219053814, guid: f167f6d37de9fe042b88060fac13227a, type: 3}
       propertyPath: m_Name
       value: Settings painel
@@ -15734,6 +15760,12 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6806216067560222547, guid: f167f6d37de9fe042b88060fac13227a, type: 3}
+      propertyPath: m_text
+      value: 'Music
+
+'
+      objectReference: {fileID: 0}
     - target: {fileID: 8751473964375954396, guid: f167f6d37de9fe042b88060fac13227a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -15741,6 +15773,10 @@ PrefabInstance:
     - target: {fileID: 8751473964375954396, guid: f167f6d37de9fe042b88060fac13227a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: OpenPanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 9186133857102565721, guid: f167f6d37de9fe042b88060fac13227a, type: 3}
+      propertyPath: m_text
+      value: Sound effects
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
