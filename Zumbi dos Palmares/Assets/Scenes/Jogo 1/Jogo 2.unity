@@ -10739,13 +10739,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textoMissao: {fileID: 1673364832}
   somVitoria: {fileID: 8300000, guid: 29d05f7f4c6975a499a9a79d11d70f48, type: 3}
-  textoFaleComBarao: "Fale com o Bar\xE3o"
-  textoColeteCenouras: Colete todas as cenouras
-  textoFaleComBaraoNovamente: "Fale com o Bar\xE3o novamente"
-  textoColeteCafe: "V\xE1 perto do celeiro e colete os caf\xE9s."
-  textoMissaoCafeColetado: "Fale com o Bar\xE3o novamente"
-  textoColeteCana: "V\xE1 perto do lago e colete as canas de a\xE7ucar."
-  textoMissaoCanaColetada: "Fale com o Bar\xE3o novamente"
+  textoFaleComBarao: Speak with the Baron
+  textoColeteCenouras: Collect all the carrots
+  textoFaleComBaraoNovamente: Speak with the Baron again
+  textoColeteCafe: Go near the barn and collect the coffees.
+  textoMissaoCafeColetado: Speak with the Baron again
+  textoColeteCana: Go near the lake and collect the sugarcane.
+  textoMissaoCanaColetada: Speak with the Baron again
   etapaMissao: 0
   objetoParaAtivarAposMissoes: {fileID: 611954656}
   fadeImage: {fileID: 1681725463}
@@ -203978,6 +203978,18 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 904895640}
     - target: {fileID: 9040488240784880301, guid: 1be18ab86d1b56543a37c8c7df375742, type: 3}
+      propertyPath: 'itemNomes.Array.data[0]'
+      value: Knife
+      objectReference: {fileID: 0}
+    - target: {fileID: 9040488240784880301, guid: 1be18ab86d1b56543a37c8c7df375742, type: 3}
+      propertyPath: 'itemNomes.Array.data[1]'
+      value: Carrot
+      objectReference: {fileID: 0}
+    - target: {fileID: 9040488240784880301, guid: 1be18ab86d1b56543a37c8c7df375742, type: 3}
+      propertyPath: 'itemNomes.Array.data[2]'
+      value: Torche
+      objectReference: {fileID: 0}
+    - target: {fileID: 9040488240784880301, guid: 1be18ab86d1b56543a37c8c7df375742, type: 3}
       propertyPath: 'itemSlots.Array.data[0]'
       value: 
       objectReference: {fileID: 1681346745}
@@ -203993,6 +204005,19 @@ PrefabInstance:
       propertyPath: 'itemSlots.Array.data[3]'
       value: 
       objectReference: {fileID: 119994509}
+    - target: {fileID: 9040488240784880301, guid: 1be18ab86d1b56543a37c8c7df375742, type: 3}
+      propertyPath: 'itemDescricoes.Array.data[0]'
+      value: Used to attack your enemies, deals 1 damage
+      objectReference: {fileID: 0}
+    - target: {fileID: 9040488240784880301, guid: 1be18ab86d1b56543a37c8c7df375742, type: 3}
+      propertyPath: 'itemDescricoes.Array.data[1]'
+      value: It can be collected from plantations and can restore 2 health points
+        when you press E.
+      objectReference: {fileID: 0}
+    - target: {fileID: 9040488240784880301, guid: 1be18ab86d1b56543a37c8c7df375742, type: 3}
+      propertyPath: 'itemDescricoes.Array.data[2]'
+      value: Upon collecting it, you will be able to illuminate your surroundings.
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

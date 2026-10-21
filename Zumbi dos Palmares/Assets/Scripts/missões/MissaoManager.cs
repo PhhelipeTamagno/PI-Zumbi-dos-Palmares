@@ -7,13 +7,13 @@ public class MissaoManager : MonoBehaviour
     public TextMeshProUGUI textoMissao;
     public AudioClip somVitoria;
 
-    public string textoFaleComBarao = "Fale com o Barão";
-    public string textoColeteCenouras = "Colete todas as cenouras";
-    public string textoFaleComBaraoNovamente = "Fale com o Barão novamente";
-    public string textoColeteCafe = "Agora vá perto da mansão e colete os cafés.";
-    public string textoMissaoCafeColetado = "Fale com o Barão novamente.";
-    public string textoColeteCana = "Agora vá até o barco e colete as canas de açúcar.";
-    public string textoMissaoCanaColetada = "Boa! Pode descansar agora.";
+    public string textoFaleComBarao = "Speak with the Baron";
+    public string textoColeteCenouras = "Collect all the carrots";
+    public string textoFaleComBaraoNovamente = "Speak with the Baron again";
+    public string textoColeteCafe = "Now go near the mansion and collect the coffees.";
+    public string textoMissaoCafeColetado = "Speak with the Baron again.";
+    public string textoColeteCana = "Now go to the boat and collect the sugarcane.";
+    public string textoMissaoCanaColetada = "Nice work! You can rest now.";
 
     private int cenourasTotais;
     private int cenourasColetadas;
@@ -137,7 +137,7 @@ public class MissaoManager : MonoBehaviour
         }
         else if (etapaMissao == 6)
         {
-            textoMissao.text = "Volte para sua cela. E nem pense em sair andando de noite.";
+            textoMissao.text = "Go back to your cell";
 
             if (objetoParaAtivarAposMissoes != null)
             {
