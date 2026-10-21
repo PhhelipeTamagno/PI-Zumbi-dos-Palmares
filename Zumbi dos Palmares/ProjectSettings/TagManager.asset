@@ -8,7 +8,6 @@ TagManager:
   - PortaoFechado
   - Danger
   - Enemy
-  - Faca
   - Wood
   - Cenoura
   - Cafe
@@ -18,6 +17,7 @@ TagManager:
   - Bush
   - Wall
   - MuteIcon
+  - Knife
   layers:
   - Default
   - TransparentFX
