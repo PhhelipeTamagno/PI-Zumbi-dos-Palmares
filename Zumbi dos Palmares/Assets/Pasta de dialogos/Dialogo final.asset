@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: "Juli\xE3o"
   sentences:
-  - Estamos quase fungindo, vamos entre no barco!!!
+  - "We\u2019re almost getting away\u2014let\u2019s get on the boat!!!"
   npcSprite: {fileID: 5931842347579807508, guid: e40b9dcd3911fb941a1dc132363a07b1, type: 3}
