@@ -29490,56 +29490,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 247966217}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &871809323 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8300655522262631193, guid: 11b4b81115a924f478b76ac49f0f80ca, type: 3}
-  m_PrefabInstance: {fileID: 8879878852242973807}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &871809324
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 871809323}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.EventSystems.EventTrigger
-  m_Delegates:
-  - eventID: 2
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1512186164}
-          m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
-          m_MethodName: MobileUpDown
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - eventID: 3
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1512186164}
-          m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
-          m_MethodName: MobileUpUp
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!1 &873224890
 GameObject:
   m_ObjectHideFlags: 0
@@ -39428,7 +39378,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '*info dos itens*'
+  m_text: '*item info*'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -48655,56 +48605,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 415936335}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1443760527 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2062136364242121045, guid: 11b4b81115a924f478b76ac49f0f80ca, type: 3}
-  m_PrefabInstance: {fileID: 8879878852242973807}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1443760532
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1443760527}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.EventSystems.EventTrigger
-  m_Delegates:
-  - eventID: 2
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1512186164}
-          m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
-          m_MethodName: MobileLeftDown
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - eventID: 3
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1512186164}
-          m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
-          m_MethodName: MobileLeftUp
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!1 &1457714126
 GameObject:
   m_ObjectHideFlags: 0
@@ -199422,56 +199322,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 415936335}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2029183137 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8441865982260574863, guid: 11b4b81115a924f478b76ac49f0f80ca, type: 3}
-  m_PrefabInstance: {fileID: 8879878852242973807}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2029183142
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2029183137}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.EventSystems.EventTrigger
-  m_Delegates:
-  - eventID: 2
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1512186164}
-          m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
-          m_MethodName: MobileRightDown
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - eventID: 3
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1512186164}
-          m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
-          m_MethodName: MobileRightUp
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!1 &2030817837
 GameObject:
   m_ObjectHideFlags: 0
@@ -201488,56 +201338,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &2101978074 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6601721473508889852, guid: 11b4b81115a924f478b76ac49f0f80ca, type: 3}
-  m_PrefabInstance: {fileID: 8879878852242973807}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2101978079
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2101978074}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.EventSystems.EventTrigger
-  m_Delegates:
-  - eventID: 2
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1512186164}
-          m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
-          m_MethodName: MobileDownDown
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - eventID: 3
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1512186164}
-          m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
-          m_MethodName: MobileDownUp
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!4 &2102295364 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3081268298179717476, guid: 3562e9a484000e24493a3f283d676d78, type: 3}
@@ -204599,19 +204399,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8650651622679071715, guid: 11b4b81115a924f478b76ac49f0f80ca, type: 3}
       insertIndex: -1
       addedObject: {fileID: 694776893}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8300655522262631193, guid: 11b4b81115a924f478b76ac49f0f80ca, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 871809324}
-    - targetCorrespondingSourceObject: {fileID: 6601721473508889852, guid: 11b4b81115a924f478b76ac49f0f80ca, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2101978079}
-    - targetCorrespondingSourceObject: {fileID: 8441865982260574863, guid: 11b4b81115a924f478b76ac49f0f80ca, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2029183142}
-    - targetCorrespondingSourceObject: {fileID: 2062136364242121045, guid: 11b4b81115a924f478b76ac49f0f80ca, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1443760532}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 11b4b81115a924f478b76ac49f0f80ca, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
