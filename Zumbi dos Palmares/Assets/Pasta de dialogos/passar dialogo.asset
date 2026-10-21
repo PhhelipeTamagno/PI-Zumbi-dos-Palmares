@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Velho
   sentences:
-  - "Ei zumbi vem c\xE1 meu chapa"
+  - Hey, come here, buddy.
   npcSprite: {fileID: 5435608014139152121, guid: 632c8667d5ce30b45a9a6990f92613fa, type: 3}
