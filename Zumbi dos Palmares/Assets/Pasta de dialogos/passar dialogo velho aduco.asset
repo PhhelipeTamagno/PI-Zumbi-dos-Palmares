@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: ???
   sentences:
-  - '*sussurros em meio a mata*'
+  - '*whispers amidst the woods*'
   npcSprite: {fileID: 0}

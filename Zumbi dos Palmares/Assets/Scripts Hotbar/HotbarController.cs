@@ -11,7 +11,7 @@ public class HotbarController : MonoBehaviour
 
     [Header("Item Tocha")]
     public int tochaID = 2;
-    public GameObject luzTocha;
+    public GameObject Torchlight;
 
     [Header("Catálogo de Itens")]
     public Sprite[] itemIcons;
@@ -45,8 +45,8 @@ public class HotbarController : MonoBehaviour
 
         LoadHotbar();
 
-        if (luzTocha != null)
-            luzTocha.SetActive(false);
+        if (Torchlight != null)
+            Torchlight.SetActive(false);
 
         if (itemInfoPanel != null)
             itemInfoPanel.SetActive(false);
@@ -131,13 +131,13 @@ public class HotbarController : MonoBehaviour
 
         if (id == tochaID && itemTypes[tochaID] == ItemType.Equipavel)
         {
-            if (luzTocha != null)
-                luzTocha.SetActive(true);
+            if (Torchlight != null)
+                Torchlight.SetActive(true);
         }
         else
         {
-            if (luzTocha != null)
-                luzTocha.SetActive(false);
+            if (Torchlight != null)
+                Torchlight.SetActive(false);
         }
     }
 
@@ -153,7 +153,7 @@ public class HotbarController : MonoBehaviour
         {
             if (playerHealth.currentHealth >= playerHealth.maxHealth)
             {
-                Debug.Log("Você está com a vida cheia.");
+                Debug.Log("Your life is full.");
                 return;
             }
 
@@ -166,8 +166,8 @@ public class HotbarController : MonoBehaviour
                 itemSlots[slot].transform.Find("Icon").gameObject.SetActive(false);
                 if (selectedSlot == slot) selectedSlot = -1;
 
-                if (luzTocha != null)
-                    luzTocha.SetActive(false);
+                if (Torchlight != null)
+                    Torchlight.SetActive(false);
 
                 if (itemInfoPanel != null)
                     itemInfoPanel.SetActive(false);
@@ -249,10 +249,6 @@ public class HotbarController : MonoBehaviour
         if (itemInfoPanel != null)
             itemInfoPanel.SetActive(false);
     }
-
-    // ----------------------------------------------
-    //        🎮 FUNÇÃO DO BOTÃO DA UI
-    // ----------------------------------------------
     public void TrocarSlotUI()
     {
         if (selectedSlot == -1)
