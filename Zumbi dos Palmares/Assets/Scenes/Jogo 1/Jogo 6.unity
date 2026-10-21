@@ -10732,8 +10732,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textoMissao: {fileID: 588843808}
   somVitoria: {fileID: 0}
-  textoColetarMadeira: Ache as madeira e colete-as
-  textoMissaoMadeiraColetada: "Ache aonde est\xE1 o barco"
+  textoColetarMadeira: 'Find the wood and collect it '
+  textoMissaoMadeiraColetada: 'Find where the boat is '
   etapaMissaoNoturna: 0
 --- !u!1 &386705844
 GameObject:
@@ -18695,7 +18695,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Fale com o Barao
+  m_text: Speak with the Baron
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

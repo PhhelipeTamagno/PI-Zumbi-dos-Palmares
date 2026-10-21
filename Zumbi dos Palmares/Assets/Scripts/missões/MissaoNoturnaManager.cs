@@ -6,8 +6,8 @@ public class MissaoNoturnaManager : MonoBehaviour
     public TextMeshProUGUI textoMissao;
     public AudioClip somVitoria;
 
-    public string textoColetarMadeira = "É noite. Colete toda a madeira pela área, e rápido.";
-    public string textoMissaoMadeiraColetada = "Madeira coletada. Volte para a cela sem fazer barulho.";
+    public string textoColetarMadeira = "It's night. Collect all the wood in the area, and hurry.";
+    public string textoMissaoMadeiraColetada = "Wood collected. Return to the cell without making a sound.";
 
     private int madeirasTotais;
     private int madeirasColetadas;
