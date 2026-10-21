@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Marcos
   sentences:
-  - "Finalmente terminou essa porcaria das canas. Agora v\xE1 para sua cela e fique
-    quieto. Amanh\xE3 tem mais servi\xE7o."
-  - "N\xE3o ouse andar por a\xED \xE0 noite, ou o chicote vai fazer voc\xEA lembrar
-    quem manda.\r"
+  - "That piece-of-crap sugarcane work is finally over. Now get to your cell and
+    stay quiet. There\u2019s more work tomorrow."
+  - "Don\u2019t you dare walk around at night, or the whip will remind you who\u2019s
+    in charge.\r"
   npcSprite: {fileID: 4483504832982471387, guid: 8ab8bac50dfd83b4096a163ce1f6ebde, type: 3}

@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: Marcos
   sentences:
-  - "Vamos, escravo! Voc\xEA est\xE1 atrasado."
-  - "Colete essas cenouras, e r\xE1pido!"
+  - "Come on, slave! You\u2019re late."
+  - Collect those carrots, and fast!
   npcSprite: {fileID: 4483504832982471387, guid: 8ab8bac50dfd83b4096a163ce1f6ebde, type: 3}
