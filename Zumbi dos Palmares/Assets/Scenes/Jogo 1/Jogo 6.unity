@@ -757408,6 +757408,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1488386494}
     - target: {fileID: 9040488240784880301, guid: 1be18ab86d1b56543a37c8c7df375742, type: 3}
+      propertyPath: Torchlight
+      value: 
+      objectReference: {fileID: 1488386494}
+    - target: {fileID: 9040488240784880301, guid: 1be18ab86d1b56543a37c8c7df375742, type: 3}
       propertyPath: itemInfoIcon
       value: 
       objectReference: {fileID: 1306382982}
