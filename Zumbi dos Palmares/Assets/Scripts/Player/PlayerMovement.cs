@@ -1,10 +1,10 @@
+
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
-    /* ---------- INSPECTOR ---------- */
     [Header("Movimentação")]
     public float moveSpeed = 5f;
     public float boostSpeed = 8f;
@@ -12,6 +12,42 @@ public class PlayerMovement : MonoBehaviour
     [Header("Referências")]
     public HotbarController hotbarController;
     public int knifeItemID = 0;
+    public SpriteRenderer spriteRenderer;
+
+    [Header("Idle - Frente")]
+    public Sprite[] idleFrente;
+
+    [Header("Idle - Costas")]
+    public Sprite[] idleCostas;
+
+    [Header("Idle - Lado (feito para a direita)")]
+    public Sprite[] idleLado;
+
+    [Header("Walk - Frente")]
+    public Sprite[] walkFrente;
+
+    [Header("Walk - Costas")]
+    public Sprite[] walkCostas;
+
+    [Header("Walk - Lado (feito para a direita)")]
+    public Sprite[] walkLado;
+
+    [Header("Attack - Frente")]
+    public Sprite[] attackFrente;
+
+    [Header("Attack - Costas")]
+    public Sprite[] attackCostas;
+
+    [Header("Attack - Lado (feito para a direita)")]
+    public Sprite[] attackLado;
+
+    [Header("Velocidade das Animações")]
+    public float idleFPS = 5f;
+    public float walkFPS = 8f;
+    public float attackFPS = 12f;
+
+    [Header("Flip Horizontal")]
+    public bool usarFlipHorizontal = true;
 
     [Header("Combate")]
     public int attackDamage = 25;
@@ -19,7 +55,8 @@ public class PlayerMovement : MonoBehaviour
     public float attackRange = 0.5f;
     public LayerMask enemyLayers;
     public float attackCooldown = 0.5f;
-    public AudioClip attackSound1, attackSound2;
+    public AudioClip attackSound1;
+    public AudioClip attackSound2;
 
     [Header("Som de Passos")]
     public AudioClip footstepSound;
@@ -34,91 +71,161 @@ public class PlayerMovement : MonoBehaviour
     public int maxHealth = 3;
     public int currentHealth = 3;
 
-    /* ---------- MOBILE CONTROLS ---------- */
+    [Header("Controles Mobile")]
     public bool mobileUp, mobileDown, mobileLeft, mobileRight;
-    public bool mobileRun = false;
-    public bool mobileAttack = false; // AGORA EXISTE
+    public bool mobileRun;
+    public bool mobileAttack;
 
-    /* ---------- INTERNOS ---------- */
+    private Rigidbody2D rb;
+    private AudioSource au;
+
+    private Vector2 move;
+    private Vector2 lastDirection = Vector2.down;
+
     private float defaultSpeed;
     private float currentStamina;
-    private bool isRunning, isAttacking, canAttack = true;
-    private bool facingRight = true, attackBlockedByZone = false;
-    private Rigidbody2D rb;
-    private Animator anim;
-    private AudioSource au;
-    private Vector2 move;
+    private float animationTimer;
 
-    /* ---------- UNITY ---------- */
+    private bool isRunning;
+    private bool isAttacking;
+    private bool canAttack = true;
+    private bool attackBlockedByZone;
+    private bool facingRight = true;
+    private bool deathStarted;
+
+    private enum AnimationType
+    {
+        Idle,
+        Walk,
+        Attack
+    }
+
+    private AnimationType currentAnimation = AnimationType.Idle;
+    private int currentFrame;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        anim = GetComponentInChildren<Animator>();
         au = GetComponent<AudioSource>();
+
+        if (spriteRenderer == null)
+            spriteRenderer = GetComponentInChildren<SpriteRenderer>();
 
         defaultSpeed = moveSpeed;
         currentStamina = maxStamina;
+        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
 
-        if (staminaSlider)
+        if (staminaSlider != null)
         {
             staminaSlider.maxValue = maxStamina;
-            staminaSlider.value = maxStamina;
+            staminaSlider.value = currentStamina;
         }
 
         if (hotbarController == null)
             hotbarController = FindObjectOfType<HotbarController>();
+
+        AtualizarDirecaoVisual();
+        ChangeAnimation(AnimationType.Idle);
     }
 
     void Update()
     {
+        if (deathStarted)
+            return;
+
         ReadInput();
+        UpdateDirection();
         HandleAttack();
         HandleMoveSpeed();
         HandleFootsteps();
-        Animate();
-        FlipSprite();
+        AtualizarDirecaoVisual();
+        UpdateAnimation();
     }
 
     void FixedUpdate()
     {
-        rb.linearVelocity = move * moveSpeed;
+        if (rb == null)
+            return;
+
+        rb.linearVelocity = deathStarted
+            ? Vector2.zero
+            : move * moveSpeed;
     }
 
-    /* ---------- MOVIMENTO ---------- */
+    // MOVIMENTAÇÃO SEM DIAGONAL
     void ReadInput()
     {
-        // PC
-        float pcX = Input.GetAxisRaw("Horizontal");
-        float pcY = Input.GetAxisRaw("Vertical");
+        float x = Input.GetAxisRaw("Horizontal");
+        float y = Input.GetAxisRaw("Vertical");
 
-        // Mobile
-        float mX = 0f;
-        float mY = 0f;
+        float mobileX = 0f;
+        float mobileY = 0f;
 
-        if (mobileUp) mY = 1f;
-        if (mobileDown) mY = -1f;
-        if (mobileLeft) mX = -1f;
-        if (mobileRight) mX = 1f;
+        if (mobileLeft) mobileX = -1f;
+        else if (mobileRight) mobileX = 1f;
 
-        move.x = pcX != 0 ? pcX : mX;
-        move.y = pcY != 0 ? pcY : mY;
+        if (mobileDown) mobileY = -1f;
+        else if (mobileUp) mobileY = 1f;
 
-        move.Normalize();
+        if (x == 0f)
+            x = mobileX;
+
+        if (y == 0f)
+            y = mobileY;
+
+        // Prioriza a direção horizontal quando ambas são pressionadas.
+        if (x != 0f)
+            move = new Vector2(Mathf.Sign(x), 0f);
+        else if (y != 0f)
+            move = new Vector2(0f, Mathf.Sign(y));
+        else
+            move = Vector2.zero;
     }
 
-    /* ---------- ATAQUE ---------- */
+    // DIREÇÃO DO PERSONAGEM
+    void UpdateDirection()
+    {
+        if (move.sqrMagnitude < 0.01f)
+            return;
+
+        lastDirection = move;
+    }
+
+    // FLIP PARA ESQUERDA E DIREITA
+    void AtualizarDirecaoVisual()
+    {
+        if (spriteRenderer == null || !usarFlipHorizontal)
+            return;
+
+        if (lastDirection.x < 0f)
+            facingRight = false;
+        else if (lastDirection.x > 0f)
+            facingRight = true;
+
+        // Idle, Walk e Attack usam o sprite lateral original,
+        // desenhado para a direita.
+        spriteRenderer.flipX = !facingRight;
+    }
+
+    // ATAQUE
     void HandleAttack()
     {
-        bool knifeEquipped = hotbarController && hotbarController.GetSelectedItemID() == knifeItemID;
-        if (!knifeEquipped || attackBlockedByZone) return;
+        bool knifeEquipped =
+            hotbarController != null &&
+            hotbarController.GetSelectedItemID() == knifeItemID;
 
-        // PC OU MOBILE
-        if ((Input.GetMouseButtonDown(0) || mobileAttack) && canAttack)
+        bool pressed = Input.GetMouseButtonDown(0) || mobileAttack;
+        mobileAttack = false;
+
+        if (!knifeEquipped || attackBlockedByZone)
+            return;
+
+        if (pressed && canAttack)
         {
             isAttacking = true;
             canAttack = false;
 
-            anim.SetTrigger("Attack");
+            ChangeAnimation(AnimationType.Attack);
             PlayAttackSound();
 
             Invoke(nameof(ResetAttack), attackCooldown);
@@ -127,12 +234,21 @@ public class PlayerMovement : MonoBehaviour
 
     public void ApplyDamage()
     {
-        Collider2D[] hits = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
+        if (attackPoint == null)
+            return;
 
-        foreach (var col in hits)
+        Collider2D[] hits = Physics2D.OverlapCircleAll(
+            attackPoint.position,
+            attackRange,
+            enemyLayers
+        );
+
+        foreach (Collider2D col in hits)
         {
             Enemy enemy = col.GetComponent<Enemy>();
-            if (enemy) enemy.TakeDamage(attackDamage);
+
+            if (enemy != null)
+                enemy.TakeDamage(attackDamage);
         }
     }
 
@@ -140,23 +256,32 @@ public class PlayerMovement : MonoBehaviour
     {
         isAttacking = false;
         canAttack = true;
-        mobileAttack = false;
+
+        if (deathStarted)
+            return;
+
+        ChangeAnimation(
+            move.sqrMagnitude > 0.01f
+                ? AnimationType.Walk
+                : AnimationType.Idle
+        );
+
+        AtualizarDirecaoVisual();
     }
 
     void PlayAttackSound()
     {
-        if (!au) return;
-        au.Stop();
-        if (attackSound1) au.PlayOneShot(attackSound1);
-        if (attackSound2) Invoke(nameof(PlaySecondAttackClip), 0.2f);
+        if (au == null)
+            return;
+
+        if (attackSound1 != null)
+            au.PlayOneShot(attackSound1);
+
+        if (attackSound2 != null)
+            au.PlayOneShot(attackSound2);
     }
 
-    void PlaySecondAttackClip()
-    {
-        if (au && attackSound2) au.PlayOneShot(attackSound2);
-    }
-
-    /* ---------- STAMINA ---------- */
+    // STAMINA
     void HandleMoveSpeed()
     {
         bool wantsRun =
@@ -164,10 +289,13 @@ public class PlayerMovement : MonoBehaviour
             Input.GetKey(KeyCode.RightShift) ||
             mobileRun;
 
-        bool moving = move.sqrMagnitude > 0f;
-        bool canRun = currentStamina > 0f;
+        bool moving = move.sqrMagnitude > 0.01f;
 
-        isRunning = wantsRun && moving && !isAttacking && canRun;
+        isRunning =
+            wantsRun &&
+            moving &&
+            !isAttacking &&
+            currentStamina > 0f;
 
         if (isRunning)
         {
@@ -177,56 +305,156 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             moveSpeed = defaultSpeed;
-            if (currentStamina < maxStamina)
-                currentStamina += staminaRecoveryRate * Time.deltaTime;
+            currentStamina += staminaRecoveryRate * Time.deltaTime;
         }
 
-        currentStamina = Mathf.Clamp(currentStamina, 0, maxStamina);
-        if (staminaSlider) staminaSlider.value = currentStamina;
+        currentStamina = Mathf.Clamp(
+            currentStamina,
+            0f,
+            maxStamina
+        );
+
+        if (staminaSlider != null)
+            staminaSlider.value = currentStamina;
     }
 
-    /* ---------- SONS ---------- */
+    // SONS DE PASSOS
     void HandleFootsteps()
     {
-        if (!au || isAttacking || !footstepSound) return;
+        if (au == null || footstepSound == null)
+            return;
 
-        if (move.sqrMagnitude > 0 && !au.isPlaying)
+        bool moving = move.sqrMagnitude > 0.01f;
+
+        if (isAttacking || !moving)
+        {
+            if (au.clip == footstepSound && au.isPlaying)
+                au.Stop();
+
+            return;
+        }
+
+        if (!au.isPlaying)
         {
             au.clip = footstepSound;
             au.loop = true;
             au.Play();
         }
-        else if (move.sqrMagnitude == 0 && au.clip == footstepSound)
-        {
-            au.Stop();
-        }
     }
 
-    /* ---------- ANIMAÇÃO ---------- */
-    void Animate()
+    // ANIMAÇÕES
+    void UpdateAnimation()
     {
-        int state = isAttacking ? 2 : (move.sqrMagnitude > 0 ? 1 : 0);
-        anim.SetInteger("Movimento", state);
-    }
+        if (spriteRenderer == null)
+            return;
 
-    /* ---------- FLIP ---------- */
-    void FlipSprite()
-    {
-        if ((move.x > 0 && !facingRight) || (move.x < 0 && facingRight))
+        AnimationType desired;
+
+        if (isAttacking)
+            desired = AnimationType.Attack;
+        else if (move.sqrMagnitude > 0.01f)
+            desired = AnimationType.Walk;
+        else
+            desired = AnimationType.Idle;
+
+        if (desired != currentAnimation)
+            ChangeAnimation(desired);
+
+        Sprite[] frames = GetCurrentFrames();
+
+        if (frames == null || frames.Length == 0)
+            return;
+
+        float fps = Mathf.Max(1f, GetCurrentFPS());
+
+        animationTimer += Time.deltaTime;
+
+        while (animationTimer >= 1f / fps)
         {
-            facingRight = !facingRight;
-            transform.Rotate(0, 180, 0);
+            animationTimer -= 1f / fps;
 
-            if (attackPoint)
+            if (currentAnimation == AnimationType.Attack)
             {
-                Vector3 p = attackPoint.localPosition;
-                p.x *= -1;
-                attackPoint.localPosition = p;
+                if (currentFrame < frames.Length - 1)
+                    currentFrame++;
             }
+            else
+            {
+                currentFrame = (currentFrame + 1) % frames.Length;
+            }
+
+            spriteRenderer.sprite = frames[currentFrame];
         }
     }
 
-    /* ---------- ZONA SEM ATAQUE ---------- */
+    void ChangeAnimation(AnimationType newAnimation)
+    {
+        currentAnimation = newAnimation;
+        currentFrame = 0;
+        animationTimer = 0f;
+
+        UpdateSprite();
+        AtualizarDirecaoVisual();
+    }
+
+    void UpdateSprite()
+    {
+        if (spriteRenderer == null)
+            return;
+
+        Sprite[] frames = GetCurrentFrames();
+
+        if (frames != null && frames.Length > 0)
+            spriteRenderer.sprite = frames[0];
+    }
+
+    Sprite[] GetCurrentFrames()
+    {
+        bool costas = lastDirection.y > 0f;
+        bool frente = lastDirection.y < 0f;
+        bool lateral = lastDirection.x != 0f;
+
+        switch (currentAnimation)
+        {
+            case AnimationType.Idle:
+                if (costas) return idleCostas;
+                if (lateral) return idleLado;
+                return idleFrente;
+
+            case AnimationType.Walk:
+                if (costas) return walkCostas;
+                if (lateral) return walkLado;
+                return walkFrente;
+
+            case AnimationType.Attack:
+                if (costas) return attackCostas;
+                if (lateral) return attackLado;
+                if (frente) return attackFrente;
+                return attackFrente;
+        }
+
+        return idleFrente;
+    }
+
+    float GetCurrentFPS()
+    {
+        switch (currentAnimation)
+        {
+            case AnimationType.Idle:
+                return idleFPS;
+
+            case AnimationType.Walk:
+                return walkFPS;
+
+            case AnimationType.Attack:
+                return attackFPS;
+
+            default:
+                return idleFPS;
+        }
+    }
+
+    // ZONA SEM ATAQUE
     void OnTriggerEnter2D(Collider2D col)
     {
         if (col.CompareTag("ZonaSemAtaque"))
@@ -239,16 +467,34 @@ public class PlayerMovement : MonoBehaviour
             attackBlockedByZone = false;
     }
 
-    /* ---------- VIDA ---------- */
+    // VIDA
     public void TakeDamage(int damage)
     {
+        if (deathStarted)
+            return;
+
         currentHealth -= damage;
+
         if (currentHealth <= 0)
+        {
+            currentHealth = 0;
             Die();
+        }
     }
 
     public void Die()
     {
+        if (deathStarted)
+            return;
+
+        deathStarted = true;
+        move = Vector2.zero;
+        moveSpeed = 0f;
+
+        if (rb != null)
+            rb.linearVelocity = Vector2.zero;
+
+        CancelInvoke(nameof(ResetAttack));
         Invoke(nameof(RestartScene), 2f);
     }
 
@@ -257,7 +503,7 @@ public class PlayerMovement : MonoBehaviour
         SceneManager.LoadScene("jogo 5");
     }
 
-    /* ---------- MOBILE BUTTONS ---------- */
+    // BOTÕES MOBILE
     public void MobileUpDown() { mobileUp = true; }
     public void MobileUpUp() { mobileUp = false; }
 
@@ -270,19 +516,17 @@ public class PlayerMovement : MonoBehaviour
     public void MobileRightDown() { mobileRight = true; }
     public void MobileRightUp() { mobileRight = false; }
 
-    public void RunButtonDown() { mobileRun = true; }
-    public void RunButtonUp() { mobileRun = false; }
+    public void MobileRunDown() { mobileRun = true; }
+    public void MobileRunUp() { mobileRun = false; }
 
-    // ---------- BOTÃO DE ATAQUE ----------
-    public void MobileAttackButton()
-    {
-        mobileAttack = true;
-    }
+    public void MobileAttackDown() { mobileAttack = true; }
 
-    /* ---------- GIZMOS ---------- */
+    // GIZMOS
     void OnDrawGizmosSelected()
     {
-        if (!attackPoint) return;
+        if (attackPoint == null)
+            return;
+
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);
     }

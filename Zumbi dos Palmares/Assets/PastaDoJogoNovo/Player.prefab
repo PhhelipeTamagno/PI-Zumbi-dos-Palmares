@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 3240845947254828119}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.341, y: 0.046, z: 0}
+  m_LocalPosition: {x: 0.149, y: 0.046, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -127,6 +127,8 @@ SpriteRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -148,10 +150,11 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -191922449
   m_SortingLayer: 1
   m_SortingOrder: 3
-  m_Sprite: {fileID: 564366295, guid: 2f49dd1418d2c2c41a40419d21b617da, type: 3}
+  m_Sprite: {fileID: -906957531, guid: 0a9fc62a055d3444780617716fdf8f18, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -200,7 +203,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.8125, y: 1.25}
+    oldSize: {x: 0.8125, y: 1.125}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -251,6 +254,68 @@ MonoBehaviour:
   boostSpeed: 5
   hotbarController: {fileID: 0}
   knifeItemID: 0
+  spriteRenderer: {fileID: 3307383079966814444}
+  idleFrente:
+  - {fileID: -906957531, guid: 0a9fc62a055d3444780617716fdf8f18, type: 3}
+  - {fileID: 232858411, guid: 0a9fc62a055d3444780617716fdf8f18, type: 3}
+  - {fileID: -1893725368, guid: 0a9fc62a055d3444780617716fdf8f18, type: 3}
+  - {fileID: -1638778514, guid: 0a9fc62a055d3444780617716fdf8f18, type: 3}
+  - {fileID: -862352710, guid: 0a9fc62a055d3444780617716fdf8f18, type: 3}
+  - {fileID: 133357516, guid: 0a9fc62a055d3444780617716fdf8f18, type: 3}
+  idleCostas:
+  - {fileID: -88084875, guid: 0a9fc62a055d3444780617716fdf8f18, type: 3}
+  - {fileID: -1111313272, guid: 0a9fc62a055d3444780617716fdf8f18, type: 3}
+  - {fileID: 1821459995, guid: 0a9fc62a055d3444780617716fdf8f18, type: 3}
+  - {fileID: -1187928137, guid: 0a9fc62a055d3444780617716fdf8f18, type: 3}
+  - {fileID: -190320379, guid: 0a9fc62a055d3444780617716fdf8f18, type: 3}
+  - {fileID: -1818277131, guid: 0a9fc62a055d3444780617716fdf8f18, type: 3}
+  idleLado:
+  - {fileID: 39860669, guid: 0a9fc62a055d3444780617716fdf8f18, type: 3}
+  - {fileID: 1455329743, guid: 0a9fc62a055d3444780617716fdf8f18, type: 3}
+  - {fileID: -313857675, guid: 0a9fc62a055d3444780617716fdf8f18, type: 3}
+  - {fileID: -225138338, guid: 0a9fc62a055d3444780617716fdf8f18, type: 3}
+  - {fileID: -588133753, guid: 0a9fc62a055d3444780617716fdf8f18, type: 3}
+  - {fileID: -453208861, guid: 0a9fc62a055d3444780617716fdf8f18, type: 3}
+  walkFrente:
+  - {fileID: -1982238118, guid: 0a9fc62a055d3444780617716fdf8f18, type: 3}
+  - {fileID: -1313443316, guid: 0a9fc62a055d3444780617716fdf8f18, type: 3}
+  - {fileID: -796738398, guid: 0a9fc62a055d3444780617716fdf8f18, type: 3}
+  - {fileID: -515110152, guid: 0a9fc62a055d3444780617716fdf8f18, type: 3}
+  - {fileID: -420117125, guid: 0a9fc62a055d3444780617716fdf8f18, type: 3}
+  - {fileID: 1546853759, guid: 0a9fc62a055d3444780617716fdf8f18, type: 3}
+  walkCostas:
+  - {fileID: -102259108, guid: 0a9fc62a055d3444780617716fdf8f18, type: 3}
+  - {fileID: -1735123565, guid: 0a9fc62a055d3444780617716fdf8f18, type: 3}
+  - {fileID: 1766741857, guid: 0a9fc62a055d3444780617716fdf8f18, type: 3}
+  - {fileID: -152775519, guid: 0a9fc62a055d3444780617716fdf8f18, type: 3}
+  - {fileID: -1987575914, guid: 0a9fc62a055d3444780617716fdf8f18, type: 3}
+  - {fileID: -1825893908, guid: 0a9fc62a055d3444780617716fdf8f18, type: 3}
+  walkLado:
+  - {fileID: -100073320, guid: 0a9fc62a055d3444780617716fdf8f18, type: 3}
+  - {fileID: -1021669488, guid: 0a9fc62a055d3444780617716fdf8f18, type: 3}
+  - {fileID: -971885943, guid: 0a9fc62a055d3444780617716fdf8f18, type: 3}
+  - {fileID: 1475019581, guid: 0a9fc62a055d3444780617716fdf8f18, type: 3}
+  - {fileID: 1606802983, guid: 0a9fc62a055d3444780617716fdf8f18, type: 3}
+  - {fileID: -1790261704, guid: 0a9fc62a055d3444780617716fdf8f18, type: 3}
+  attackFrente:
+  - {fileID: -1778469571, guid: 0a9fc62a055d3444780617716fdf8f18, type: 3}
+  - {fileID: -1171596672, guid: 0a9fc62a055d3444780617716fdf8f18, type: 3}
+  - {fileID: -1819031411, guid: 0a9fc62a055d3444780617716fdf8f18, type: 3}
+  - {fileID: 232133870, guid: 0a9fc62a055d3444780617716fdf8f18, type: 3}
+  attackCostas:
+  - {fileID: -1594843609, guid: 0a9fc62a055d3444780617716fdf8f18, type: 3}
+  - {fileID: 277140899, guid: 0a9fc62a055d3444780617716fdf8f18, type: 3}
+  - {fileID: 142613733, guid: 0a9fc62a055d3444780617716fdf8f18, type: 3}
+  - {fileID: -2146882460, guid: 0a9fc62a055d3444780617716fdf8f18, type: 3}
+  attackLado:
+  - {fileID: 43156451, guid: 0a9fc62a055d3444780617716fdf8f18, type: 3}
+  - {fileID: -790351732, guid: 0a9fc62a055d3444780617716fdf8f18, type: 3}
+  - {fileID: 892656298, guid: 0a9fc62a055d3444780617716fdf8f18, type: 3}
+  - {fileID: 753433036, guid: 0a9fc62a055d3444780617716fdf8f18, type: 3}
+  idleFPS: 5
+  walkFPS: 8
+  attackFPS: 9
+  usarFlipHorizontal: 1
   attackDamage: 1
   attackPoint: {fileID: 2323156942808846288}
   attackRange: 0.8
@@ -267,6 +332,12 @@ MonoBehaviour:
   staminaRecoveryRate: 15
   maxHealth: 3
   currentHealth: 3
+  mobileUp: 0
+  mobileDown: 0
+  mobileLeft: 0
+  mobileRight: 0
+  mobileRun: 0
+  mobileAttack: 0
 --- !u!95 &7175994592087977937
 Animator:
   serializedVersion: 7
@@ -299,7 +370,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 495d93e750d52d24480495d6dec33798, type: 3}
+  m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 495d93e750d52d24480495d6dec33798, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
